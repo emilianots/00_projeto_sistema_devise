@@ -1,0 +1,30 @@
+/* Barra superios (main) do site */
+
+.header-bar{
+    padding: 7px 30px;
+    width: 100%;
+    background-color:rgb(66, 66, 66);
+    color: white;
+    font-size: 12px;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 8px black;
+}
+.logo{
+    display: block;
+    width: 100px;
+    margin: 10px 20px;
+    cursor: pointer;
+    background-color: white;
+}
+.search-bar{
+    width: 200px;
+}
+.form-control{
+    font-size: 18px;
+    width: 100%;
+    width: 90%;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid rgb(194, 194, 194);
+    margin: 0px 10px 13px 0px ;
+ }
