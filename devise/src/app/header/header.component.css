@@ -1,26 +1,40 @@
 /* Barra superios (main) do site */
-
+*{
+    font-family: "MuseoSans"
+}
 .header-bar{
-    padding: 7px 30px;
+    position: relative;
+    z-index: 20;
+    padding: 10px 30px;
     width: 100%;
-    background-color:rgb(66, 66, 66);
+    background-color:rgb(221, 221, 221);
     color: white;
     font-size: 12px;
     box-sizing: border-box;
-    box-shadow: 0px 1px 8px black;
+    box-shadow: 0px 1px 8px rgb(107, 107, 107);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 .logo{
     display: block;
     width: 100px;
-    margin: 10px 20px;
+    height: 40px;
+    margin: 0px 40px 0px 20px;
     cursor: pointer;
-    background-color: white;
 }
+/* div que guarda a caixa de texto da pesquisa */
 .search-bar{
-    width: 200px;
+    width: 500px;
+    height: 40px;
+    display: block;
+}
+::-webkit-input-placeholder{
+    font-size: 20px;
 }
 .form-control{
-    font-size: 18px;
+    font-size: 20px;
     width: 100%;
     width: 90%;
     border-radius: 5px;
@@ -28,3 +42,74 @@
     border: 1px solid rgb(194, 194, 194);
     margin: 0px 10px 13px 0px ;
  }
+ /* regras dos botões */
+
+ .main-side-btns{
+     
+ }
+ .btn{
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    letter-spacing: 1px;
+    margin: 5px 10px 5px 10px;
+    border: none;
+}
+.btn-large{
+    font-size: 25px;
+    padding: 10px 30px;
+}
+.btn-medium{
+    font-size: 18px;
+    padding: 10px 18px;
+}
+.btn-small{
+    font-size: 15px;
+    padding: 9px 17px;
+}
+
+.btn-primary{
+    background-color: rgb(0, 126, 155);
+    border: none; 
+    color: white;
+}
+.btn-primary-type2{
+    background-color: rgb(0, 96, 117);
+    border: none; 
+    color: white;
+}
+.btn-primary-disabled{
+    border: none; 
+    color: white;
+    background-color: rgb(194, 194, 194);
+    cursor: not-allowed;
+}
+
+
+.btn-secondary{
+    border: 1px solid rgb(182, 182, 182);
+    color: rgb(63, 63, 63);
+    background-color: rgb(255, 255, 255);
+}
+.btn-secondary-type2{
+    border: 1px solid rgb(182, 182, 182);
+    color: rgb(230, 230, 230);
+    background-color: rgb(27, 27, 27);
+}
+.btn-secondary-disabled{
+    border: 1px solid rgb(194, 194, 194);
+    color: rgb(221, 221, 221);
+    background-color: rgb(151, 151, 151);
+    cursor: not-allowed;
+}
+/* hover dos botoes */
+.btn-primary:hover{
+    background-color:  rgb(0, 92, 112);
+    box-shadow: 1px 1px 3px rgb(0, 126, 155), -1px -1px 3px rgb(0, 126, 155);
+}
+.btn-secondary:hover{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 3px rgb(255, 255, 255), -1px -1px 3px rgb(255, 255, 255);
+    border: 1px solid transparent;
+}
