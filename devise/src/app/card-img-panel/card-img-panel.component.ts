@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { CardImagesService } from './../card-images.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-img-panel',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-img-panel.component.css']
 })
 export class CardImgPanelComponent implements OnInit {
-
+  @Input() imagePanel: any;
   constructor() { }
+
 
   ngOnInit() {
   }

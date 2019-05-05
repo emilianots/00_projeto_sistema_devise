@@ -36,6 +36,11 @@
 
 
 <div class="container-panel">
-  <app-card-img-panel></app-card-img-panel>
+  <div class="row">
+    <div class="col-3" *ngFor="let p of images">
+      <app-card-img-panel [imagePanel]="p" ></app-card-img-panel>
+    </div>
+  </div>
+
 
 </div>
