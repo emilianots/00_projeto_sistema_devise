@@ -17,6 +17,17 @@
     align-items: center;
     justify-content: space-between;
 }
+.app-main-info{
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    color: rgb(63, 63, 63);
+}
+.brand{
+    font-size: 20px;
+    height: 100%;
+    margin: auto 0px;
+}
 .logo{
     display: block;
     width: 100px;
