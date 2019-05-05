@@ -12,6 +12,8 @@ export class CardImagesService {
   consultar(){
     return this.http.get(this.url)
   }
+
+
   adicionar(image: any){
     return this.http.post(this.url, image);
   }

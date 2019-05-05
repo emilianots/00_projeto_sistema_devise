@@ -33,12 +33,14 @@
 
 </div>
 
-
-
 <div class="container-panel">
+  <div class="main-label">
+    <label for="container-panel">Profissionais em destaque</label>
+  </div>
+  
   <div class="row">
     <div class="col-3" *ngFor="let p of images">
-      <app-card-img-panel [imagePanel]="p" ></app-card-img-panel>
+      <app-card-img-panel [imagePanel]="p"></app-card-img-panel>
     </div>
   </div>
 

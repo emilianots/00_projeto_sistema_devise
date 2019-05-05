@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CardImgPanelComponent implements OnInit {
   @Input() imagePanel: any;
+  //variavel para cada objeto que guarda nome e id de imagem
   constructor() { }
 
 

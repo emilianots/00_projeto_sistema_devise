@@ -1,5 +1,5 @@
 /* 
-Regras das classes do carrousel
+        Regras das classes do carrousel
 */
 .carousel{
     position: relative;
@@ -79,11 +79,21 @@ Regras das classes do carrousel
 .carousel-indicator.curent-slide{
     background: rgba(0, 0, 0, .75);
 }
+/* 
+        Regras das classes do label principal (Profissionais em destaque)
+*/
+.main-label{
+    width: 100%;
+    font-family: "MuseoSans";
+    font-size: 25px;
+    margin: 0px 18px;
+}
+
 
 /* 
-Regras das clases dos card de divulgação para cada projeto
+        Regras das clases dos card de divulgação para cada projeto
 */
 .container-panel{
-    padding: 20px;
+    padding: 50px;
     margin: 30px auto;
 }
