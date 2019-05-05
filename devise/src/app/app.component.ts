@@ -8,6 +8,7 @@ import { CardImagesService } from './card-images.service';
 })
 export class AppComponent implements OnInit {
   images: any[]
+  isCallingForm: boolean;
 
   constructor(private imagesService: CardImagesService) {
 
@@ -18,6 +19,9 @@ export class AppComponent implements OnInit {
       this.images = res;
     })
   } */
+  hideBody(evento: any){
+    this.isCallingForm = evento.valor;
+  }
 
   ngOnInit() {
     //this.consultar();

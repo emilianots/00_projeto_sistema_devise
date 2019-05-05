@@ -97,3 +97,7 @@
     padding: 50px;
     margin: 30px auto;
 }
+.container-fluid{
+    margin: 0px;
+    padding: 0px;
+}

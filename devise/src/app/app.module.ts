@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeBodyComponent } from './home-body/home-body.component';
 import { CardImgPanelComponent } from './card-img-panel/card-img-panel.component';
 import { CardImagesService} from './card-images.service';
+import { SingUpFormComponent } from './sing-up-form/sing-up-form.component';
 
 
 
@@ -16,7 +17,8 @@ import { CardImagesService} from './card-images.service';
     AppComponent,
     HeaderComponent,
     HomeBodyComponent,
-    CardImgPanelComponent
+    CardImgPanelComponent,
+    SingUpFormComponent
   ],
   imports: [
     BrowserModule,

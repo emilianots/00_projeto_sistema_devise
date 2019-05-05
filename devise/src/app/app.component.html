@@ -1,2 +1,7 @@
-<app-header></app-header>
-<app-home-body ></app-home-body>
+<!--   Cabeçalho do site -->
+<app-header (isVisible)="hideBody($event)"></app-header>
+
+<!-- Corpo inicial do site -->
+<app-home-body [visible]="isCallingForm" ></app-home-body>
+
+<!-- Formulário do site -->

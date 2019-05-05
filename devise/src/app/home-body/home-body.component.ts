@@ -1,5 +1,5 @@
 import { CardImagesService } from './../card-images.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-home-body',
@@ -7,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-body.component.css']
 })
 export class HomeBodyComponent implements OnInit {
-
   images: any;
-  
+  @Input() visible: boolean = false;
+
   constructor(private imageRequest: CardImagesService) { }
+
 
   request(){
     this.imageRequest.consultar().subscribe((res:any) => {
