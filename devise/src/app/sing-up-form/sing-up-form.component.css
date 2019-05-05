@@ -1,0 +1,90 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+/* 
+    Classes para o container principal do form
+*/
+.form-background{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, .1), rgba(0, 0, 0, .7)), url("../../assets/img/formBackground/form_background_1.jpg");
+}/* regras da imagem de fundo */
+
+.form-container{
+    display: flex;
+    position: absolute;
+    top: 0px;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 50px;
+    color: white;
+}
+
+.form-info-panel{
+    width: 40%;
+    font-family: "MuseoSans";
+
+}
+.form-info-panel h1{
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0px auto;
+    font-size: 50px;
+    padding: 0px 100px;
+}
+
+/* regrado do painel de inputs: lado direito */
+.sing-up-form-panel{
+    width: 50%;
+    height: 80%;
+    margin: 0px auto;
+    background: rgb(221, 221, 221);
+    border-radius: 10px;
+    padding: 30px 50px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .30), -2px -2px 5px rgba(0, 0, 0, .1);
+    box-sizing: border-box;
+}
+.form-call{
+    color: rgb(63, 63, 63);
+    font-size: 30px;
+}
+
+/* regras da parte interna do painel de formulário */
+.input-panel{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.input-group{
+    width: 50%;
+    height: 100%;
+    padding: 50px 0px;
+    box-sizing: border-box;
+}
+.easy-sing-panel{
+    width: 50%;
+    height: 100%;
+}
+
+.form-control{
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid rgb(194, 194, 194);
+    margin: 0px 0px 18px 0px ;
+ }
+::-webkit-input-placeholder{
+    font-size: 18px;
+}
