@@ -2,7 +2,7 @@
 <app-header (isVisible)="hideBody($event)"></app-header>
 
 <!-- Corpo inicial do site -->
-<app-home-body [visible]="isCallingForm" ></app-home-body>
+<app-home-body [visible]="isHomeVisible" ></app-home-body>
 
 <!-- Formulário de cadastro do site -->
-<app-sing-up-form ></app-sing-up-form>
+<app-sing-up-form [formVisible]="!isHomeVisible"></app-sing-up-form>

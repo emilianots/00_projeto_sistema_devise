@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
-export class CardImagesService {
+export class CardImagesService implements OnInit {
   url: string = 'http://localhost:3000/images/'
   constructor(private http: HttpClient) { }
 
@@ -16,5 +16,9 @@ export class CardImagesService {
 
   adicionar(image: any){
     return this.http.post(this.url, image);
+  }
+
+  ngOnInit(){
+    
   }
 }

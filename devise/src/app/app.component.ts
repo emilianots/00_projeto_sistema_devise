@@ -8,7 +8,7 @@ import { CardImagesService } from './card-images.service';
 })
 export class AppComponent implements OnInit {
   images: any[]
-  isCallingForm: boolean;
+  isHomeVisible: boolean;
 
   constructor(private imagesService: CardImagesService) {
 
@@ -20,10 +20,11 @@ export class AppComponent implements OnInit {
     })
   } */
   hideBody(evento: any){
-    this.isCallingForm = evento.valor;
+    this.isHomeVisible = evento.valor;
   }
 
   ngOnInit() {
+    this.isHomeVisible = true;
     //this.consultar();
   }
 }

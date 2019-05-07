@@ -1,6 +1,6 @@
 <div class="header-bar">
   <div class="app-main-info">
-    <img src="../../assets/img//logo.png" alt="Devise logo" class="logo">
+    <img src="../../assets/img//logo.png" alt="Devise logo" class="logo" (click)="toMain()">
     <span class="brand">Soluções em arquitetos e desiners de interiores</span>
   </div>
   
@@ -8,7 +8,7 @@
     <input type="text" class="form-control" placeholder="Pesquisar">
   </div>
 
-  <div class="main-side-btns">
+  <div class="main-side-btns" *ngIf="!visible">
     <button class="btn btn-medium btn-primary">Entrar</button>
     <button class="btn btn-medium btn-secondary" (click)="callForm()" >Cadastre-se</button>
   </div>
