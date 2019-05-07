@@ -8,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class HomeBodyComponent implements OnInit {
   images: any;
-  @Input() visible: boolean = false;
+  @Input() visible: boolean;
 
   constructor(private imageRequest: CardImagesService) { }
 
@@ -22,6 +22,7 @@ export class HomeBodyComponent implements OnInit {
   }
 
   ngOnInit(){
+    this.visible = true;
     this.request();
   }
 }

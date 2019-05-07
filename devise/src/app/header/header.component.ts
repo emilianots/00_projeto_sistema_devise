@@ -6,7 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  visible = true;
+  visible = false;
   @Output() isVisible = new EventEmitter();
 
   constructor() {
