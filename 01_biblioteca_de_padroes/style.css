@@ -1,0 +1,357 @@
+
+@font-face{
+    font-family: "MuseoSans";
+    src: url('./MuseoSans-300.eot');
+    src: local('☺'), url('./MuseoSans-300.woff') format('woff'), url('./MuseoSans-300.ttf') format('truetype'), url('./MuseoSans-300.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face{
+	font-family: 'Asap-SemiBold';
+	src: url('./Asap-SemiBold.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face{
+	font-family: 'Asap-Medium';
+	src: url('./Asap-Medium.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "MuseoSans";
+}
+body{
+    background-color: rgb(249, 249, 249);
+}
+.logo{
+    display: block;
+    width: 100px;
+    margin: 10px;
+}
+.header-bar{
+    padding: 7px 30px;
+    width: 100%;
+    height: 75px;
+    background-color:rgb(179, 179, 179);
+    color: white;
+    font-size: 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between
+}
+.header-menu-display{
+    height: 100%;
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.h-link{
+    margin: 0px 20px;
+    font-size: 20px;
+    transition: color 200ms;
+}
+.h-link:hover{
+    cursor: pointer;
+    color: rgb(87, 87, 87);
+}
+.search-bar{
+    width: 500px;
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: grey;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 1px solid rgb(194, 194, 194);
+}
+.search-input{
+    width: 90%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.search-submit{
+    margin: 0px auto;
+    font-size: 20px;
+}
+.search-submit:hover{
+    cursor: pointer;
+}
+
+/* 
+===============
+abaixo: estrutura do site não da plataforma >>> em portugues
+*/
+.coluna{
+    width: 50%;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+}
+label{
+    padding: 10px 0px;
+    font-size: 20px;
+    position: initial;
+    display: block;
+    color: rgb(105, 105, 105)
+}
+
+.content-card{
+    padding: 20px;
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+}
+
+
+/* =============
+classes para estrutura de títulos
+*/
+.title-type{
+    font-family: 'Asap-SemiBold';
+    font-size: 23px;
+    color: rgb(85, 85, 85);
+}
+.subtitle-type{
+    font-family: 'Asap-Medium';
+    font-size: 20px;
+    color: rgb(85, 85, 85);
+}
+.text-type{
+    font-size: 18px;
+    color: rgb(88, 88, 88);
+}
+.tipografia{
+    margin-bottom: 7px;
+}
+
+
+/* 
+=================
+classes dos botoes
+*/
+.btn{
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    letter-spacing: 1px;
+    margin: 5px 5px 5px 0px;
+    border: none;
+}
+.btn:focus{
+    outline: 5px solid blue;
+}
+.btn-large{
+    font-size: 21px;
+    padding: 10px 20px;
+}
+.btn-medium{
+    font-size: 15px;
+    padding: 10px 18px;
+}
+.btn-small{
+    font-size: 10px;
+    padding: 9px 17px;
+}
+
+.btn-primary{
+    background-color: rgb(0, 126, 155);
+    border: none; 
+    color: white;
+}.btn-primary-type2{
+    background-color: rgb(0, 96, 117);
+    border: none; 
+    color: white;
+}.btn-primary-disabled{
+    border: none; 
+    color: white;
+    background-color: rgb(194, 194, 194);
+    cursor: not-allowed;
+}
+
+.btn-secondary{
+    border: 1px solid rgb(182, 182, 182);
+    color: rgb(63, 63, 63);
+    background-color: rgb(255, 255, 255);
+}
+.btn-secondary-type2{
+    border: 1px solid rgb(182, 182, 182);
+    color: rgb(230, 230, 230);
+    background-color: rgb(27, 27, 27);
+}
+.btn-secondary-disabled{
+    border: 1px solid rgb(194, 194, 194);
+    color: rgb(221, 221, 221);
+    background-color: rgb(151, 151, 151);
+    cursor: not-allowed;
+}
+
+/* ===========
+classes dos inputs
+ */
+ .form-control{
+    font-size: 18px;
+    width: 90%;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid rgb(194, 194, 194);
+    margin: 7px 7px ;
+ }
+::-webkit-input-placeholder{
+    font-size: 18px;
+}
+/* ===========
+classes da paleta de cores no site
+*/
+.paleta{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+}
+.p-color{
+    width: 100%;
+}
+.p-color .cor{
+    float: left;
+}
+.cor{
+    height: 120px;
+    width: 120px;
+    background-color: black;
+    margin: 15px;
+    border-radius: 50%;
+    border: 1px solid rgb(182, 182, 182);
+}
+
+
+/* =================
+classes da imagem
+*/
+
+.card{
+    height: 350px;
+    width: 350px;
+    background-color: white;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 7px;
+    border: 1px solid rgb(194, 194, 194);
+    cursor: pointer;    
+
+}
+.image-panel{
+    width: 100%;
+    display: block;
+}
+
+
+/* ====================
+classes do painel de notificação
+*/
+
+.notify{
+    width: 30vw;
+    height: 60px;
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    color: rgb(88, 88, 88);
+    margin-bottom: 7px;
+}
+.notify-warning{
+    border: 1px solid rgb(218, 18, 18);
+    color: rgb(218, 18, 18);
+}
+.notify-sucess{
+    border: 1px solid rgb(0, 197, 0);
+    color: rgb(0, 197, 0);
+}
+.notify-icon-warning{
+    width: 15%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 50px;
+    color: rgb(218, 18, 18);
+}
+.notify-icon{
+    width: 27px;
+    height: 31px;
+    margin: 10px 13px 0px 13px;
+    background: url("./images/notify.png") round no-repeat;
+}
+.notify-icon-verify{
+    width: 29px;
+    height: 22px;
+    margin: 5px 10px 0px 13px;
+    background: url("./images/notify-verify.png") round no-repeat;
+}
+.notify-text{
+    width: 100%;
+    font-size: 15px;
+}
+.notify-time{
+    padding-left: 7px;
+    width: 15%;
+}
+
+
+/* =============
+classes para o painel de icones no site
+*/
+.painel-icone{
+    width: 350px;
+    height: fit-content;
+    overflow: hidden;
+    padding: 20px 0px;
+    box-sizing: border-box;
+}
+.conj-icone{
+    width: 100%;
+}
+
+
+/* =============
+Checkbox Custom
+============= */
+
+.content-card input[type=radio], .content-card input[type=checkbox]{
+    display:none; /* Esconde os inputs */
+}
+ 
+.content-card input[type=radio] + label, .content-card input[type=checkbox] + label{
+    display:inline-block;
+    height:20px;
+    padding:0 0 0 25px;
+    margin:5px;
+    background-image:url(./images/boxselect.png);
+    background-repeat:no-repeat;
+    background-position:0 0;
+}
+ 
+.content-card input[type=checkbox] + label{
+    background-position:0 -60px; /* Muda a posição do background só no checkbox */
+}
+ 
+.content-card input[type=radio]:checked + label{
+    background-position:0 -30px;
+}
+ 
+.content-card input[type=checkbox]:checked + label {
+    background-position:0 -90px;
+}

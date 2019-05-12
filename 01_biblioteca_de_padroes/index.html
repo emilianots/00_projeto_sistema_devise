@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Devise | Biblioteca de Padrões</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <!-- Cabecalho do site - barra do topo -->
+
+    <div class="header-bar">
+        <img src="./logo.png" alt="Logo Devise" class="logo">
+        <div class="header-menu-display">
+            <div class="h-link">Projetos</div>
+            <div class="h-link">Arquitetos</div>
+            <div class="h-link">Designer</div>
+            <div class="h-link">Sobre</div>
+        </div>
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Pesquisar">
+            <i class="fas fa-search search-submit"></i>
+        </div>
+    </div>
+
+    <!-- Essa parte é para os elementos do estruturar o site em duas colunas -->
+    <div class="coluna">
+
+        <!-- secao da tipografia -->
+        <div class="content-card">
+
+            <div class="tipografia">
+                <label class="title-type">Tipografia de Títulos</label>
+                <p class="text-type">Asap SemiBold</p>
+            </div>
+
+            <div class="tipografia">
+                <label class="title-type">Tipografia para Subtítulos</label>
+                <p class="text-type">Asap Medium</p>
+            </div>
+            
+            <div class="tipografia">
+                <label class="title-type">Tipografia para Corpo de Texto</label>
+                <p class="text-type">Museo Sans 300</p>
+            </div>           
+        </div>
+
+        <!-- secao dos botoes primarios -->
+        <div class="content-card">
+            <div class="coluna">
+                <label class="subtitle-type">Botões Primários</label>
+                <button class="btn btn-large btn-primary">Botão</button>
+                <button class="btn btn-medium btn-primary">Botão</button>
+                <button class="btn btn-small btn-primary">Botão</button>
+                <br>
+                <button class="btn btn-large btn-primary-type2">Botão</button>
+                <button class="btn btn-medium btn-primary-type2">Botão</button>
+                <button class="btn btn-small btn-primary-type2">Botão</button>
+                <br>
+                <button class="btn btn-large btn-primary-disabled">Botão</button>
+                <button class="btn btn-medium btn-primary-disabled">Botão</button>
+                <button class="btn btn-small btn-primary-disabled">Botão</button>
+
+            </div>
+
+            <div class="coluna">
+                <label class="subtitle-type">Botões Secundários</label>
+                <button class="btn btn-large btn-secondary">Botão</button>
+                <button class="btn btn-medium btn-secondary">Botão</button>
+                <button class="btn btn-small btn-secondary">Botão</button>
+                <br>
+                <button class="btn btn-large btn-secondary-type2">Botão</button>
+                <button class="btn btn-medium btn-secondary-type2">Botão</button>
+                <button class="btn btn-small btn-secondary-type2">Botão</button>
+                <br>
+                <button class="btn btn-large btn-secondary-disabled">Botão</button>
+                <button class="btn btn-medium btn-secondary-disabled">Botão</button>
+                <button class="btn btn-small btn-secondary-disabled">Botão</button>
+            </div>
+        </div>
+        <div class="content-card">
+            <label class="subtitle-type">Elementos de formulário</label>
+            <input class="form-control" type="text" placeholder="Campo de texto">
+            <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder="Area de texto"></textarea>
+        </div>
+        <div class="content-card">
+            <label class="subtitle-type">Cores principais</label>
+            <div class="p-color">
+                <div class="cor" style="background-color: #11253A"></div>
+                <div class="cor" style="background-color: #FFFFFF"></div><br>
+
+            </div>
+            <div class="paleta">
+                <div class="cor" style="background-color: #3F9A8F"></div>
+                <div class="cor" style="background-color: #E24D5D"></div>
+                <div class="cor" style="background-color: #944A81"></div>
+                <div class="cor" style="background-color: #1C7E9B"></div>
+                <div class="cor" style="background-color: #58CDB8"></div>
+                <div class="cor" style="background-color: #C768B5"></div>
+                <div class="cor" style="background-color: #F2645D"></div>
+                <div class="cor" style="background-color: #33AFCC"></div>
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Acima a coluna da esquerda | abaixo a coluna da esquerda no site -->
+
+    <div class="coluna">
+        <div class="content-card">
+            <label class="subtitle-type">Card de visualização dos projetos</label>
+            <div class="card">
+                <div class="project-panel">
+                    <img src="./image.png" alt="Imagem do projeto" class="image-panel">
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <label class="subtitle-type">Card de notificação</label>
+            <div class="notify">
+                <div class="notify-icon"></div>
+                <div class="notify-text">Rute adicionou novas fotos ao projeto X</div>
+                <div class="notify-time">2h</div>
+            </div>
+            <div class="notify notify-warning">
+                <div class="notify-icon-warning">!</div>
+                <div class="notify-text">A fachada do projeto X está atrasada</div>
+                <div class="notify-time">2h</div>
+            </div>
+            <div class="notify notify-sucess">
+                <div class="notify-icon-verify"></div>
+                <div class="notify-text">Rute finalizou o projeto X</div>
+                <div class="notify-time">2h</div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <label class="subtitle-type">Conjunto de icones</label>
+            <div class="painel-icone">
+                <img class="conj-icone" src="./icon_set.png" alt="Conjunto de ícones">
+            </div>
+        </div>
+
+        <div class="content-card">
+            <label class="subtitle-type">Caixas de Seleção</label>
+                <div class="exemplo-radio">
+                <input type="radio" value="0" name="campo-radio" id="campo-radio1" />
+                <label for="campo-radio1">Opção</label>
+                <input type="radio" value="0" name="campo-radio" id="campo-radio2" />
+                <label for="campo-radio2">Opção</label>
+            </div>
+             
+            <div class="exemplo-checkbox">
+                <input type="checkbox" value="0" name="campo-checkbox" id="campo-checkbox1" />
+                <label for="campo-checkbox1">Opção</label>
+                <input type="checkbox" value="0" name="campo-checkbox" id="campo-checkbox" />
+                <label for="campo-checkbox">Opção</label>
+            </div>            
+        </div>
+    </div>
+
+</body>
+
+</html>

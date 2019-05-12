@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.notificacao{
+    width: 350px;
+    height: 65px;
+    border: 1px solid;
+    border-color: orange;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.notificacao .icone-notificacao{
+    width: 15%;
+    height: 50%;
+    background-color: blueviolet;
+    font-size: 12px;
+    float: left;
+    text-align: center;
+}
+
+.notificacao .texto-notificacao{
+    width: 75%;
+    height: 50%;
+    background-color: greenyellow;
+    font-size: 14px;
+    float: left;
+    box-sizing: border-box;
+}
+
+.notificacao .hora-notificacao{
+    width: 10%;
+    height: 50%;
+    background-color: blueviolet;
+    font-size: 12px;
+    float: left;
+    text-align: center;
+    box-sizing: border-box;
+}
