@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+}
+
+.register-body{
+    margin-top: 80px;
+}
+
+.register.container{
+    width: 50%;
+    height: 100vh;
+    padding: 100px 30px;
+    margin-top: 80px
+}

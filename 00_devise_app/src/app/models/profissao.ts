@@ -1,4 +1,4 @@
 export enum Profissao{
     Arquiteto,
-    Designe_de_Interiores
+    Designer_de_Interiores
 }

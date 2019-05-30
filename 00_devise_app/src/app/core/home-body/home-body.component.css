@@ -1,7 +1,7 @@
 /* 
         Regras das classes do carrousel
 */
-.carousel{
+/* .carousel{
     position: relative;
     width: 100%;
     height: 600px;
@@ -78,26 +78,37 @@
 }
 .carousel-indicator.curent-slide{
     background: rgba(0, 0, 0, .75);
-}
+} */
 /* 
         Regras das classes do label principal (Profissionais em destaque)
 */
-.main-label{
+/* .main-label{
     width: 100%;
     font-family: "MuseoSans";
     font-size: 25px;
     margin: 0px 18px;
-}
+} */
 
 
 /* 
         Regras das clases dos card de divulgação para cada projeto
 */
-.container-panel{
+/* .container-panel{
     padding: 50px;
     margin: 30px auto;
 }
 .container-fluid{
     margin: 0px;
     padding: 0px;
+} */
+*{
+    box-sizing: border-box;
+}
+
+.body-container{
+    background: pink;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    
 }

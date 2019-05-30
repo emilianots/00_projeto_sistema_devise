@@ -1,4 +1,4 @@
-import { Profissional } from './../../models/user';
+import { Profissional } from './../../models/profissional';
 import { Cliente } from './../../models/cliente';
 import { GeneralService } from './../../services/general.service';
 
@@ -11,20 +11,21 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class HomeBodyComponent implements OnInit {
 
-  private clientes: Array<Cliente>;
+  private profissionais: Array<Profissional>;
 
   constructor( private dataService: GeneralService) { }
 
   list(){
-    this.dataService.getClientes().subscribe(
-      (res: any) => {
-        this.clientes = res;
+    this.dataService.list().subscribe(
+      (res: Array<Profissional>)=>{
+        this.profissionais = res
+        console.log(res);
       }
     )
   }
 
   ngOnInit(){
     this.list();
-    console.log(this.clientes)
+    console.log(this.profissionais);
   }
 }

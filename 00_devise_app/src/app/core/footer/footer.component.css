@@ -15,6 +15,7 @@ h2{
     font-size: 25px;
     letter-spacing: 1px;
     margin-bottom: 10px;
+    font-family: "AsapRegular"
 }
 h2::after{
     content: '';
@@ -39,6 +40,8 @@ h2::after{
 .footer-items > a{
     padding: 3px 10px;
     color: white;
+    font-family: "MuseoSans";
+    font-size: 19px;
 }
 
 .footer-items > a:hover{

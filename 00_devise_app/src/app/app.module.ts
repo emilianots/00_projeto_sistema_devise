@@ -9,8 +9,6 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
 import { HomeBodyComponent } from './core/home-body/home-body.component';
-import { SingUpFormComponent } from './core/sing-up-form/sing-up-form.component';
-
 
 @NgModule({
   declarations: [

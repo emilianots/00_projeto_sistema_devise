@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Profissao } from './../models/profissao';
-import { Profissional } from './../models/user';
+import { Profissional } from './../models/profissional';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -8,9 +8,7 @@ import { Injectable } from '@angular/core';
 })
 export class GeneralService {
 
-  urlImages: string = "http://localhost:3000/images"
-  urlProfissionais: string = "http://localhost:3000/profissional"
-  urlClientes: string = "http://localhost:3000/profissional"
+  urlProfissionais: string = "http://localhost:3000/profissionais"
 
   constructor(private httpCLiente: HttpClient) { }
 
@@ -18,8 +16,8 @@ export class GeneralService {
     return this.httpCLiente.post(this.urlProfissionais, profissional);
   }
 
-  getClientes(){
-    return this.httpCLiente.get(this.urlImages);
+  list(){
+    return this.httpCLiente.get(`${this.urlProfissionais}/list`);
   }
 
 }

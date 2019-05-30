@@ -3,18 +3,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { SingUpFormComponent } from './sing-up-form/sing-up-form.component';
 import { HomeBodyComponent } from './home-body/home-body.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [HeaderComponent, HomeBodyComponent, SingUpFormComponent, FooterComponent],
+  declarations: [HeaderComponent, HomeBodyComponent, FooterComponent, RegisterComponent, LoginComponent],
   exports: [
     HeaderComponent,
     HomeBodyComponent,
-    SingUpFormComponent,
-    FooterComponent
+    FooterComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,

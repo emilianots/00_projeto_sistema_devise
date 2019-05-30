@@ -1,9 +1,9 @@
-<header class="header">
+<header class="header scrolled">
   <a>
-    <img src="../../../assets/img/logo.png" alt="Devise" class="logo">
+    <img src="../../../assets/img/logo.png" alt="Devise" class="logo" routerLink="home">
   </a>
-  <div class="header-items">
-    <a class="btn btn-lg login">Entrar</a>
-    <a class="btn btn-lg register">Cadastrar-se</a>
+  <div class="header-items" *ngIf="!user">
+    <a class="btn btn-lg login" routerLink="login">Entrar</a>
+    <a class="btn btn-lg register" routerLink="register">Cadastrar-se</a>
   </div>
 </header>
