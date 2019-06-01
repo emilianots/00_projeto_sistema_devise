@@ -7,23 +7,17 @@
 }
 
 .header{
-    position: fixed;
     display: flex;
     width: 100vw;
     height: 80px;
     /* background: rgb(160, 160, 160); */
-    background: transparent;
+    background: rgb(160, 160, 160);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
     padding: 20px 40px;
     z-index: 5;
     align-items: center;
     justify-content: space-between;
     transition: all .5s ease;
-    top: 0;
-}
-.scrolled{
-    background: rgb(160, 160, 160);
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-
 }
 .logo{
     height: 40px;

@@ -63,7 +63,7 @@
         <div class="form-group col-md-4">
           <label for="telefone">Telefone</label>
           <input type="text" class="form-control" name="telefone" id="telefone" [(ngModel)]="profissional.numeroTel"
-            #telefone='ngModel' >
+            #telefone='ngModel'>
         </div>
 
         <div class="form-group col-md-4">
@@ -73,6 +73,21 @@
             <option value="masculino">Masculino</option>
             <option value="nf">Prefiro não informar</option>
           </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="profissao">Tipo de profissão</label>
+          <select name="profissao" id="profissao" class="custom-select" id="profissao" [(ngModel)]="profissional.tipoProfissao"  #profissao="ngModel">
+            <option value="1">Arquiteto</option>
+            <option value="2" disabled>Designer de Interiores</option>
+            <option value="3" disabled>Engenheiro</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="nCau">Número de Registro Profissional</label>
+          <input type="text" class="form-control" name="nCau" placeholder="Número de Registro Profissional" id="nCau" [(ngModel)]="profissional.nCau" #nCau="ngModel">
         </div>
       </div>
 

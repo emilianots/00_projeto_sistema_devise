@@ -13,11 +13,15 @@ export class GeneralService {
   constructor(private httpCLiente: HttpClient) { }
 
   registerProfissional(profissional: Profissional){
-    return this.httpCLiente.post(this.urlProfissionais, profissional);
+    return this.httpCLiente.post(`${this.urlProfissionais}/register`, profissional);
   }
 
   list(){
     return this.httpCLiente.get(`${this.urlProfissionais}/list`);
+  }
+
+  retrieveByEmail(email: string){
+    return this.httpCLiente.get(`${this.urlProfissionais}/retrieve/email/${email}`);
   }
 
 }

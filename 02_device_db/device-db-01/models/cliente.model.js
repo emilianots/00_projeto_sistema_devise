@@ -1,7 +1,7 @@
 
 var mongoose = require('mongoose');
 
-var ProfissionalSchema = mongoose.Schema(
+var ClienteSchema = mongoose.Schema(
     {
         nome: { type: 'String', required: true, max: 100 },
         sobrenome: { type: "String", required: true, max: 100 },
@@ -10,13 +10,11 @@ var ProfissionalSchema = mongoose.Schema(
         senha: { type: "String", required: true, max: 20 },
         dataNasc: { type: "Date", required: true},
         numeroTel: { type: "String", required: true, max: 10 },
-        nCau: { type: "String", required: true, max: 100 },
-        sexo: { type: "String", required: true, max: 100 },
-        listaProjetos: { type: "Array", required: true, max: 500 },
+        sexo: { type: "String", required: true, max: 100 }
 
     }
 )
 
-var ProfissionalModel = mongoose.model("profissionais", ProfissionalSchema);
+var ClienteModel = mongoose.model("clientes", ClienteSchema);
 
-module.exports = ProfissionalModel;
+module.exports = ClienteModel;

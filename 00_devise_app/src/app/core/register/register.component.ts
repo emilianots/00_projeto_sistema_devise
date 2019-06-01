@@ -1,3 +1,4 @@
+import { GeneralService } from './../../services/general.service';
 import { Profissional } from './../../models/profissional';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,12 +11,16 @@ export class RegisterComponent implements OnInit {
 
   profissional: Profissional = new Profissional();
 
-  constructor() { }
+
+  constructor(private dataService: GeneralService) { 
+    
+  }
 
   ngOnInit() {
   }
 
   onSubmit(){
+    this.dataService.registerProfissional(this.profissional).subscribe();
     console.log(this.profissional)
   }
 

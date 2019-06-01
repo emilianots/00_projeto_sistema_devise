@@ -11,7 +11,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class HomeBodyComponent implements OnInit {
 
-  private profissionais: Array<Profissional>;
+  profissionais: Array<Profissional>;
 
   constructor( private dataService: GeneralService) { }
 
