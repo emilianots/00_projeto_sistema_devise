@@ -3,6 +3,7 @@ import { Cliente } from './../../models/cliente';
 import { GeneralService } from './../../services/general.service';
 
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-body',
@@ -11,21 +12,25 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class HomeBodyComponent implements OnInit {
 
-  profissionais: Array<Profissional>;
+  //profissionais: Array<Profissional>;
+  userProfissional: Profissional = new Profissional();
 
-  constructor( private dataService: GeneralService) { }
+  constructor( private dataService: GeneralService, private router: Router) { }
 
   list(){
     this.dataService.list().subscribe(
       (res: Array<Profissional>)=>{
-        this.profissionais = res
-        console.log(res);
+        //this.profissionais = res
+        //console.log(res);
       }
     )
   }
 
   ngOnInit(){
-    this.list();
-    console.log(this.profissionais);
+    let _user: Profissional = JSON.parse(sessionStorage.getItem("user_login"));
+    if(!_user){
+      this.router.navigate(['login']);
+    }
+    this.userProfissional = _user;
   }
 }

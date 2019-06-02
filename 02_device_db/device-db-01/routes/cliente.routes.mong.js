@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var clienteService = require('../services/profissional.mongo.service');
+var clienteService = require('../services/cliente.mongo.service');
 
 router.get('/list', (req, res) => {
     clienteService.list(req, res);
