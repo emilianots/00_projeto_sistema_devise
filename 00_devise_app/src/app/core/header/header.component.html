@@ -6,4 +6,8 @@
     <a class="btn btn-lg login" routerLink="login">Entrar</a>
     <a class="btn btn-lg register" routerLink="register">Cadastrar-se</a>
   </div>
+  <div class="header-items" *ngIf="user">
+    <a (click)="logout()"></a>
+    <a class="btn btn-lg register" (click)="logout()" >Logout</a>
+  </div>
 </header>

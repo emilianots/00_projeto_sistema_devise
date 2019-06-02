@@ -14,23 +14,24 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   user: Profissional | Cliente = new Profissional();
-  rawLogin = {email: null, senha: null};
+  rawLogin = { email: null, senha: null };
 
   constructor(private dataService: GeneralService, private router: Router) { }
 
   ngOnInit() {
+    if (sessionStorage.length > 0) {
+      this.router.navigate(["home"]);
+    }
   }
 
-  login(){
+  login() {
     this.dataService.retrieveByEmail(this.rawLogin.email).subscribe(
-      (res: Array<Profissional>)=>{
-        //this.user = res[0];
-        if(res.length>0){
-          if(res[0].senha == this.rawLogin.senha){
+      (res: Array<Profissional>) => {
+        if (res.length > 0) {
+          if (res[0].senha == this.rawLogin.senha) {
             sessionStorage.setItem("user_login", JSON.stringify(res[0]));
             console.log(sessionStorage);
             this.user = res[0];
-            this.router.navigate(["home"]);
             return;
           }
           console.log("Usuário ou senha inválidos!");
@@ -38,19 +39,15 @@ export class LoginComponent implements OnInit {
         }
       }
     )
-    
+
   }
 
-  onSubmit(registerForm: NgForm){
-    //console.log(this.user);
-    
-    
-    if(registerForm.invalid){
+  onSubmit(registerForm: NgForm) {
+    if (registerForm.invalid) {
       console.log("Campo inválido")
       return;
     }
-    //console.log(this.rawLogin) 
-    this.login();  
+    this.login();
+    this.router.navigate(["home"]).then(()=>{location.reload()});
   }
-
 }
