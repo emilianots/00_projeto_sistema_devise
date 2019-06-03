@@ -21,19 +21,17 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(){
-    let _user: Profissional | Cliente = JSON.parse(sessionStorage.getItem("user_login"));
-    if(!_user){
-      //this.router.navigate(['login']);
+    if(sessionStorage.length == 0){
+      this.router.navigate(['login']);
       return;
     }
+    let _user: Profissional | Cliente = JSON.parse(sessionStorage.getItem("user_login"));
     this.user = _user;
-    //window.location.reload();
   }
 
   public logout(){
     this.user = null;
     sessionStorage.clear();
-    //window.location.reload();
     this.router.navigate(['login']);
   }
 

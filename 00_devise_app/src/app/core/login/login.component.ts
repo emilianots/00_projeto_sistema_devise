@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (sessionStorage.length > 0) {
-      this.router.navigate(["home"]);
+      this.router.navigate(["home/user"]);
     }
   }
 
@@ -48,6 +48,6 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.login();
-    this.router.navigate(["home"]).then(()=>{location.reload()});
+    this.router.navigate(["home/user"]).then(()=>{location.reload()});
   }
 }

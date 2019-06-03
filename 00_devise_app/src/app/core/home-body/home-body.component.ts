@@ -32,12 +32,13 @@ export class HomeBodyComponent implements OnInit {
       this.router.navigate(["login"]);
       return;
     }
-    let _user: Profissional = JSON.parse(sessionStorage.getItem("user_login"));
+    this.router.navigate(['home/user'])
+    /* let _user: Profissional = JSON.parse(sessionStorage.getItem("user_login"));
     //console.log(_user);
     if(!_user){
       //this.router.navigate(['login']);
       console.log("deu 1")
     }
-    this.userProfissional = _user;
+    this.userProfissional = _user; */
   }
 }

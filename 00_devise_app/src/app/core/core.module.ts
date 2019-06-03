@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [HeaderComponent, HomeBodyComponent, FooterComponent, RegisterComponent, LoginComponent],
@@ -15,7 +16,8 @@ import { LoginComponent } from './login/login.component';
     HeaderComponent,
     HomeBodyComponent,
     FooterComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserModule
   ],
   imports: [
     CommonModule,
