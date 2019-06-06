@@ -1,3 +1,4 @@
+import { UserModule } from './user/user.module';
 import { AppRoutingModule } from './../app-routing/app-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,7 +9,6 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [HeaderComponent, HomeBodyComponent, FooterComponent, RegisterComponent, LoginComponent],
@@ -16,13 +16,13 @@ import { UserModule } from './user/user.module';
     HeaderComponent,
     HomeBodyComponent,
     FooterComponent,
-    RegisterComponent,
-    UserModule
+    RegisterComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    UserModule
   ]
 })
 export class CoreModule { }

@@ -27,12 +27,12 @@ export class HomeBodyComponent implements OnInit {
   }
 
   ngOnInit(){
-    if(sessionStorage.length == 0){
+    /* if(sessionStorage.length == 0){
       console.log("vazio");
       this.router.navigate(["login"]);
       return;
     }
-    this.router.navigate(['home/user'])
+    this.router.navigate(['home/user']) */
     /* let _user: Profissional = JSON.parse(sessionStorage.getItem("user_login"));
     //console.log(_user);
     if(!_user){

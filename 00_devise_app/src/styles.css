@@ -102,3 +102,14 @@ classes dos botoes
     background-color: rgb(151, 151, 151);
     cursor: not-allowed;
 }
+::-webkit-scrollbar{
+    width: 13px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: gray;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: rgb(219, 143, 0);
+}

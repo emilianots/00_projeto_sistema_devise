@@ -1,3 +1,18 @@
-<p>
-  user-main works!
-</p>
+<div class="user-page-container">
+  <div class="user-side-menu">
+    <a routerLink="/projeto">Projetos</a>
+    <a>Equipe</a>
+    <a>Clientes</a>
+    <a>Documentos</a>
+  </div>
+
+  <div class="user-panel">
+    <div class="proj-panel">
+      <router-outlet></router-outlet>
+      
+      <!-- <app-projects></app-projects>
+      <a class="n-proj-btn">Criar um novo projeto</a> -->
+
+    </div>
+  </div>
+</div>

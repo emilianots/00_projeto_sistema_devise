@@ -21,10 +21,6 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(){
-    if(sessionStorage.length == 0){
-      this.router.navigate(['login']);
-      return;
-    }
     let _user: Profissional | Cliente = JSON.parse(sessionStorage.getItem("user_login"));
     this.user = _user;
   }
@@ -32,9 +28,7 @@ export class HeaderComponent implements OnInit{
   public logout(){
     this.user = null;
     sessionStorage.clear();
-    this.router.navigate(['login']);
+    this.router.navigate(['login']).then(()=>{location.reload()});
   }
-
-  
 }
 

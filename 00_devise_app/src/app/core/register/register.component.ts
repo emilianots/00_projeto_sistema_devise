@@ -19,7 +19,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(){
+  onSubmit(elem){
+    console.log(elem)
     this.dataService.registerProfissional(this.profissional).subscribe();
     console.log(this.profissional)
   }

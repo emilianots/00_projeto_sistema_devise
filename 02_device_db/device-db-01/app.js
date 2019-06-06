@@ -8,7 +8,7 @@ require('./db/mongo.connection');
 
 //router
 var profissionais = require('./routes/profissional.routes.mongo');
-var clientes = require('./routes/cliente.routes.mong');
+var clientes = require('./routes/cliente.routes.mongo');
 
 //main
 var app = express();

@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+}
+.user-page-container{
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: row;
+}
+.user-side-menu{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+    width: 300px;
+    background: grey;
+}
+.user-side-menu a{
+    padding: 15px 15px;
+    transition: all 150ms;
+    cursor: pointer;
+    font-family: 'AsapRegular';
+    font-size: 20px;
+}
+.user-side-menu a:hover{
+    background: black;
+    color: white;
+}
+
+.user-panel{
+    padding: 20px;
+    width: calc(100vw - 300px);
+}
+.user-panel .proj-panel{
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.user-panel .proj-panel  .n-proj-btn{
+    padding: 20px;
+    border-radius: 7px;
+    background: rgb(177, 177, 177);
+    margin: 10px 20px;
+    cursor: pointer;
+}
