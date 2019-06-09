@@ -1,9 +1,10 @@
 export enum TipoConstrucao{
-    casa,
-    duplex,
-    apartamento,
+    jk,
     flet,
     kitnet,
-    jk,
-    studio
+    casaComum,
+    casaDuplex,
+    casaTriplex,
+    loft,
+    edicula
 }

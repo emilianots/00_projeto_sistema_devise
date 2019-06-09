@@ -10,7 +10,7 @@ class ClienteService{
     }
 
     static list(req, res){
-        ClienteModel.find().then(
+        ClienteModel.find().exec().then(
             (cliente)=>{
                 res.status(201).json(cliente);
             }

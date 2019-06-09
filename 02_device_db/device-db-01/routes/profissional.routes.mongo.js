@@ -19,11 +19,15 @@ router.delete('/delete/:email', (req, res) => {
 })
 
 router.get('/retrieve/:id', (req, res) => {
-    profissionaService.retrieve(req, res);
+    profissionaService.retrieveBiId(req, res);
 })
 
-router.get('/retrieve/email/:email', (req, res) => {
+router.get('/retrieve/email/:email/:senha', (req, res) => {
     profissionaService.retrieveByEmail(req, res);
+})
+
+router.put('/novoProjeto/:id', (req, res)=>{
+    profissionaService.addProjeto(req, res);
 })
 
 module.exports = router;

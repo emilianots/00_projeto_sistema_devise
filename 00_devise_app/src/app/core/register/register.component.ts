@@ -1,6 +1,8 @@
-import { GeneralService } from './../../services/general.service';
 import { Profissional } from './../../models/profissional';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProfissionalService } from 'src/app/services/profissional.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -12,17 +14,24 @@ export class RegisterComponent implements OnInit {
   profissional: Profissional = new Profissional();
 
 
-  constructor(private dataService: GeneralService) { 
+  constructor(private dataService: ProfissionalService, private route: Router) { 
     
   }
 
   ngOnInit() {
   }
 
-  onSubmit(elem){
-    console.log(elem)
-    this.dataService.registerProfissional(this.profissional).subscribe();
-    console.log(this.profissional)
+  onSubmit(registerForm: NgForm){
+    if(registerForm.invalid){
+      console.log("Todos os campos são necessários");
+      return
+    }
+        
+    this.dataService.register(this.profissional).subscribe(
+      (res: Profissional)=>{
+        console.log(res._id)
+      }
+    )
   }
 
 }

@@ -1,4 +1,5 @@
-import { GeneralService } from './../../services/general.service';
+import { ProfissionalService } from './../../services/profissional.service';
+import { AuthUserServiceService } from './../../services/auth-user.service';
 import { Cliente } from './../../models/cliente';
 import { Profissional } from './../../models/profissional';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   user: Profissional | Cliente = new Profissional();
   rawLogin = { email: null, senha: null };
 
-  constructor(private dataService: GeneralService, private router: Router) { }
+  constructor(private dataService: ProfissionalService, private router: Router) { }
 
   ngOnInit() {
     if (sessionStorage.length > 0) {
@@ -25,21 +26,18 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.dataService.retrieveByEmail(this.rawLogin.email).subscribe(
-      (res: Array<Profissional>) => {
-        if (res.length > 0) {
-          if (res[0].senha == this.rawLogin.senha) {
-            sessionStorage.setItem("user_login", JSON.stringify(res[0]));
-            console.log(sessionStorage);
-            this.user = res[0];
-            return;
-          }
-          console.log("Usuário ou senha inválidos!");
+    this.dataService.retrieveByLogin(this.rawLogin.email, this.rawLogin.senha).subscribe(
+      (res: Profissional) => {
+        if (res) {
+          console.log(res)
+          sessionStorage.setItem('user_login', JSON.stringify(res));
+          this.user = res;
+          this.router.navigate(["home/user"]).then(() => { location.reload() });
+          console.log("1");
           return;
         }
       }
     )
-
   }
 
   onSubmit(registerForm: NgForm) {
@@ -48,6 +46,5 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.login();
-    this.router.navigate(["home/user"]).then(()=>{location.reload()});
   }
 }

@@ -5,7 +5,6 @@ var ClienteSchema = mongoose.Schema(
     {
         nome: { type: 'String', required: true, max: 100 },
         sobrenome: { type: "String", required: true, max: 100 },
-        endereco: { type: "String", required: true, max: 150 },
         email: { type: "String", required: true, max: 100 },
         senha: { type: "String", required: true, max: 20 },
         dataNasc: { type: "Date", required: true},

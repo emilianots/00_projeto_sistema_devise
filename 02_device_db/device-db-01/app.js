@@ -9,6 +9,7 @@ require('./db/mongo.connection');
 //router
 var profissionais = require('./routes/profissional.routes.mongo');
 var clientes = require('./routes/cliente.routes.mongo');
+var projetos = require('./routes/projeto.router.mongo');
 
 //main
 var app = express();
@@ -27,5 +28,6 @@ app.use(function(req, res, next) {
 
 app.use('/profissionais', profissionais);
 app.use('/clientes', clientes);
+app.use('/projetos', projetos);
 
 module.exports = app;

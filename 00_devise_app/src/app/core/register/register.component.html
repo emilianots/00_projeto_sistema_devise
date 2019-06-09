@@ -35,40 +35,34 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="nome">Nome</label>
-          <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome"
+          <input type="text" class="form-control" required name="nome" id="nome" placeholder="Nome"
             [(ngModel)]="profissional.nome" #nome='ngModel'>
 
         </div>
 
         <div class="form-group col-md-6">
           <label for="sobrenome">Sobrenome</label>
-          <input type="text" class="form-control" name="sobrenome" id="sobrenome" placeholder="Sobrenome"
+          <input type="text" class="form-control" required name="sobrenome" id="sobrenome" placeholder="Sobrenome"
             [(ngModel)]="profissional.sobrenome" #sobrenome='ngModel'>
         </div>
-      </div>
-
-      <div class="form-group">
-        <label for="endereco">Endereço</label>
-        <input type="text" class="form-control" name="endereco" id="endereco" [(ngModel)]="profissional.endereco"
-          #endereco='ngModel'>
       </div>
 
       <div class="form-row">
         <div class="form-group col-md-4">
           <label for="dataNasc">Data de nascimento</label>
-          <input type="date" class="form-control" name="dataNasc" id="datanasc" [(ngModel)]="profissional.dataNasc"
+          <input type="date" required class="form-control" name="dataNasc" id="datanasc" [(ngModel)]="profissional.dataNasc"
             #dataNasc='ngModel'>
         </div>
 
         <div class="form-group col-md-4">
           <label for="telefone">Telefone</label>
-          <input type="text" class="form-control" name="telefone" id="telefone" [(ngModel)]="profissional.numeroTel"
+          <input type="text" required class="form-control" name="telefone" id="telefone" [(ngModel)]="profissional.numeroTel"
             #telefone='ngModel'>
         </div>
 
         <div class="form-group col-md-4">
           <label for="sexo">Sexo</label>
-          <select class="custom-select" id="sexo" name="sexo" [(ngModel)]="profissional.sexo" #sexo="ngModel">
+          <select class="custom-select" required id="sexo" name="sexo" [(ngModel)]="profissional.sexo" #sexo="ngModel">
             <option value="feminino">Feminino</option>
             <option value="masculino">Masculino</option>
             <option value="nf">Prefiro não informar</option>
@@ -79,7 +73,7 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="profissao">Tipo de profissão</label>
-          <select name="profissao" id="profissao" class="custom-select" id="profissao" [(ngModel)]="profissional.tipoProfissao"  #profissao="ngModel">
+          <select name="profissao" required id="profissao" class="custom-select" id="profissao" [(ngModel)]="profissional.tipoProfissao"  #profissao="ngModel">
             <option value="1">Arquiteto</option>
             <option value="2" disabled>Designer de Interiores</option>
             <option value="3" disabled>Engenheiro</option>
@@ -87,14 +81,14 @@
         </div>
         <div class="form-group col-md-6">
           <label for="nCau">Número de Registro Profissional</label>
-          <input type="text" class="form-control" name="nCau" placeholder="Número de Registro Profissional" id="nCau" [(ngModel)]="profissional.nCau" #nCau="ngModel">
+          <input type="text" required class="form-control" name="nCau" placeholder="Número de Registro Profissional" id="nCau" [(ngModel)]="profissional.nCau" #nCau="ngModel">
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group col-md-4">
           <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+          <input type="email" required class="form-control" id="email" name="email" placeholder="Email"
             [(ngModel)]="profissional.email" #email="ngModel">
         </div>
         <div class="form-group col-md-4">
