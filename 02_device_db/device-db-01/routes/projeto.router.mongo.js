@@ -21,6 +21,4 @@ router.delete('/delete/:id', function (req, res, next) {
 router.get('/retrieve/:id', function (req, res, next) {
     projetoService.retrieve(req, res);
 });
-
-
 module.exports = router;

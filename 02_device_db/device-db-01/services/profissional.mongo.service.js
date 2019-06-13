@@ -59,7 +59,7 @@ class ProfissionalService {
     }
 
     static addProjeto(req, res) {
-        ProfissionalModel.findOneAndUpdate({ '_id': req.params.id }, { $push: { 'projetos': req.body.id }}, {'new': true}).then(
+        ProfissionalModel.findOneAndUpdate({ '_id': req.params.id }, { $push: { 'projetos': req.body._id }}, {'new': true}).then(
             (profissional)=>{
                 res.status(201).json(profissional);
             }

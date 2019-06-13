@@ -24,4 +24,11 @@ export class GeneralService {
     return this.httpCliente.get(`${this.urlProfissionais}/retrieve/email/${email}/${senha}`);
   }
 
+  addProjetoId(id: string, projId: string){
+    let elem = {_id: projId}
+    console.log(id);
+    console.log(elem);
+    return this.httpCliente.put(`${this.urlProfissionais}/novoProjeto/${id}`, elem);
+  }
+
 }

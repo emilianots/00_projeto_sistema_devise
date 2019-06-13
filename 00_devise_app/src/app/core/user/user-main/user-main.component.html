@@ -8,7 +8,7 @@
 
   <div class="user-panel">
     <div class="proj-panel">
-      <form (ngSubmit)="nProjeto(novoProjeto)" #novoProjeto="ngForm">
+      <form (ngSubmit)="nProjeto(novoProjeto, tipoCostrucao.value)" #novoProjeto="ngForm">
         <div class="form-group">
           <label for="nomeProjeto">Nome do novo Projeto</label>
           <input type="text" class="form-control" required name="nomeProjeto" id="nomeProjeto"
@@ -25,31 +25,29 @@
           <div class="form-group col-md-4">
             <label for="tipoConstrucao">Escolha o tipo de construção</label>
             <select class="custom-select" required id="tipoConstrucao" name="tipoConstrucao" #tipoCostrucao>
-              <option value="0">JK</option>
-              <option value="1">Flet</option>
-              <option value="2">Kitnet</option>
-              <option value="3">Casa comum</option>
-              <option value="4">Casa duplex</option>
-              <option value="5">Casa triplex</option>
-              <option value="6">Loft</option>
-              <option value="7">Edicula</option>
+              <option value="JK">JK</option>
+              <option value="Flet">Flet</option>
+              <option value="Kitnet">Kitnet</option>
+              <option value="Casa comum">Casa comum</option>
+              <option value="Casa duplex">Casa duplex</option>
+              <option value="Casa Triplex">Casa triplex</option>
+              <option value="Loft">Loft</option>
+              <option value="Edicula">Edicula</option>
             </select>
           </div>
 
-          <div class="form-row col-md-4">
-            <div class="form-group">
-              <label for="metragem">Metragem em m²</label>
-              <input type="text" class=form-control required name="metragem" id="metragem" placeholder="Metragem em m²" #metragem>
-            </div>
+          <div class="form-group col-md-4">
+            <label for="metragem">Metragem em m²</label>
+            <input type="text" class=form-control required name="metragem" id="metragem" placeholder="Metragem em m²"
+              [(ngModel)]="atualProjeto.metragem" #metragem="ngModel">
           </div>
-          <div class="form-row col-md-4">
-            <div class="form-group">
-              <label for="qdtComodos">Informe a quantidade de comodos</label>
-              <input type="number" class=form-control required name="qdtComodos" id="qdtComodos" placeholder="Quantidade de comodos" #qdtComodos>
-            </div>
+          <div class="form-group col-md-4">
+            <label for="qtdComodos">Informe a quantidade de comodos</label>
+            <input type="number" class=form-control required name="qtdComodos" id="qtdComodos"
+              placeholder="Quantidade de comodos" [(ngModel)]="atualProjeto.qtdComodos" #qtdComodos="ngModel">
           </div>
         </div>
-        <button type="submit" class="btn btn-lg btn-primary" >Cadatrar novo projeto</button>
+        <button type="submit" class="btn btn-lg btn-primary">Cadatrar novo projeto</button>
 
       </form>
     </div>
