@@ -1,41 +1,64 @@
-const Fase1Model = require("../models/fase1.model");
+const fase1Model = require('../models/fase1.model');
 
 class Fase1Service {
     static register(req, res) {
-        Fase1Model.create(req.body).then(
-            (fase) => {
-                res.status(201).json(fase);
+        fase1Model.create(req.body).then(
+            (fase1) => {
+                res.status(201).json(fase1);
+            }
+        ).catch(
+            (err) => {
+                res.status(500).json(err);
+                console.log("Meu " + err);
             }
         )
     }
 
     static list(req, res) {
-        Fase1Model.find().then(
+        fase1Model.find().then(
             (fases) => {
                 res.status(201).json(fases);
             }
-        )
+        ).catch((err) => {
+            res.status(500).json(err);
+            console.log(err);
+        })
     }
 
     static update(req, res) {
-        Fase1Model.findOneAndUpdate({ '_id': req.params._id }, req.body, { 'new': true }).then(
-            (fase) => {
-                res, status(201).json(fase)
+        fase1Model.findByIdAndUpdate(req.params.id, req.body, { 'new': true }).then(
+            (fase1) => {
+                res.status(201).json(fase1);
             }
-        )
+        ).catch((err) => {
+            res.status(500).json(err);
+            console.log(err);
+        })
     }
 
+    //retorna o fase1 deletado
     static delete(req, res) {
-        Fase1Model.findOneAndDelete({ '_id': req.params._id }).catch((err) => { res.status(500).json(err) })
+        fase1Model.findByIdAndRemove(req.params.id).then(
+            (fase1) => {
+                res.status(201).json(fase1);
+            }
+        ).catch((err) => {
+            res.status(500).json(err);
+            console.log(err);
+        })
     }
 
-    static retrieve(req, res){
-        Fase1Model.findById(req.body._id).then(
-            (fase)=>{
-                res.status(201).json(fase);
+    //retorna um fase1
+    static retrieve(req, res) {
+        fase1Model.findById(req.params.id).then(
+            (fase1) => {
+                res.status(201).json(fase1);
             }
-        )
+        ).catch((err) => {
+            res.status(500).json(err);
+            console.log(err);
+        })
     }
 }
 
-module.exports = Fase1Service;
+module.exports = Fase1Service

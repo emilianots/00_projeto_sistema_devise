@@ -9,7 +9,10 @@ class ProfissionalService {
             (ent) => {
                 res.status(201).json(ent);
             }
-        ).catch((err) => { res.status(500).json(err) })
+        ).catch((err) => {
+            res.status(500).json(err)
+            console.log(err);
+        })
     }
 
     static list(req, res) {
@@ -17,7 +20,10 @@ class ProfissionalService {
             (profissionais) => {
                 res.status(201).json(profissionais);
             }
-        ).catch((err) => { res.status(500).json(err) })
+        ).catch((err) => {
+            res.status(500).json(err);
+            console.log(err);
+        })
     }
 
     static update(req, res) {
@@ -25,7 +31,10 @@ class ProfissionalService {
             (profissional) => {
                 res.status(201).json(profissional);
             }
-        ).catch((err) => { res.status(500).json(err) })
+        ).catch((err) => {
+            res.status(500).json(err)
+            console.log(err);
+        })
     }
 
     static delete(req, res) {
@@ -33,7 +42,10 @@ class ProfissionalService {
             (profissional) => {
                 res.status(201).json(profissional);
             }
-        ).catch((err) => { res.status(500).json(err) })
+        ).catch((err) => {
+            res.status(500).json(err)
+            console.log(err);
+        })
     }
 
     static retrieveBiId(req, res) {
@@ -44,7 +56,10 @@ class ProfissionalService {
                 }
                 res.status(201).json(profissional);
             }
-        ).catch((err) => { res.status(500).json(err) })
+        ).catch((err) => {
+            res.status(500).json(err)
+            console.log(err);
+        })
     }
 
     static retrieveByEmail(req, res) {
@@ -55,12 +70,15 @@ class ProfissionalService {
                 }
                 res.status(201).json(profissional);
             }
-        ).catch((err) => { res.status(500).json(err) })
+        ).catch((err) => {
+            res.status(500).json(err)
+            console.log(err);
+        })
     }
 
     static addProjeto(req, res) {
-        ProfissionalModel.findOneAndUpdate({ '_id': req.params.id }, { $push: { 'projetos': req.body._id }}, {'new': true}).then(
-            (profissional)=>{
+        ProfissionalModel.findOneAndUpdate({ '_id': req.params.id }, { $push: { 'projetos': req.body._id } }, { 'new': true }).then(
+            (profissional) => {
                 res.status(201).json(profissional);
             }
         )

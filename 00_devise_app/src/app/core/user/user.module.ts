@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserMainComponent } from './user-main/user-main.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { UserRoutingModule } from './user.routing';
+import { AppRoutingModule } from 'src/app/app-routing/app-routing.module';
 
 @NgModule({
   declarations: [UserMainComponent, ProjectsComponent],
@@ -13,8 +13,8 @@ import { UserRoutingModule } from './user.routing';
   ],
   imports: [
     CommonModule,
-    UserRoutingModule, 
     FormsModule,
+    AppRoutingModule
   ]
 })
 export class UserModule { }

@@ -1,5 +1,3 @@
-import { TipoConstrucao as TipoConstrucao } from "./tipoConstrucao";
-
 export class Projeto{
     _id: string;
     nome: string;
@@ -7,4 +5,8 @@ export class Projeto{
     tipoCasa: string;
     metragem: number;
     qtdComodos: number;
+    fase1: string;
+    fase2: string;
+    fase3: string;
+    fase4: string;
 }

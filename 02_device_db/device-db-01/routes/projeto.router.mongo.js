@@ -21,4 +21,22 @@ router.delete('/delete/:id', function (req, res, next) {
 router.get('/retrieve/:id', function (req, res, next) {
     projetoService.retrieve(req, res);
 });
+
+router.put('/novaFase/1/:id', function (req, res, next) {
+    projetoService.addFase1(req, res);
+});
+
+router.put('/novaFase/2/:id', function (req, res, next) {
+    projetoService.addFase2(req, res);
+});
+
+router.put('/novaFase/3/:id', function (req, res, next) {
+    projetoService.addFase3(req, res);
+});
+
+router.put('/novaFase/4/:id', function (req, res, next) {
+    projetoService.addFase4(req, res);
+});
+
+
 module.exports = router;

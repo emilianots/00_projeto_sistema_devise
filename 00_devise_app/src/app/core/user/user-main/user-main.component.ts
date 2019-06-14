@@ -4,7 +4,7 @@ import { Projeto } from './../../../models/projeto';
 import { Cliente } from './../../../models/cliente';
 import { Profissional } from 'src/app/models/profissional';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { TipoConstrucao } from 'src/app/models/tipoConstrucao';
 
@@ -19,7 +19,7 @@ export class UserMainComponent implements OnInit {
   atualProjeto: Projeto = new Projeto();
   projetos: Projeto[] = [];
 
-  constructor(private router: Router, private userService: GeneralService, private projetoService: ProjetoService) { }
+  constructor(private router: Router, private userService: GeneralService, private projetoService: ProjetoService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.user = JSON.parse(sessionStorage.getItem('user_login'));
@@ -30,15 +30,20 @@ export class UserMainComponent implements OnInit {
   }
 
   nProjeto(novoProjeto: NgForm, tipoCosntrucao) {
-    /* if(!novoProjeto.valid){
+    if(!novoProjeto.valid){
       console.log("Preencha todos os campos");
       return;
-    } */
+    }
+    
     this.atualProjeto.nome = novoProjeto.value.nomeProjeto;
     this.atualProjeto.descricao = novoProjeto.value.descricaoProjeto;
     this.atualProjeto.tipoCasa = tipoCosntrucao;
     this.atualProjeto.metragem = novoProjeto.value.metragem;
     this.atualProjeto.qtdComodos = novoProjeto.value.qtdComodos;
+    /* this.atualProjeto.fase1 = "";
+    this.atualProjeto.fase2 = "";
+    this.atualProjeto.fase3 = "";
+    this.atualProjeto.fase4 = ""; */
     
     this.projetoService.register(this.atualProjeto).subscribe(
       (res: Projeto | any)=>{
@@ -49,15 +54,16 @@ export class UserMainComponent implements OnInit {
           console.log(res);
           }
         )
-        
       }
     )
-    /* this.userService.addProjetoId(this.user._id, "5cfad151d975221e3e729d15").subscribe(
-      (res: Profissional)=>{
-        console.log(res.projetos);
-      }
-    ) */
 
   }
 
+  showProjeto(){
+    this.router.navigate(['projetos'], {relativeTo: this.route});
+  }
+
+  addFase1(){
+    
+  }
 }

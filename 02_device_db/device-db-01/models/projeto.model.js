@@ -4,13 +4,13 @@ var ProjetoSchema = mongoose.Schema(
     {
         nome: { type: 'String', required: true, max: 200 },
         descricao: { type: 'String', required: false, max: 2000 },
-        tipoCasa: {type: 'String',},
+        tipoCasa: {type: 'String'},
         metragem: { type: 'Number'},
         qtdComodos: {type: 'Number'},
-        fase1: {type: mongoose.Schema.Types.ObjectId, ref: 'fase1'},
-        fase2: {type: mongoose.Schema.Types.ObjectId, ref: 'fase2'},
-        fase3: {type: mongoose.Schema.Types.ObjectId, ref: 'fase3'},
-        fase4: {type: mongoose.Schema.Types.ObjectId, ref: 'fase4'}
+        fase1: {type: mongoose.Schema.Types.ObjectId, ref: 'fase1', required: false, default: null},
+        fase2: {type: mongoose.Schema.Types.ObjectId, ref: 'fase2', required: false, default: null},
+        fase3: {type: mongoose.Schema.Types.ObjectId, ref: 'fase3', required: false, default: null},
+        fase4: {type: mongoose.Schema.Types.ObjectId, ref: 'fase4', required: false, default: null}
     }
 )
 
