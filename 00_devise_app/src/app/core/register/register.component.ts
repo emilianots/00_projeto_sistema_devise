@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   profissional: Profissional = new Profissional();
 
 
-  constructor(private dataService: ProfissionalService, private route: Router) { 
+  constructor(private dataService: ProfissionalService, private router: Router) { 
     
   }
 
@@ -32,5 +32,8 @@ export class RegisterComponent implements OnInit {
         console.log(res._id)
       }
     )
+  }
+  toHome(){
+    this.router.navigate(['home']);
   }
 }

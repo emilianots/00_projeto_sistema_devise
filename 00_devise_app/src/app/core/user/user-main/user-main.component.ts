@@ -46,9 +46,11 @@ export class UserMainComponent implements OnInit {
     this.atualProjeto.fase4 = ""; */
     
     this.projetoService.register(this.atualProjeto).subscribe(
+      //criando o projeto
       (res: Projeto | any)=>{
         let resposta = res;
 
+        //referenciando o id do projeto recem criado
         this.userService.addProjetoId(this.user._id, resposta._id).subscribe(
           (res: Profissional)=>{
           console.log(res);
@@ -56,11 +58,15 @@ export class UserMainComponent implements OnInit {
         )
       }
     )
-
   }
 
-  showProjeto(){
-    this.router.navigate(['projetos'], {relativeTo: this.route});
+  toProjects(){
+    this.router.navigate(['projetos'], {relativeTo: this.route}); // IMPORTANTE!!!
+  }
+
+  showPanel(){
+    this.router.navigate(['home/user']);
+
   }
 
   addFase1(){

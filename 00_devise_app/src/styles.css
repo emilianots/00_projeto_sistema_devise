@@ -102,6 +102,10 @@ classes dos botoes
     background-color: rgb(151, 151, 151);
     cursor: not-allowed;
 }
+.outline:focus{
+    box-shadow: 0 0 0 3px rgb(241, 78, 61);
+
+}
 ::-webkit-scrollbar{
     width: 13px;
 }

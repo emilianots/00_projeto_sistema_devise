@@ -33,9 +33,10 @@ class ProjetoService {
     }
 
     static retrieve(req, res) {
-        ProjetoModel.findById(req.body._id).then(
+        ProjetoModel.findById({"_id": req.params.id}).then(
             (projeto) => {
                 res.status(201).json(projeto);
+                console.log("Requisitou 1")
             }
         )
     }

@@ -1,16 +1,61 @@
-<div class="login-container">
+<!-- <div class="login-container">
+  <h2>Entrar</h2>
   <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" class="form-control" name="email" id="email" placeholder="Email" required [(ngModel)]="rawLogin.email">
+      <input type="email" class="form-control outline" name="email" id="email" placeholder="Email" required
+        [(ngModel)]="rawLogin.email">
     </div>
 
     <div class="form-group">
       <label for="senha">Senha</label>
-      <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" required [(ngModel)]="rawLogin.senha">
+      <input type="password" class="form-control outline" name="senha" id="senha" placeholder="Senha" required
+        [(ngModel)]="rawLogin.senha">
     </div>
-    <button type="submit" class="btn btn-primary">Entrar</button>
+
+    <button type="submit" class="btn btn-primary entrar outline">Entrar</button>
     <a [routerLink]="[ '/register']" class='ml-2'>Ainda não tem uma conta?</a>
+
+
+    <div class="background-modal">
+      <div class="modale">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, officia necessitatibus numquam culpa
+        similique, at, illo incidunt expedita doloribus quibusdam quaerat earum. Mollitia, eos est voluptatum ab debitis
+        amet. Vel?
+      </div>
+    </div>
+
+  </form>
+</div> -->
+
+<div class="login-modal-body" (click)="toHome()">
+</div>
+<div class="login-container">
+  <h2>Entrar</h2>
+  <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control outline" name="email" id="email" placeholder="Email" required
+        [(ngModel)]="rawLogin.email">
+    </div>
+
+    <div class="form-group">
+      <label for="senha">Senha</label>
+      <input type="password" class="form-control outline" name="senha" id="senha" placeholder="Senha" required
+        [(ngModel)]="rawLogin.senha">
+    </div>
+
+    <button type="submit" class="btn btn-primary entrar outline">Entrar</button>
+    <a [routerLink]="[ '/register']" class='ml-2'>Ainda não tem uma conta?</a>
+
+
+    <!-- <div class="background-modal">
+          <div class="modale">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, officia necessitatibus numquam culpa
+            similique, at, illo incidunt expedita doloribus quibusdam quaerat earum. Mollitia, eos est voluptatum ab debitis
+            amet. Vel?
+          </div>
+        </div> -->
 
   </form>
 </div>

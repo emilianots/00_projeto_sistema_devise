@@ -6,7 +6,7 @@
 .footer-body{
     width: 100%;
     height: 400px;
-    background: rgb(160, 160, 160);
+    background: rgb(14, 53, 85);
     padding: 80px 200px;
     display: flex;
     flex-direction: row;
@@ -15,7 +15,8 @@ h2{
     font-size: 25px;
     letter-spacing: 1px;
     margin-bottom: 10px;
-    font-family: "AsapRegular"
+    font-family: "AsapRegular";
+    color: white;
 }
 h2::after{
     content: '';

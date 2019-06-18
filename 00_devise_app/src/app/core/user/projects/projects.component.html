@@ -1,3 +1,16 @@
-<p>
-  projects works!
-</p>
+<div class="proj-panel-body">
+  <div class="proj-title-1 row">
+    <h2 class="col-md-8">Projetos em andamento</h2>
+    <input type="text" class="form-control col-md-4">
+  </div>
+  <div class="proj-curent-panel">
+    <button class=" btn proj-btn outline" *ngFor="let proj of projetos" (click)="navigateTo(proj._id)">
+      {{proj.nome}}
+    </button>
+  </div>
+
+  <div class="new-proj-btn">
+    <span class='fa fa-plus'></span>
+  </div>
+  <router-outlet></router-outlet>
+</div>

@@ -3,12 +3,14 @@ import { Cliente } from './../../models/cliente';
 import { GeneralService } from './../../services/general.service';
 
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-home-body',
   templateUrl: './home-body.component.html',
-  styleUrls: ['./home-body.component.css']
+  styleUrls: ['./home-body.component.css'],
+  animations: []
 })
 export class HomeBodyComponent implements OnInit {
 
@@ -40,5 +42,6 @@ export class HomeBodyComponent implements OnInit {
       console.log("deu 1")
     }
     this.userProfissional = _user; */
+    
   }
 }

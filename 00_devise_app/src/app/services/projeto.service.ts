@@ -20,7 +20,11 @@ export class ProjetoService {
     return this.httpClient.get(`${this.url}/list`);
   }
 
-  retrieveById(id: number): Observable<Projeto>{
-    return this.httpClient.get<Projeto>(`${this.url}/retrieve${id}`)
+  retrieveUserProjects(id:string){
+    return this.httpClient.get<Projeto>(`${this.url}/retrieve/${id}`)
+  }
+
+  retrieveById(id: string): Observable<Projeto>{
+    return this.httpClient.get<Projeto>(`${this.url}/retrieve/${id}`)
   }
 }

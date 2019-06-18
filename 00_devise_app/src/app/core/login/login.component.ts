@@ -4,7 +4,7 @@ import { Cliente } from './../../models/cliente';
 import { Profissional } from './../../models/profissional';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   user: Profissional | Cliente = new Profissional();
   rawLogin = { email: null, senha: null };
 
-  constructor(private dataService: ProfissionalService, private router: Router) { }
+  constructor(private dataService: ProfissionalService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     if (sessionStorage.length > 0) {
@@ -46,5 +46,9 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.login();
+  }
+  
+  toHome(){
+    this.router.navigate(['home']);
   }
 }

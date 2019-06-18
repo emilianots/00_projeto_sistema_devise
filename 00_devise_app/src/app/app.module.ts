@@ -4,11 +4,13 @@ import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
 import { HomeBodyComponent } from './core/home-body/home-body.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { HomeBodyComponent } from './core/home-body/home-body.component';
     CoreModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule
   ],
   providers: [
   ],
