@@ -1,0 +1,42 @@
+*{
+    box-sizing: border-box;
+    font-family: "AsapMedium"
+}
+*:focus{
+    border: rgb(241, 78, 61)
+}
+
+.outline:focus{
+    box-shadow: 0 0 0 4px rgba(241, 78, 61, .5);
+}
+
+.register-proj-background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, .4);
+}
+
+.register-body{
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 5%;
+    margin: 0 auto;
+    height: fit-content;
+    min-height: 500px;
+    width: 60vw;
+    border-radius: 5px;
+    background: white;
+    padding: 30px 20px;
+}
+.register-body .new-proj-btn{
+    padding: 13px 25px;
+    background-color: rgb(241, 78, 61);
+    color: white;
+    font-size: 20px;
+    float: right;
+}
+

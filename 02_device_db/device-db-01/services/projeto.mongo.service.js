@@ -29,14 +29,13 @@ class ProjetoService {
     }
 
     static delete(req, res) {
-        ProjetoModel.findOneAndDelete({ '_id': req.params._id }).catch((err) => { res.status(500).json(err) })
+        ProjetoModel.findOneAndDelete({ '_id': req.params.id }).catch((err) => { res.status(500).json(err) })
     }
 
     static retrieve(req, res) {
         ProjetoModel.findById({"_id": req.params.id}).then(
             (projeto) => {
                 res.status(201).json(projeto);
-                console.log("Requisitou 1")
             }
         )
     }

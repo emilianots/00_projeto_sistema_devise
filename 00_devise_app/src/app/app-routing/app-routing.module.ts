@@ -1,3 +1,4 @@
+import { RegisterProjectComponent } from './../core/user/register-project/register-project.component';
 import { CurrentProjectComponent } from './../core/user/current-project/current-project.component';
 import { ProjectsComponent } from './../core/user/projects/projects.component';
 
@@ -9,7 +10,7 @@ import { LoginComponent } from '../core/login/login.component';
 import { UserMainComponent } from '../core/user/user-main/user-main.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: "home", pathMatch: 'full' },
+  { path: '', redirectTo: "home/user/projetos", pathMatch: 'full' },
 
   {
     path: 'home', component: HomeBodyComponent,
@@ -25,7 +26,8 @@ const routes: Routes = [
       {
         path: 'projetos', component: ProjectsComponent,
         children: [
-          { path: 'atualProjeto/:id', component: CurrentProjectComponent }
+          { path: 'atualProjeto/:id', component: CurrentProjectComponent },
+          { path: 'novoProjeto', component: RegisterProjectComponent},          
         ]
       }
     ]

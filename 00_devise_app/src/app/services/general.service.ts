@@ -24,6 +24,10 @@ export class GeneralService {
     return this.httpCliente.get(`${this.urlProfissionais}/retrieve/email/${email}/${senha}`);
   }
 
+  retrieveById(id: string){
+    return this.httpCliente.get(`${this.urlProfissionais}/retrieve/${id}`);
+  }
+
   addProjetoId(id: string, projId: string){
     let elem = {_id: projId}
     console.log(id);

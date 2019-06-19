@@ -10,7 +10,43 @@
     position: absolute;
     height: 100vh;
     width: 100%;
-    background: rgba(0, 0, 0, .3);
+    background: rgba(0, 0, 0, .6);
     top: 0%;
     left: 0%;
+}
+.current-proj-body{
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 5%;
+    margin: 0 auto;
+    height: 90vh;
+    min-height: 90vh;
+    width: 90vw;
+    border-radius: 5px;
+    background: white;
+    padding: 30px 20px;
+
+}
+
+.current-proj-body h3{
+    display: block;
+    width: 100%;
+    
+}
+.current-proj-body h3::after{
+    content: "";
+    display: block;
+    height: 2px;
+    width: 50%;
+    margin-top: 5px;
+    background: rgb(241, 78, 61);
+}
+.current-proj-body h4{
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+}
+.current-proj-body p{
+    font-family: "MuseoSans"
 }

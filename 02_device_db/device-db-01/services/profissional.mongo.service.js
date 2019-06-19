@@ -49,11 +49,8 @@ class ProfissionalService {
     }
 
     static retrieveBiId(req, res) {
-        ProfissionalModel.findById(req.params.id, req.body).then(
+        ProfissionalModel.findById({ '_id': req.params.id }, req.body).then(
             (profissional) => {
-                if (!bcrypt.compareSync(req.body.senha, profissional.senha)) {
-                    res.status(401).json('Senha inválida');
-                }
                 res.status(201).json(profissional);
             }
         ).catch((err) => {

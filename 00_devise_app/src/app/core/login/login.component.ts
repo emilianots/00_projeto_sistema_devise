@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
           console.log(res)
           sessionStorage.setItem('user_login', JSON.stringify(res));
           this.user = res;
-          this.router.navigate(["home/user"]).then(() => { location.reload() });
+          this.router.navigate(["home/user/projetos"]).then(() => { location.reload() });
           console.log("1");
           return;
         }
