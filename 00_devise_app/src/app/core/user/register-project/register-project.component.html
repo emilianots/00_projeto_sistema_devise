@@ -1,57 +1,84 @@
-<div class="register-proj-background" (click)="toPanel()">
+<div class="back-btn" (click)="toPanel()">
+    <span>Voltar ao painel de projetos</span>
 </div>
-<div class="register-body">
-    <h3>Crie um novo projeto</h3>
-    <form (ngSubmit)="newProjeto(tipoConstrucao.value, (metragemX.value * metragemZ.value))" #registerForm="ngForm">
-        <div class="form-row">
-            <div class="form-group col-12">
-                <label for="projNome">Nome</label>
-                <input type="text" class="form-control outline" required name="projNome" id="projNome"
-                    placeholder="Nome" [(ngModel)]="projetoNovo.nome" #projNome="ngModel">
-            </div>
+<div class="container-fluid row ">
+    <div class="register-menu col-3">
+        <div class="fases">
+            <div class="fase-btn" [ngClass]="{'select': activator == 0}" #1 (click)="changePanel(0)">Projeto: {{projetoNovo.nome}}</div>
+            <div class="fase-btn" [ngClass]="{'select': activator == 1}" #2 (click)="changePanel(1)">Necessidades</div>
+            <div class="fase-btn" [ngClass]="{'select': activator == 2}" #3 (click)="changePanel(2)">Topografia</div>
+            <div class="fase-btn" [ngClass]="{'select': activator == 3}" #4 (click)="changePanel(3)">Anteprojeto</div>
+            <div class="fase-btn" [ngClass]="{'select': activator == 4}" #5 (click)="changePanel(4)">Projeto Executivo</div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-12">
-                <label for="descNome">Descrição do projeto</label>
-                <textarea type="text" class="form-control outline" required name="descNome" id="descNome"
-                    placeholder="Descrição do projeto" [(ngModel)]="projetoNovo.descricao"
-                    #descNome="ngModel"></textarea>
-            </div>
+        <div class="cliente-panel">
+            <img src="../../../../assets/img/usersIcons/icon_01.png" alt="Cliente" class="cli-avatar">
+            <h4>Nome do cliente</h4>
         </div>
-        <div class="form-row">
-            <div class="form-group col-4">
-                <label for="tipoConstrucao">Selecione o tipo de construção</label>
-                <select type="text" class="form-control outline" required name="tipoConstrucao" id="tipoConstrucao"
-                    #tipoConstrucao>
-                    <option value="Flet">Flet</option>
-                    <option value="Kitnet">Kitnet</option>
-                    <option value="Edicula">Edícula</option>
-                    <option value="CasaComum">Casa comum</option>
-                    <option value="CasaDuplex">Casa Duplex</option>
-                    <option value="CasaTriplex">Casa triplex</option>
-                    <option value="Loft">Loft</option>
-                </select>
-            </div>
-            <div class="form-group col-4">
-                <label for="tipoConstrucao">Informe a metragem</label>
+        <div class="money-panel">
+            <span>Orçamento estimado:</span>
+            <span class="money">RS1000000</span>
+        </div>
+
+    </div>
+
+    <div class="register-body col-9">
+
+        <div class="projeto" *ngIf="activator == 0">
+            <h3>Crie um novo projeto</h3>
+            <form (ngSubmit)="newProjeto(tipoConstrucao.value, (metragemX.value * metragemZ.value))"
+                #registerForm="ngForm">
                 <div class="form-row">
-                    <div class="col">
-                        <input type="text" class="form-control outline" required name="metragemX" id="metragemX"
-                            placeholder="Largura" #metragemX>
+                    <div class="form-group col-4">
+                        <label for="projNome">Nome do projeto</label>
+                        <input type="text" class="form-control outline" required name="projNome" id="projNome"
+                            placeholder="Nome" [(ngModel)]="projetoNovo.nome" #projNome="ngModel">
                     </div>
-                    <div class="col">
-                        <input type="text" class="form-control outline" required name="metragemZ" id="metragemZ"
-                            placeholder="Comprimento" #metragemZ>
+                    <div class="form-group col-8">
+                        <label for="descNome">Descrição do projeto</label>
+                        <textarea type="text" class="form-control outline" required name="descNome" id="descNome"
+                            placeholder="Descrição do projeto" [(ngModel)]="projetoNovo.descricao"
+                            #descNome="ngModel"></textarea>
                     </div>
                 </div>
-            </div>
-            <div class="form-group col-4">
-                <label for="descNome">Números de cômodos</label>
-                <input type="number" type="" class="form-control outline" required name="qtdComodos" id="qtdComodos"
-                    [(ngModel)]="projetoNovo.qtdComodos" #qtdComodos="ngModel">
-            </div>
+                <div class="form-row">
 
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-4">
+                        <label for="tipoConstrucao">Selecione o tipo de construção</label>
+                        <select type="text" class="form-control outline" required name="tipoConstrucao"
+                            id="tipoConstrucao" #tipoConstrucao>
+                            <option value="Flet">Flet</option>
+                            <option value="Kitnet">Kitnet</option>
+                            <option value="Edicula">Edícula</option>
+                            <option value="CasaComum">Casa comum</option>
+                            <option value="CasaDuplex">Casa Duplex</option>
+                            <option value="CasaTriplex">Casa triplex</option>
+                            <option value="Loft">Loft</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="tipoConstrucao">Informe a metragem</label>
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="text" class="form-control outline" required name="metragemX" id="metragemX"
+                                    placeholder="Largura" #metragemX>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control outline" required name="metragemZ" id="metragemZ"
+                                    placeholder="Comprimento" #metragemZ>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="descNome">Números de cômodos</label>
+                        <input type="number" type="" class="form-control outline" required name="qtdComodos"
+                            id="qtdComodos" [(ngModel)]="projetoNovo.qtdComodos" #qtdComodos="ngModel">
+                    </div>
+
+                </div>
+                <button type="submit" class="btn new-proj-btn outline">Ir para a próximia etapa</button>
+            </form>
         </div>
-        <button type="submit" class="btn new-proj-btn outline">Iniciar projeto</button>
-    </form>
+    </div>
 </div>

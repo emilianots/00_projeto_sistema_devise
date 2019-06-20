@@ -19,13 +19,17 @@ export class UserMainComponent implements OnInit {
   atualProjeto: Projeto = new Projeto();
   projetos: Projeto[] = [];
 
-  constructor(private router: Router, private userService: GeneralService, private projetoService: ProjetoService, private route: ActivatedRoute) { }
+  constructor(private router: Router, private userService: GeneralService, private projetoService: ProjetoService, private route: ActivatedRoute) {
+    
+   }
 
   ngOnInit() {
     this.user = JSON.parse(sessionStorage.getItem('user_login'));
+    console.log(this.user)
+    this.userService.retrieveById(this.user._id);
     if (!this.user) {
       console.log(this.user)
-      this.router.navigate(['login'])
+      this.router.navigate(['login']);
     }
   }
 

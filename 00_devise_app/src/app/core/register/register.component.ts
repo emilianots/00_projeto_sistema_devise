@@ -30,6 +30,7 @@ export class RegisterComponent implements OnInit {
     this.dataService.register(this.profissional).subscribe(
       (res: Profissional)=>{
         console.log(res._id)
+        this.router.navigate(['home/user/projetos']);
       }
     )
   }

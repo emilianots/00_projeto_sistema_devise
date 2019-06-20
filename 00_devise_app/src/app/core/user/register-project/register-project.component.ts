@@ -16,6 +16,9 @@ export class RegisterProjectComponent implements OnInit {
   projetoNovo: Projeto = new Projeto();
   user: Profissional = new Profissional();
 
+  //para os paineis de registro;
+  activator: number = 1;
+
   constructor(private router: Router, private projetoService: ProjetoService, private userService: GeneralService) { }
 
   ngOnInit() {
@@ -26,10 +29,19 @@ export class RegisterProjectComponent implements OnInit {
     }
   }
 
+  changePanel(elem) {
+    this.activator = elem;
+    console.log(this.activator);
+  }
+
+
+  //voltar pro painel de projetos
   toPanel() {
     this.router.navigate(['home/user/projetos']);
   }
 
+
+  //novo projeto
   newProjeto(registerForm: NgForm, tipoCasa, metragem) {
     if (registerForm.invalid) {
       console.log("Preencha os campos obrigatorio");
@@ -55,13 +67,16 @@ export class RegisterProjectComponent implements OnInit {
     )
 
     this.userService.retrieveById(this.user._id).subscribe(
-      (res: Profissional)=>{
-        //console.log(res);
+      (res: Profissional) => {
+        console.log(3)
+        console.log(res);
         this.user = res;
         sessionStorage.setItem('user_login', JSON.stringify(res));
       }
     )
-    
-    //this.router.navigate(['home/user/projetos']).then(()=>{location.reload();})
+
+    this.router.navigate(['home/user/projetos']).then(() => {
+      location.reload();
+    })
   }
 }

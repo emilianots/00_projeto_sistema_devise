@@ -19,6 +19,7 @@ const routes: Routes = [
       { path: 'register', component: RegisterComponent }
     ]
   },
+  { path: 'novoProjeto', component: RegisterProjectComponent},          
 
   {
     path: 'home/user', component: UserMainComponent, //com o pathMatch esse troço de rota da erro carai!!!!
@@ -27,7 +28,6 @@ const routes: Routes = [
         path: 'projetos', component: ProjectsComponent,
         children: [
           { path: 'atualProjeto/:id', component: CurrentProjectComponent },
-          { path: 'novoProjeto', component: RegisterProjectComponent},          
         ]
       }
     ]
