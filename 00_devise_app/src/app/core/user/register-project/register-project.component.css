@@ -26,7 +26,8 @@
     transition: all 150ms;
     z-index: 10;
 }
-.back-btn:hover{
+
+.back-btn:hover {
     cursor: pointer;
     background: rgba(0, 0, 0, .2)
 }
@@ -40,7 +41,7 @@
     align-items: center;
 }
 
-.fases{
+.fases {
     height: fit-content;
     width: 100%;
     background: rgb(228, 228, 228);
@@ -50,22 +51,23 @@
     align-items: center;
 }
 
-.fase-btn{
+.fase-btn {
     padding: 13px 40px;
     width: 100%;
     font-size: 20px;
     cursor: pointer;
     transition: all 150ms;
 }
-.fase-btn:hover{
+
+.fase-btn:hover {
     background-color: white;
 }
 
-.select{
+.select {
     background-color: white;
 }
 
-.cliente-panel{
+.cliente-panel {
     width: 100%;
     margin: 15px 0px;
     border-top: 1px solid rgba(0, 0, 0, .3);
@@ -76,32 +78,29 @@
     padding: 13px 0px;
 }
 
-.money-panel{
+.money-panel {
     width: 100%;
     text-align: center;
     font-size: 20px;
 }
 
-.money-panel span{
+.money-panel span {
     font-family: 'MuseoSans';
 }
 
-.money{
+.money {
     display: inline-block;
     font-family: 'MuseoSans';
     padding: 13px 10px;
 }
 
-.cli-avatar{
+.cli-avatar {
     width: 50px;
     margin-right: 20px;
 }
 
-.register-body{
+.register-body {
     padding: 50px 0px;
-}
-.register-body h3{
-
 }
 
 .register-body .new-proj-btn {
@@ -110,4 +109,64 @@
     background-color: rgb(241, 78, 61);
     color: white;
     font-size: 20px;
+}
+
+.necessidades {}
+
+.tab-panel {
+
+}
+
+.tab-btns {
+    min-width: 140px;
+    width: fit-content;
+    margin: 5px 10px;
+    padding: 5px 18px;
+    border-radius: 7px 7px 0px 0px;
+    background: rgb(241, 78, 61);
+    color: white;
+    transition: all 150ms;
+    font-size: 20px;
+}
+
+.btn-partes:hover {
+    color: black;
+    background: white;
+}
+
+.detalhes-panel {
+    width: 100%;
+    height: 100%;
+}
+
+.detalhes-h{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 30px 0px 0px 0px;
+}
+
+.detalhes-h h5{
+    margin-right: 50px;
+}
+
+.add-integrante {
+    background-color: rgb(241, 78, 61);
+    color: white;
+}
+.detalhes-body{
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    padding: 20px;
+    margin: 5px 0px 30px 0px;
+}
+
+.d-header{
+
+}
+.del-integrante{
+    background-color: rgb(241, 78, 61);
+    color: white;
+    margin: 0px;
+    font-weight: bolder;
 }

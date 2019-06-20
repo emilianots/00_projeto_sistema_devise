@@ -17,7 +17,9 @@ export class RegisterProjectComponent implements OnInit {
   user: Profissional = new Profissional();
 
   //para os paineis de registro;
-  activator: number = 1;
+  menuLateral: number = 2; //esse valor tem que estar em 0
+  nescessidade: number = 0; //esse valor tem que estar em 0
+  topografia: number = 1; //esse valor tem que estar em 0
 
   constructor(private router: Router, private projetoService: ProjetoService, private userService: GeneralService) { }
 
@@ -29,9 +31,15 @@ export class RegisterProjectComponent implements OnInit {
     }
   }
 
-  changePanel(elem) {
-    this.activator = elem;
-    console.log(this.activator);
+  changeFaseOp(elem) {
+    this.menuLateral = elem;
+    //console.log(this.menuLateral);
+  }
+  changeNescOp(elem){
+    this.nescessidade = elem;
+  }
+  changeTopoOp(elem){
+    this.topografia = elem;
   }
 
 
