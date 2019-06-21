@@ -6,35 +6,155 @@
     border: transparent;
 }
 
-.project-body{
-    position: absolute;
-    height: 100vh;
-    width: 100%;
-    background: rgba(0, 0, 0, .6);
-    top: 0%;
-    left: 0%;
+p{
+    font-family: "MuseoSans"
 }
-.current-proj-body{
+
+label{
+    font-family: "AsapMedium"
+}
+
+input{
+    font-size: 20px;
+}
+textarea{
+    font-size: 20px;
+}
+
+select{
+    font-size: 20px;
+}
+
+.outline:focus {
+    box-shadow: 0 0 0 4px rgba(241, 78, 61, .5);
+}
+
+.outlined{
+    box-shadow: 0 0 0 4px rgba(241, 78, 61, .5);
+}
+
+.back-btn {
     position: absolute;
-    right: 0;
-    left: 0;
-    top: 5%;
-    margin: 0 auto;
-    height: 90vh;
-    min-height: 90vh;
-    width: 90vw;
-    border-radius: 5px;
+    top: 10%;
+    left: -216px;
+    width: 20%;
+    height: 5%;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .3);
+    border-radius: 0px 20px 20px 0px;
     background: white;
-    padding: 30px 20px;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 150ms;
+    z-index: 10;
 }
 
-.current-proj-body h3{
+.back-btn:hover {
+    left: 0;
+    cursor: pointer;
+    background: rgba(0, 0, 0, .2)
+}
+
+.relator{
+    position: absolute;
+    top: 10%;
+    right: 50px;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 150ms;
+    z-index: 10;
+}
+.relator-btn{
+    background-color: rgb(241, 78, 61);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .3);
+    padding: 9px 15px;
+    color: white;
+    font-family: "AsapMedium";
+    font-size: 20px;
+}
+
+.current-proj-body{
+    margin: 0 auto;
+    height: calc(100vh - 80px);
+    width: 90vw;
+    padding: 100px 20px 0px 20px;
+}
+
+
+.current-proj-body h5{
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+}
+
+
+.fases {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fase-btn {
+    width: 100%;
+    margin: 5px 0px;
+    border-radius: 7px;
+    padding: 10px 40px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 150ms;
+}
+
+.fase-btn:hover {
+    background-color: rgb(241, 78, 61);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .3)
+}
+
+.select {
+    background-color: rgb(212, 212, 212);
+}
+
+.cliente-panel {
+    width: 100%;
+    margin: 15px 0px;
+    border-top: 1px solid rgba(0, 0, 0, .3);
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 0px;
+}
+
+.money-panel {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.money-panel span {
+    font-family: 'MuseoSans';
+}
+
+.money {
+    display: inline-block;
+    font-family: 'MuseoSans';
+    padding: 13px 10px;
+}
+
+.cli-avatar {
+    width: 50px;
+    margin-right: 20px;
+}
+
+.proj-name{
     display: block;
     width: 100%;
     
 }
-.current-proj-body h3::after{
+.proj-name::after{
     content: "";
     display: block;
     height: 2px;
@@ -42,11 +162,20 @@
     margin-top: 5px;
     background: rgb(241, 78, 61);
 }
-.current-proj-body h4{
-    display: block;
-    width: 100%;
-    margin-top: 30px;
+
+.proj-infos{
+    font-family: "MuseoSans";
 }
-.current-proj-body p{
-    font-family: "MuseoSans"
+
+.proj-desc p{
+    font-size: 20px;
+}
+
+.proj-desc p::after{
+    content: "";
+    display: block;
+    height: 2px;
+    width: 50%;
+    margin-top: 5px;
+    background: rgb(241, 78, 61);
 }

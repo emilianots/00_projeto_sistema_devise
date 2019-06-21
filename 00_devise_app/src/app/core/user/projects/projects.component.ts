@@ -26,7 +26,7 @@ export class ProjectsComponent implements OnInit {
 
   navigateTo(id: string){
     //console.log(id);
-    this.router.navigate(['atualProjeto', id], {relativeTo: this.route});
+    this.router.navigate(['atualProjeto', id]);
   }
 
   toNewProject(){

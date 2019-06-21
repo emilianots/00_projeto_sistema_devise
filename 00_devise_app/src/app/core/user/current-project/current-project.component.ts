@@ -1,3 +1,5 @@
+import { Fase1Service } from './../../../services/fase-1.service';
+import { Fase1 } from './../../../models/fases/fase1';
 import { Projeto } from './../../../models/projeto';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -10,22 +12,36 @@ import { ProjetoService } from 'src/app/services/projeto.service';
 })
 export class CurrentProjectComponent implements OnInit {
 
-  projeto: Projeto = null
+  projeto: Projeto = new Projeto();
+  fase1: Fase1 = new Fase1();
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private projetoService: ProjetoService
-    ) { }
+  menuLateral: number = 0;
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute,
+              private projetoService: ProjetoService, private fase1Service: Fase1Service) { }
 
   ngOnInit() {
     let id = this.activatedRoute.snapshot.params['id']; // resgata um id passado pela url na rota
 
+    //resgata o projeto e a fase do banco
     this.projetoService.retrieveById(id).subscribe(
       (res: Projeto)=>{
         this.projeto = res;
+        console.log(1, this.projeto);
+
+        this.fase1Service.retrieve(res.fase1).subscribe(
+          (res: Fase1)=>{
+            this.fase1 = res;
+            console.log(2, this.fase1);
+          }
+
+        )
       }
     )
+
   }
 
-  toHome(){
+  toPanel(){
     this.router.navigate(['home/user/projetos']);
   }
 }

@@ -1,11 +1,118 @@
-<div class="project-body" (click)="toHome()">
+<div class="back-btn" (click)="toPanel()">
+    <span>Painel de projetos</span>
 </div>
-<div class="current-proj-body">
-    <h3>
-        {{projeto.nome}}
-    </h3>
-    <div class="proj-desc">
-        <h4>Descrição do projeto:</h4>
-        <p>{{projeto.descricao}}</p>
+<div class="relator">
+    <button class="relator-btn btn">Gerar relatório</button>
+</div>
+<div class="current-proj-body container-fluid row">
+    <div class="register-menu col-3">
+        <div class="fases">
+            <div class="fase-btn" [ngClass]="{'select': menuLateral == 0}" (click)="menuLateral = 0">
+                Projeto: {{projeto.nome}}</div>
+            <div class="fase-btn" [ngClass]="{'select': menuLateral == 2}" (click)="menuLateral = 2">Topografia</div>
+            <div class="fase-btn" [ngClass]="{'select': menuLateral == 3}" (click)="menuLateral = 3">Anteprojeto</div>
+            <div class="fase-btn" [ngClass]="{'select': menuLateral == 4}" (click)="menuLateral = 4">Projeto Executivo
+            </div>
+        </div>
+
+        <div class="cliente-panel">
+            <img src="../../../../assets/img/usersIcons/icon_01.png" alt="Cliente" class="cli-avatar">
+            <h4>Nome do cliente</h4>
+        </div>
+        <div class="money-panel">
+            <span>Orçamento estimado:</span>
+            <span class="money">RS1000000</span>
+        </div>
+
     </div>
+    <div class="proj-infos col-9">
+        <div class="projeto" *ngIf="menuLateral == 0">
+            <h3>Edite ou consulte as informações do projeto</h3>
+            <form (ngSubmit)="toPanel()" #registerForm="ngForm">
+                <div class="form-row">
+                    <div class="form-group col-4">
+                        <label for="projNome">Nome do projeto</label>
+                        <input type="text" class="form-control outline" required name="projNome" id="projNome"
+                            placeholder="Nome" [(ngModel)]="projeto.nome" #projNome="ngModel">
+                    </div>
+                    <div class="form-group col-8">
+                        <label for="descNome">Descrição do projeto</label>
+                        <textarea type="text" class="form-control outline" required name="descNome" id="descNome"
+                            placeholder="Descrição do projeto" [(ngModel)]="projeto.descricao"
+                            #descNome="ngModel"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-3">
+                        <label for="tipoConstrucao">Tipo de construção</label>
+                        <select type="text" class="form-control outline" required name="tipoConstrucao"
+                            id="tipoConstrucao" #tipoConstrucao [(ngModel)]="projeto.tipoCasa">
+                            <option value="Flet">Flet</option>
+                            <option value="Kitnet">Kitnet</option>
+                            <option value="Edicula">Edícula</option>
+                            <option value="CasaComum">Casa comum</option>
+                            <option value="CasaDuplex">Casa Duplex</option>
+                            <option value="CasaTriplex">Casa triplex</option>
+                            <option value="Loft">Loft</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="tipoConstrucao">Metragem total m²</label>
+                        <input type="text" class="form-control outline" required name="metragemTotal" id="metragemX"
+                            placeholder="Largura" #metragemX [(ngModel)]="projeto.metragem">
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="descNome">Número de cômodos</label>
+                        <input type="number" type="" class="form-control outline" required name="qtdComodos"
+                            id="qtdComodos" [(ngModel)]="projeto.qtdComodos" #qtdComodos="ngModel">
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="tipoConstrucao">Número de moradores</label>
+                        <input type="text" class="form-control outline" required name="metragemTotal" id="metragemX"
+                            placeholder="Largura" #metragemX [(ngModel)]="fase1.qtdPessoas">
+
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-3">
+                        <label for="freqUso">Frequencia de uso</label>
+                        <input type="text" class="form-control outline" required name="freqUso" id="freqUso"
+                            placeholder="Nome" [(ngModel)]="fase1.freqUso" #freqUso="ngModel">
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="clima">Clima do local</label>
+                        <input type="text" class="form-control outline" required name="clima" id="clima"
+                            placeholder="Descrição do projeto" [(ngModel)]="fase1.clima" #clima="ngModel">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-3">
+                        <label for="freqUso">Frequencia de uso</label>
+                        <input type="text" class="form-control outline" required name="freqUso" id="freqUso"
+                            placeholder="Nome" [(ngModel)]="fase1.freqUso" #freqUso="ngModel">
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="clima">Clima do local</label>
+                        <input type="text" class="form-control outline" required name="clima" id="clima"
+                            placeholder="Descrição do projeto" [(ngModel)]="fase1.clima" #clima="ngModel">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn new-proj-btn outline">Salvar projeto</button>
+            </form>
+        </div>
+
+        <div class="topografia" *ngIf="menuLateral == 1">
+
+        </div>
+        <div class="anteprojeto" *ngIf="menuLateral == 2">
+
+        </div>
+        <div class="projeto-executivo" *ngIf="menuLateral == 3">
+
+        </div>
+    </div>
+
 </div>

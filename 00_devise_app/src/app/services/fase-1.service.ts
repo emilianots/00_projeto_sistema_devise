@@ -14,8 +14,12 @@ export class Fase1Service {
   register(fase: Fase1){
     return this.httpClient.post<Fase1>(`${this.url}/register`, fase);
   }
-  
+
   update(id: string, fase: Fase1){
     return this,this.httpClient.put<Fase1>(`${this.url}/update/${id}`, fase);
+  }
+
+  retrieve(id:string){
+    return this.httpClient.get(`${this.url}/retrieve/${id}`);
   }
 }
