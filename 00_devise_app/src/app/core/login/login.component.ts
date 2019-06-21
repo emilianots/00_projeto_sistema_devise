@@ -27,10 +27,10 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.dataService.retrieveByLogin(this.rawLogin.email, this.rawLogin.senha).subscribe(
-      (res: Profissional) => {
+      (res: any) => {
         if (res) {
-          console.log(res)
-          sessionStorage.setItem('user_login', JSON.stringify(res));
+          //console.log(res.profissional)
+          sessionStorage.setItem('user_login', JSON.stringify(res.profissional));
           this.user = res;
           this.router.navigate(["home/user/projetos"]).then(() => { location.reload() });
           console.log("1");

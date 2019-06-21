@@ -1,8 +1,9 @@
 export class Fase1{
-    qtdPessoas: number;
-    aspectoSeguranca: string[];
+    _id: string;
     clima: string;
-    frequenciaUso: string;
-    comodoInternoId: string;
-    pessoas: string[];
+    qtdPessoas: number;
+    freqUso: string;
+    interno: Object[];
+    externo: Object[];
+    pessoas: Object[];
 }

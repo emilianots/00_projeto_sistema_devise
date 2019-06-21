@@ -20,7 +20,7 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit() {
     this.curentUser = JSON.parse(sessionStorage.getItem('user_login'));
-    console.log("iniciou");
+    //console.log(this.curentUser);
     this.updateFront();
   }
 
@@ -34,14 +34,20 @@ export class ProjectsComponent implements OnInit {
   }
 
   updateFront(){
+    //console.log("atuali")
     if(!this.curentUser){
       this.router.navigate(['home']);
     }
 
     this.profissionalService.retrieveById(this.curentUser._id).subscribe(
-      (res: Profissional)=>{
+      (res: any)=>{
+        if(!res){
+          return
+        }
         this.curentUser = res;
-        //console.log(this.curentUser.projetos);
+        //console.log(res);
+        //console.log(res);
+
         for(let proj of this.curentUser.projetos){
           this.projetoService.retrieveById(proj).subscribe(
             (res: Projeto)=>{

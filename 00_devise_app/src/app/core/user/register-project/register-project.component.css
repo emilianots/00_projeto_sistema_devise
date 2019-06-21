@@ -11,6 +11,10 @@
     box-shadow: 0 0 0 4px rgba(241, 78, 61, .5);
 }
 
+.outlined{
+    box-shadow: 0 0 0 4px rgba(241, 78, 61, .5);
+}
+
 .back-btn {
     position: absolute;
     top: 11%;
@@ -105,7 +109,7 @@
 
 .register-body .new-proj-btn {
     border-radius: 7px;
-    padding: 13px 25px;
+    padding: 10px 20px;
     background-color: rgb(241, 78, 61);
     color: white;
     font-size: 20px;
@@ -170,3 +174,18 @@
     margin: 0px;
     font-weight: bolder;
 }
+
+
+
+/* 
+Abaixo, classes gerais da pagina
+*/
+.outline:focus {
+    box-shadow: 0 0 0 4px rgba(241, 78, 61, .5);
+}
+.selected {
+    box-shadow: 0 0 0 2px rgb(241, 79, 61);
+    background-color: white;
+    color: black;
+}
+

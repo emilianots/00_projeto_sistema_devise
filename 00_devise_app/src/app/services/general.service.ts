@@ -34,5 +34,4 @@ export class GeneralService {
     console.log(elem);
     return this.httpCliente.put(`${this.urlProfissionais}/novoProjeto/${id}`, elem);
   }
-
 }

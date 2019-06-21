@@ -1,3 +1,4 @@
+import { Fase1 } from './../models/fases/fase1';
 import { Projeto } from './../models/projeto';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -26,5 +27,13 @@ export class ProjetoService {
 
   retrieveById(id: string): Observable<Projeto>{
     return this.httpClient.get<Projeto>(`${this.url}/retrieve/${id}`)
+  }
+
+  update(id: string, projeto: Projeto){
+    return this.httpClient.put<Projeto>(`${this.url}/update/${id}`, projeto);
+  }
+
+  addFase1(idProjeto: string, fase1: Fase1){
+    return this.httpClient.put(`${this.url}/novaFase/1/${idProjeto}`, fase1);
   }
 }

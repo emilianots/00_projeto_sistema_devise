@@ -1,5 +1,14 @@
 const ProfissionalModel = require('../models/profissional.model');
 var bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const authConfig = require('../config/auth');
+
+function generateToken(params = {}) {
+    return jwt.sign(params, authConfig.secret, {
+        expiresIn: 86400,
+    });
+}
+
 
 class ProfissionalService {
     static register(req, res) {
@@ -60,16 +69,28 @@ class ProfissionalService {
     }
 
     static retrieveByEmail(req, res) {
-        ProfissionalModel.findOne({ 'email': req.params.email }).then(
+        ProfissionalModel.findOne({ 'email': req.params.email }).populate('projetos').then(
             (profissional) => {
-                if (!bcrypt.compareSync(req.params.senha, profissional.senha)) {
-                    res.status(401).json('Senha inválida!');
+                if (!profissional) {
+                    return res.status(400).json({ error: "Usuario inválido" })
                 }
-                res.status(201).json(profissional);
+
+                if (!bcrypt.compareSync(req.params.senha, profissional.senha)) {
+                    res.status(401).json({ erro: 'Senha inválida!' });
+                    return
+                }
+
+                profissional.senha = null;
+
+                res.status(201).json({
+                    profissional,
+                    token: generateToken({_id: profissional._id})
+                });
             }
         ).catch((err) => {
             res.status(500).json(err)
             console.log(err);
+            return;
         })
     }
 

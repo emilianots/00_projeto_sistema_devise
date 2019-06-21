@@ -23,15 +23,18 @@ export class UserMainComponent implements OnInit {
     
    }
 
+   
   ngOnInit() {
     this.user = JSON.parse(sessionStorage.getItem('user_login'));
-    console.log(this.user)
+    //console.log(this.user)
     this.userService.retrieveById(this.user._id);
     if (!this.user) {
-      console.log(this.user)
+      //console.log(this.user)
       this.router.navigate(['login']);
     }
+    console.log("User-main iniciou");
   }
+
 
   nProjeto(novoProjeto: NgForm, tipoCosntrucao) {
     if(!novoProjeto.valid){
@@ -56,9 +59,9 @@ export class UserMainComponent implements OnInit {
 
         //referenciando o id do projeto recem criado
         this.userService.addProjetoId(this.user._id, resposta._id).subscribe(
-          (res: Profissional)=>{
+          /* (res: Profissional)=>{
           console.log(res);
-          }
+          } */
         )
       }
     )
