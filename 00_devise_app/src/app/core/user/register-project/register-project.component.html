@@ -75,8 +75,9 @@
                         </div>
                         <div class="form-group col-3">
                             <label for="dataOrdemServico">Data da ordem de serviço</label>
-                            <input type="date" class="form-control outline" required name="dataOrdemServico" id="dataOrdemServico"
-                                placeholder="Largura em metros" [(ngModel)]="projetoNovo.dataOrdemServico" #dataOrdemServico>
+                            <input type="date" class="form-control outline" required name="dataOrdemServico"
+                                id="dataOrdemServico" placeholder="Largura em metros"
+                                [(ngModel)]="projetoNovo.dataOrdemServico" #dataOrdemServico>
                         </div>
 
                     </div>
@@ -124,178 +125,151 @@
 
             <!-- FASE 1 MORADIA -->
             <div class="moradia">
+                <h3>Dados gerais de necessidades</h3>
                 <form #moradia name="moradia" id="moradia" (ngSubmit)="addMoradia(clima.value, freqUso.value)"
                     #moradia="ngForm">
-                    <div class="form-row form-container">
-                        <div class="form-group col-4">
-                            <label for="clima">Informe o clima do local</label>
-                            <input type="text" class="form-control outline" required name="clima" id="clima" #clima
-                                placeholder="Informe o clima">
-
-                        </div>
-                        <div class="form-group col-4">
-                            <label for="freqUso">Frequência de uso</label>
-                            <input type="text" class="form-control outline" required name="freqUso" id="freqUso"
-                                #freqUso>
-                        </div>
-
-                        <!-- <button type="submit" class="btn new-proj-btn outline">Registrar</button> -->
-
-
-                        <!-- moradia integrantes -->
-                        <div class="detalhes-panel">
-                            <div class="detalhes-h">
-                                <h5>Detalhes sobre os integrantes</h5>
-                            </div>
-
-                            <div class="detalhes-body" *ngIf="butao">
-                                <div class="d-header row">
-                                    <span class="col-3">Tipo</span>
-                                    <span class="col-7">Descrição</span>
-                                    <!-- <button class=" btn del-itegrante outline col-1">Remover</button> -->
-                                </div>
-                                <div class="detalhes-items row">
-                                    <div class="form-group col-3">
-                                        <select type="text" class="form-control outline" required name="tipoIntegrante"
-                                            id="tipoIntegrante" #tipoIntegrante [(ngModel)]="pessoa.tipo"
-                                            [value]="pessoa.tipo">
-                                            <option value="Hobies">Hobies</option>
-                                            <option value="Deficiente">Deficiente</option>
-                                            <option value="Planos">Planos</option>
-                                            <option value="Animal">Tipo de animal</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-7">
-                                        <input type="text" class="form-control outline" placeholder="Descrição" required
-                                            name="descricaoIntegrante" id="descricaoIntegrante" #descricaoIntegrante
-                                            [(ngModel)]="pessoa.descricao">
-                                    </div>
-                                    <div class="col-2">
-                                        <button type="button" class="btn del-integrante outline"
-                                            title="Remover Item">X</button>
-                                    </div>
-                                    <button type="submit" class="btn new-proj-btn outline">Registrar</button>
-
+                    <div class="row form-container">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>
+                                        Detalhes sobre a moradia
+                                    </h5>
                                 </div>
                             </div>
-                        </div>
+                            <div class="form-row">
+                                <div class="form-group col-4">
+                                    <label for="clima">Informe o clima do local</label>
+                                    <input type="text" class="form-control outline" required name="clima" id="clima"
+                                        [(ngModel)]="fase1.clima" #clima="ngModel" placeholder="Informe o clima">
 
-                    </div>
-
-                </form>
-            </div>
-
-            <!-- FASE 1 - PARTE EXTERNA -->
-            <div class="parte-externa">
-
-                <form #parteExtrena name="parteExterna" id="parteExterna" (ngSubmit)="addMoradia()">
-                    <div class="detalhes-panel">
-                        <div class="detalhes-h">
-                            <h5>Detalhes sobre a área externa</h5>
-                            <!-- <button type="button" class="btn add-integrante outline"
-                                (click)="addExternoItem()">Adicionar detalhe</button> -->
-                        </div>
-
-                        <div class="detalhes-body">
-                            <div class="d-header row">
-                                <span class="col-3">Tipo</span>
-                                <span class="col-5">Descrição</span>
-                                <span class="col-3">Metros²</span>
-                            </div>
-
-                            <div class="detalhes-items row">
-                                <div class="form-group col-3">
-                                    <select type="text" class="form-control outline" required name="tipoIntegrante"
-                                        id="tipoIntegrante" #tipoIntegrante [(ngModel)]="parteExterna.tipo">
-                                        <option value="Fachada">Fachada</option>
-                                        <option value="Alpendre">Alpendre</option>
-                                        <option value="Calçada">Calçada</option>
-                                        <option value="Edicula">Edicula</option>
-                                        <option value="Corredor">Corredor</option>
-                                        <option value="Jardim">Jardim</option>
-                                        <option value="Varanda">Varanda</option>
-                                        <option value="Deck">Deck</option>
-                                        <option value="Quintal">Quintal</option>
-                                    </select>
                                 </div>
-
-                                <div class="form-group col-5">
-                                    <input type="text" class="form-control outline" placeholder="Descrição" required
-                                        name="descricaoIntegrante" id="descricaoIntegrante" #descricaoIntegrante
-                                        [(ngModel)]="parteExterna.descricao">
-                                </div>
-                                <div class="form-group col-2">
-                                    <input type="number" class="form-control outline" placeholder="Metragem" required
-                                        name="metragem" id="metragem" #metragem [(ngModel)]="parteExterna.metragem">
-                                </div>
-                                <div class="col-2">
-                                    <button class="btn del-integrante outline" title="Remover Item">X</button>
-                                    <!-- <i class="fa fa-minus-square"></i> -->
+                                <div class="form-group col-8">
+                                    <label for="freqUso">Frequência de uso dos moradores</label>
+                                    <input type="text" class="form-control outline" required name="freqUso" id="freqUso"
+                                        [(ngModel)]="fase1.freqUso" #freqUso="ngModel"
+                                        placeholder="Frequência de uso dos moradores">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn new-proj-btn outline">Registrar</button>
-                </form>
-            </div>
 
-            <!-- FASE 1 - PARTE INTERNA -->
-            <div class="parte-interna">
-                <form #parteIntern name="parteInterna" name="parteInterna" (ngSubmit)="addMoradia()">
-                    <div class="detalhes-panel">
-                        <div class="detalhes-h">
-                            <h5>Detalhes sobre a área Interna</h5>
-                            <!-- 
-                            <button type="button" class="btn add-integrante outline"
-                                (click)="addInternoItem()">Adicionar detalhe</button> -->
-                        </div>
-
-                        <div class="detalhes-body">
-                            <div class="d-header row">
-                                <span class="col-3">Tipo</span>
-                                <span class="col-5">Descrição</span>
-                                <span class="col-3">Metros²</span>
+                    <div class="row form-container">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>
+                                        Detalhes sobre os moradores
+                                    </h5>
+                                </div>
                             </div>
-
-                            <div class="detalhes-items row">
-                                <div class="form-group col-3">
-                                    <select type="text" class="form-control outline" required name="tipoIntegrante"
-                                        id="tipoIntegrante" #tipoIntegrante [(ngModel)]="parteInterna.tipo">
-                                        <option value="SalaDeJantar">Sala de jantar</option>
-                                        <option value="SalaDeJogos">Sala de jogos</option>
-                                        <option value="SalaDeEstar">Sala de estar</option>
-                                        <option value="Banheiro">Banheiro</option>
-                                        <option value="Hall">Hall</option>
-                                        <option value="Quarto">Quarto</option>
-                                        <option value="Sotão">Sotão</option>
-                                        <option value="Andar">Andar</option>
-                                        <option value="Dispensa">Dipensa</option>
-                                        <option value="JardimInverno">Jardim inverno</option>
-                                        <option value="Antesala">Antesala</option>
-                                        <option value="Cozinha">Cozinha</option>
-                                        <option value="AreaDeServiço">Áre de serviço</option>
-                                        <option value="Corredor">Corredor</option>
-                                    </select>
+                            <div class="form-row">
+                                <div class="form-group col-4">
+                                    <label for="pesTipo">Tipo especial de morador</label>
+                                    <input type="text" class="form-control outline" required name="pesTipo" id="pesTipo"
+                                        [(ngModel)]="pessoa.tipo" #pesTipo="ngModel"
+                                        placeholder="Tipo especial de integrante">
                                 </div>
-                                <div class="form-group col-5">
-                                    <input type="text" class="form-control outline" placeholder="Descrição" required
-                                        name="descricaoIntegrante" id="descricaoIntegrante" #descricaoIntegrante
-                                        [(ngModel)]="parteInterna.descricao">
-                                </div>
-                                <div class="form-group col-2">
-                                    <input type="text" class="form-control outline" placeholder="Metragem" required
-                                        name="metragemInterno" id="metragemInterno" #metragemInterno
-                                        [(ngModel)]="parteInterna.metragem">
-                                </div>
-                                <div class="col-2">
-                                    <button class="btn del-integrante outline" title="Remover Item">X</button>
-                                    <!-- <i class="fa fa-minus-square"></i> -->
+                                <div class="form-group col-8">
+                                    <label for="pesDescricao">Descrição</label>
+                                    <input type="text" class="form-control outline" required name="pesDescricao"
+                                        id="pesDescricao" [(ngModel)]="pessoa.descricao" #pesDescricao="ngModel"
+                                        placeholder="Descrição">
                                 </div>
                             </div>
                         </div>
-
-                        <button type="submit" class="btn new-proj-btn outline">Registrar</button>
                     </div>
+
+
+                    <!-- FASE 1 - PARTE EXTERNA -->
+                    <div class="row form-container">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>
+                                        Detalhes sobre a parte exterior
+                                    </h5>
+                                </div>
+                            </div>
+
+                            <!-- FASE 1 - lista de elementos já cadastrados -->
+                            <div class="row ">
+                                <div class="col-12">
+                                    Lista
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="parte-externa-elem" *ngFor="let pExterno of externo">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label for="ptExternaTipo">Tipo:</label>
+                                        <input type="text" class="form-control" readonly="true" name="ptExternaTipo"
+                                            id="ptExternaTipo" [(ngModel)]="pExterno.tipo" #ptExternaTipo="ngModel">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label for="ptExternaDesc">Descrição:</label>
+                                        <textarea type="text" class="form-control" readonly="true" name="ptExternaDesc"
+                                            id="ptExternaDesc" [(ngModel)]="pExterno.descricao"
+                                            #ptExternaDesc="ngModel"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FASE 1 - formularios de registro -->
+                            <div class="parte-externa-form">
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label for="ptExterna">Tipo</label>
+                                        <input type="text" class="form-control outline" required name="ptExterna"
+                                            id="parteptExternaExterna" [(ngModel)]="parteExterna.tipo"
+                                            #ptExterna="ngModel" placeholder="Tipo">
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label for="descExterna">Descrição</label>
+                                        <textarea type="text" class="form-control outline" required name="descExterna"
+                                            id="descExterna" [(ngModel)]="parteExterna.descricao" #descExterna="ngModel"
+                                            placeholder="Descrição"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FASE 1 - PARTE INTERNA -->
+                    <div class="row form-container">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>
+                                        Detalhes sobre a parte interior
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-12">
+                                    <label for="ptInterna">Tipo de cômodo</label>
+                                    <input type="text" class="form-control outline" required name="ptInterna"
+                                        id="ptInterna" [(ngModel)]="parteExterna.tipo" #ptInterna="ngModel"
+                                        placeholder="Tipo de cômodo">
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-12">
+                                    <label for="descInterna">Descrição</label>
+                                    <textarea type="text" class="form-control outline" required name="descInterna"
+                                        id="descInterna" [(ngModel)]="parteInterna.descricao" #descInterna="ngModel"
+                                        placeholder="Descrição"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn new-proj-btn outline">Registrar necessidades</button>
                 </form>
             </div>
         </div> <!-- FIM DE NECESSIDADES -->

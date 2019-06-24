@@ -6,6 +6,16 @@
 *:focus {
     border: rgb(241, 78, 61)
 }
+label{
+    font-family: "MuseoSans";
+    font-size: 18px;
+    font-weight: 400
+}
+::placeholder{
+    font-family: "MuseoSans";
+    font-size: 18px;
+    font-weight: 400;
+}
 
 .outline:focus {
     box-shadow: 0 0 0 4px rgba(241, 78, 61, .5);
@@ -124,7 +134,11 @@
     font-size: 20px;
 }
 
-.necessidades {}
+.parte-externa-elem{
+    background-color: white;
+    padding: 20px;
+    border-radius: 7px;
+}
 
 .tab-panel {
 

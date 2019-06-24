@@ -40,7 +40,7 @@ export class RegisterProjectComponent implements OnInit {
   nescessidade: number = 0; //esse valor tem que estar em 0
   topografia: number = 0; //esse valor tem que estar em 0
 
-  butao: boolean = true;
+  //butao: boolean = true;
   pessoa: Pessoa = new Pessoa();
   parteExterna = new ParteExterna();
   parteInterna = new ParteInterna();
@@ -64,8 +64,8 @@ export class RegisterProjectComponent implements OnInit {
     this.projetoCreated = JSON.parse(localStorage.getItem("nProjeto"));
     console.log(this.projetoCreated);
 
-    this.pessoas.push(new Pessoa());
-    this.externo.push(new ParteExterna());
+    this.pessoas.push();
+    this.externo.push(this.parteExterna);
     this.interno.push(new ParteInterna());
 
 
@@ -139,14 +139,12 @@ export class RegisterProjectComponent implements OnInit {
       location.reload();
     }) */
   }
-  addMoradia(clima, freqUso) {
+  addMoradia() {
     if (!this.projetoCreated) {
       console.log("projeto vazio!");
       //return;
     }
     //console.log(clima, qtdPessoas, freqUso);
-    this.fase1.clima = clima;
-      this.fase1.freqUso = freqUso;
     //console.log(this.fase1);
 
     if (this.pessoas.length > 0) {
@@ -173,7 +171,7 @@ export class RegisterProjectComponent implements OnInit {
     }
     console.log(this.fase1);
     //console.log(this.fase1);    
-    if (this.fase1Id == "-") {
+  /*   if (this.fase1Id == "-") {
       console.log("dub");
       this.fase1Service.register(this.fase1).subscribe(
         (res: Fase1) => {
@@ -190,9 +188,9 @@ export class RegisterProjectComponent implements OnInit {
         }
       )
       return;
-    }
+    } */
 
-    this.fase1Service.update(this.fase1Id, this.fase1).subscribe(
+   /*  this.fase1Service.update(this.fase1Id, this.fase1).subscribe(
       (res: Fase1) => {
         console.log("atualizaou fase")
         console.log(res);
@@ -200,7 +198,7 @@ export class RegisterProjectComponent implements OnInit {
         alert("Os dados foram atualizados com sucesso!");
 
       }
-    )
+    ) */
   }
 
   addTopografia() {
