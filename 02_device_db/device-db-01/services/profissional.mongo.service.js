@@ -72,7 +72,7 @@ class ProfissionalService {
         ProfissionalModel.findOne({ 'email': req.params.email }).populate('projetos').then(
             (profissional) => {
                 if (!profissional) {
-                    return res.status(400).json({ error: "Usuario inválido" })
+                    return res.status(401).json({ error: "Usuario inválido" })
                 }
 
                 if (!bcrypt.compareSync(req.params.senha, profissional.senha)) {

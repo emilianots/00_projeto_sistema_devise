@@ -2,7 +2,8 @@ var mongoose = require('mongoose')
 
 mongoose.set('useFindAndModify', false);
 
-var mongoDB_URI = 'mongodb://localhost/deviceDB';
+//var mongoDB_URI = 'mongodb://localhost/devise-v1';
+var mongoDB_URI = 'mongodb://localhost/devise-DB-dev';
 mongoose.connect(mongoDB_URI, {useNewUrlParser: true});
 
 var db = mongoose.connection;

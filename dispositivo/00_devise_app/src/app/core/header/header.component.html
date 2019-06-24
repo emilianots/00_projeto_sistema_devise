@@ -1,0 +1,32 @@
+<header class="header">
+
+  <!-- usuario deslogado -->
+  <a *ngIf="!user">
+    <img src="../../../assets/img/logo.png" alt="Devise" class="logo" routerLink="home">
+  </a>
+
+  <!-- usuario logado -->
+  <a *ngIf="user">
+    <img src="../../../assets/img/logo.png" alt="Devise" class="logo" routerLink="home/user">
+  </a>
+
+  <!-- usuario deslogado -->
+  <div class="header-items" *ngIf="!user">
+    <a class="btn btn-lg login outline" routerLink="home/login">Entrar</a>
+    <a class="btn btn-lg register" routerLink="home/register">Cadastrar-se</a>
+  </div>
+
+  <!-- usuario logado -->
+  <div class="header-items" *ngIf="user">
+    <div class="user-btn">
+      <span>{{user.nome}}</span>
+      <div class="user-menu">
+        <a>Editar perfil</a>
+        <a>Opção 1</a>
+        <a>Sair</a>
+      </div>
+
+    </div>
+    <a class="btn btn-lg register" (click)="logout()">Logout</a>
+  </div>
+</header>

@@ -1,0 +1,59 @@
+*{
+    box-sizing: border-box;
+    box-shadow: none;
+}
+*:focus{
+    border: transparent;
+}
+
+.login-modal-body{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .3);
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+.login-container{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 40%;
+    height: fit-content;
+    padding: 50px 50px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 12px;
+    font-size: 20px;
+    background: white;
+}
+.login-container h2{
+    width: 100%;
+    text-align: center;
+    color: black;
+    margin: 30px 0px;
+    font-family: "AsapMedium";
+    font-size: 50px;
+}
+.login-container form input{
+    height: 45px;
+    font-size: 20px;
+    border-radius: 10px
+}
+.outline:focus{
+    box-shadow: 0 0 0 3px rgb(241, 78, 61);
+}
+.entrar{
+    background-color: rgb(241, 78, 61);
+    border: none;
+    border-radius: 12px;
+    padding: 7px 34px;
+    font-family: "AsapMedium";
+    font-size: 20px;
+    color: white;
+}
+.entrar:active{
+    background: black;
+}
+

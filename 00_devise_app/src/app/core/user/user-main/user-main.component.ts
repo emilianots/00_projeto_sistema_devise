@@ -20,10 +20,10 @@ export class UserMainComponent implements OnInit {
   projetos: Projeto[] = [];
 
   constructor(private router: Router, private userService: GeneralService, private projetoService: ProjetoService, private route: ActivatedRoute) {
-    
-   }
 
-   
+  }
+
+
   ngOnInit() {
     this.user = JSON.parse(sessionStorage.getItem('user_login'));
     //console.log(this.user)
@@ -32,29 +32,28 @@ export class UserMainComponent implements OnInit {
       //console.log(this.user)
       this.router.navigate(['login']);
     }
+    console.log(this.user) //SAPORRA TA RETORNANDO AGORA QUE EU DEI UM POPULATE NO BANCO CARAI
+
     console.log("User-main iniciou");
   }
 
 
   nProjeto(novoProjeto: NgForm, tipoCosntrucao) {
-    if(!novoProjeto.valid){
+    if (!novoProjeto.valid) {
       console.log("Preencha todos os campos");
       return;
     }
-    
+
     this.atualProjeto.nome = novoProjeto.value.nomeProjeto;
     this.atualProjeto.descricao = novoProjeto.value.descricaoProjeto;
-    this.atualProjeto.tipoCasa = tipoCosntrucao;
-    this.atualProjeto.metragem = novoProjeto.value.metragem;
-    this.atualProjeto.qtdComodos = novoProjeto.value.qtdComodos;
     /* this.atualProjeto.fase1 = "";
     this.atualProjeto.fase2 = "";
     this.atualProjeto.fase3 = "";
     this.atualProjeto.fase4 = ""; */
-    
+
     this.projetoService.register(this.atualProjeto).subscribe(
       //criando o projeto
-      (res: Projeto | any)=>{
+      (res: Projeto | any) => {
         let resposta = res;
 
         //referenciando o id do projeto recem criado
@@ -67,16 +66,16 @@ export class UserMainComponent implements OnInit {
     )
   }
 
-  toProjects(){
-    this.router.navigate(['projetos'], {relativeTo: this.route}); // IMPORTANTE!!!
+  toProjects() {
+    this.router.navigate(['projetos'], { relativeTo: this.route }); // IMPORTANTE!!!
   }
 
-  showPanel(){
+  showPanel() {
     this.router.navigate(['home/user']);
 
   }
 
-  addFase1(){
-    
+  addFase1() {
+
   }
 }

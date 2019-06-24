@@ -167,6 +167,13 @@ select{
     font-family: "MuseoSans";
 }
 
+.form-container{
+    margin-bottom: 10px;
+    border-radius: 7px;
+    background-color: rgb(228, 228, 228);
+    padding: 20px;
+}
+
 .proj-desc p{
     font-size: 20px;
 }
@@ -179,3 +186,4 @@ select{
     margin-top: 5px;
     background: rgb(241, 78, 61);
 }
+

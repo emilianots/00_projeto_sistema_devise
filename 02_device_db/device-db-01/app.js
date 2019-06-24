@@ -9,11 +9,15 @@ require('./db/mongo.connection');
 //router
 var profissionais = require('./routes/profissional.routes.mongo');
 var clientes = require('./routes/cliente.routes.mongo');
+
 var projetos = require('./routes/projeto.router.mongo');
+
 var fase1 = require('./routes/fase1.routes.mongo');
 var fase2 = require('./routes/fase2.routes.mongo');
 var fase3 = require('./routes/fase3.routes.mongo');
 var fase4 = require('./routes/fase4.routes.mongo');
+
+var observacoes = require('./routes/observacao.routes.mongo') //ADICIONAR AQUI
 
 //main
 var app = express();
@@ -37,5 +41,6 @@ app.use('/fase1', fase1);
 app.use('/fase2', fase2);
 app.use('/fase3', fase3);
 app.use('/fase4', fase4);
+app.use('/observacoes', observacoes);
 
 module.exports = app;

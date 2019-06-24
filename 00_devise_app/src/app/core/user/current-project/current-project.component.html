@@ -8,7 +8,8 @@
     <div class="register-menu col-3">
         <div class="fases">
             <div class="fase-btn" [ngClass]="{'select': menuLateral == 0}" (click)="menuLateral = 0">
-                Projeto: {{projeto.nome}}</div>
+                Projeto: {{projeto.nome}}
+            </div>
             <div class="fase-btn" [ngClass]="{'select': menuLateral == 2}" (click)="menuLateral = 2">Topografia</div>
             <div class="fase-btn" [ngClass]="{'select': menuLateral == 3}" (click)="menuLateral = 3">Anteprojeto</div>
             <div class="fase-btn" [ngClass]="{'select': menuLateral == 4}" (click)="menuLateral = 4">Projeto Executivo
@@ -25,53 +26,44 @@
         </div>
 
     </div>
+
+    <!-- 
+
+        INFORMAÇÕES INICIAIS DO PROJETO
+
+     -->
     <div class="proj-infos col-9">
         <div class="projeto" *ngIf="menuLateral == 0">
-            <h3>Edite ou consulte as informações do projeto</h3>
+            <h3>
+                Edite ou consulte as informações do projeto
+            </h3>
             <form (ngSubmit)="toPanel()" #registerForm="ngForm">
-                <div class="form-row">
-                    <div class="form-group col-4">
-                        <label for="projNome">Nome do projeto</label>
-                        <input type="text" class="form-control outline" required name="projNome" id="projNome"
-                            placeholder="Nome" [(ngModel)]="projeto.nome" #projNome="ngModel">
-                    </div>
-                    <div class="form-group col-8">
-                        <label for="descNome">Descrição do projeto</label>
-                        <textarea type="text" class="form-control outline" required name="descNome" id="descNome"
-                            placeholder="Descrição do projeto" [(ngModel)]="projeto.descricao"
-                            #descNome="ngModel"></textarea>
+                <div class="form-container">
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label for="projNome">Nome do projeto</label>
+                            <input type="text" class="form-control outline" required name="projNome" id="projNome"
+                                placeholder="Nome" [(ngModel)]="projeto.nome" #projNome="ngModel">
+                        </div>
+                        <div class="form-group col-8">
+                            <label for="descProj">Descrição do projeto</label>
+                            <textarea type="text" class="form-control outline" required name="descProj" id="descProj"
+                                placeholder="Descrição do projeto" [(ngModel)]="projeto.descricao"
+                                #descProj="ngModel"></textarea>
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-3">
-                        <label for="tipoConstrucao">Tipo de construção</label>
-                        <select type="text" class="form-control outline" required name="tipoConstrucao"
-                            id="tipoConstrucao" #tipoConstrucao [(ngModel)]="projeto.tipoCasa">
-                            <option value="Flet">Flet</option>
-                            <option value="Kitnet">Kitnet</option>
-                            <option value="Edicula">Edícula</option>
-                            <option value="CasaComum">Casa comum</option>
-                            <option value="CasaDuplex">Casa Duplex</option>
-                            <option value="CasaTriplex">Casa triplex</option>
-                            <option value="Loft">Loft</option>
-                        </select>
+                        <label for="metragemX">Metragem total m²</label>
+                        <input type="text" class="form-control outline" required name="metragemX" id="metragemX"
+                            placeholder="Metragem largura" #metragemX [(ngModel)]="projeto.metragemX">
                     </div>
                     <div class="form-group col-3">
-                        <label for="tipoConstrucao">Metragem total m²</label>
-                        <input type="text" class="form-control outline" required name="metragemTotal" id="metragemX"
-                            placeholder="Largura" #metragemX [(ngModel)]="projeto.metragem">
-                    </div>
-                    <div class="form-group col-3">
-                        <label for="descNome">Número de cômodos</label>
-                        <input type="number" type="" class="form-control outline" required name="qtdComodos"
-                            id="qtdComodos" [(ngModel)]="projeto.qtdComodos" #qtdComodos="ngModel">
-                    </div>
-                    <div class="form-group col-3">
-                        <label for="tipoConstrucao">Número de moradores</label>
-                        <input type="text" class="form-control outline" required name="metragemTotal" id="metragemX"
-                            placeholder="Largura" #metragemX [(ngModel)]="fase1.qtdPessoas">
-
+                        <label for="qtdMoradore">Número de moradores</label>
+                        <input type="text" class="form-control outline" required name="qtdMoradore" id="qtdMoradore"
+                            placeholder="Quantidade de moradores" #metragemX [(ngModel)]="fase1.qtdPessoas">
                     </div>
 
                 </div>
@@ -87,16 +79,16 @@
                             placeholder="Descrição do projeto" [(ngModel)]="fase1.clima" #clima="ngModel">
                     </div>
                 </div>
-                <div class="form-row">
+                <div class="form-row" *ngFor="let p of pessoas">
                     <div class="form-group col-3">
-                        <label for="freqUso">Frequencia de uso</label>
-                        <input type="text" class="form-control outline" required name="freqUso" id="freqUso"
-                            placeholder="Nome" [(ngModel)]="fase1.freqUso" #freqUso="ngModel">
+                        <label for="tipo">Frequencia de uso</label>
+                        <input type="text" class="form-control outline" required name="tipo" id="tipo"
+                            placeholder="Nome" [(ngModel)]="p.tipo" #tipo="ngModel">
                     </div>
                     <div class="form-group col-3">
                         <label for="clima">Clima do local</label>
                         <input type="text" class="form-control outline" required name="clima" id="clima"
-                            placeholder="Descrição do projeto" [(ngModel)]="fase1.clima" #clima="ngModel">
+                            placeholder="Descrição do projeto" [(ngModel)]="p.tipo" #clima="ngModel">
                     </div>
                 </div>
 

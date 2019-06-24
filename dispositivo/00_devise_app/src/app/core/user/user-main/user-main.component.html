@@ -1,0 +1,85 @@
+<!-- <div class="user-page-container">
+  <div class="user-side-menu">
+    <a>Projetos</a>
+    <a>Equipe</a>
+    <a>Clientes</a>
+    <a>Configurações</a>
+  </div> -->
+<!--   <p>
+    <button (click)="showProjeto()">Para projeto</button>
+  </p>
+  <p>
+    <button (click)="showPanel()">Para painel</button>
+  </p>
+  <router-outlet></router-outlet> -->
+
+  <!-- <div class="user-panel">
+    <div class="proj-panel">
+      <form (ngSubmit)="nProjeto(novoProjeto, tipoCostrucao.value)" #novoProjeto="ngForm">
+        <div class="form-group">
+          <label for="nomeProjeto">Nome do novo Projeto</label>
+          <input type="text" class="form-control" required name="nomeProjeto" id="nomeProjeto"
+            placeholder="Nome do novo Projeto" [(ngModel)]="atualProjeto.nome" #nomeProjeto='ngModel'>
+        </div>
+        <div class="form-group">
+          <label for="descricaoProjeto">Descricao do Projeto</label>
+          <textarea type="text" class="form-control" required name="descricaoProjeto" id="descricaoProjeto"
+            placeholder="Descreva o novo projeto" [(ngModel)]="atualProjeto.descricao"
+            #descricaoProjeto='ngModel'></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="tipoConstrucao">Escolha o tipo de construção</label>
+            <select class="custom-select" required id="tipoConstrucao" name="tipoConstrucao" #tipoCostrucao>
+              <option value="JK">JK</option>
+              <option value="Flet">Flet</option>
+              <option value="Kitnet">Kitnet</option>
+              <option value="Casa comum">Casa comum</option>
+              <option value="Casa duplex">Casa duplex</option>
+              <option value="Casa Triplex">Casa triplex</option>
+              <option value="Loft">Loft</option>
+              <option value="Edicula">Edicula</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="metragem">Metragem em m²</label>
+            <input type="text" class=form-control required name="metragem" id="metragem" placeholder="Metragem em m²"
+              [(ngModel)]="atualProjeto.metragem" #metragem="ngModel">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="qtdComodos">Informe a quantidade de comodos</label>
+            <input type="number" class=form-control required name="qtdComodos" id="qtdComodos"
+              placeholder="Quantidade de comodos" [(ngModel)]="atualProjeto.qtdComodos" #qtdComodos="ngModel">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-lg btn-primary">Cadatrar novo projeto</button>
+
+      </form>
+    </div>
+  </div>
+</div> -->
+<div class="background"></div>
+
+<div class="user-main-container">
+  <div class="user-status-panel">
+    <img src="" alt="Avatar">
+    <h3>{{user.nome}}</h3>
+    <button class="btn btn-primary">Editar perfil</button>
+    <div class="notify-panel">
+
+    </div>
+  </div>
+  <div class="user-main-panel">
+    <div class="user-btns">
+      <button class='btn outline' (click)="toProjects()">Projetos</button>
+      <button class='btn outline'>Equipe</button>
+      <button class='btn outline'>Clientes</button>
+      <button class='btn outline'>Configurações</button>
+    </div>
+    <div class="user-main-op-panel">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

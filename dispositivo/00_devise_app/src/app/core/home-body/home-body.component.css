@@ -1,0 +1,35 @@
+.home-body-container{
+    height: calc(100vh - 80px);
+    width: 100%;
+    box-sizing: border-box;
+    padding: 40px;
+    background: rgb(14, 53, 85);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.ilustracao{
+    width: 40%;
+    height: 600px;
+    background: rgb(59, 59, 59);
+    margin: 30px;
+}
+
+.info-texto{
+    width: 40%;
+    height: 400px;
+    margin: 30px;
+    font-size: 35px;
+    font-family: "AsapMedium";
+}
+.info-texto::after{
+    content: "";
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: rgb(241, 78, 61);;
+    margin-top: 15px
+}

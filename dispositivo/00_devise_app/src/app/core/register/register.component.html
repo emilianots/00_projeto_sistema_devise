@@ -1,0 +1,110 @@
+<!-- <div class="caixa">
+  <div>
+    <input type="text" placeholder=" " id="input-1" class="input">
+    <label for="input-1" class="label">Nome</label>
+  </div>
+  <div>
+    <input type="text" placeholder=" " name="" id="" class="input">
+    <label class="label">Placeholdes app</label>
+  </div>
+
+</div> -->
+<!-- 
+<div class="register-general-container">
+  <div class="login-container">
+    <div class="login-header">
+      <img class="login-logo" src="../../../assets/img/logo.png" alt="Bem vindo ao Devise">
+      <h2 class="login-msg">Login</h2>
+      <h3>Conectar ao Device</h3>
+    </div>
+
+    <div class="login-form">
+      <form action="">
+        <input type="text" placeholder=" " name="login" class="email-input">
+        <label for="login">E-mail ou login</label>
+      </form>
+    </div>
+
+  </div>
+</div> -->
+<div class="register-modal-body" (click)="toHome()">
+</div>
+<div class="register-container">
+  <h2>Crie sua conta Devise</h2>
+  <form (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control outline" required name="nome" id="nome" placeholder="Nome"
+          [(ngModel)]="profissional.nome" #nome='ngModel'>
+
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="sobrenome">Sobrenome</label>
+        <input type="text" class="form-control outline" required name="sobrenome" id="sobrenome" placeholder="Sobrenome"
+          [(ngModel)]="profissional.sobrenome" #sobrenome='ngModel'>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="dataNasc">Data de nascimento</label>
+        <input type="date" required class="form-control outline" name="dataNasc" id="datanasc"
+          [(ngModel)]="profissional.dataNasc" #dataNasc='ngModel'>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="telefone">Telefone</label>
+        <input type="text" required class="form-control outline" name="telefone" id="telefone"
+          [(ngModel)]="profissional.numeroTel" #telefone='ngModel'>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="sexo">Sexo</label>
+        <select class="custom-select outline" required id="sexo" name="sexo" [(ngModel)]="profissional.sexo" #sexo="ngModel">
+          <option value="feminino">Feminino</option>
+          <option value="masculino">Masculino</option>
+          <option value="nf">Prefiro não informar</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="profissao">Tipo de profissão</label>
+        <select name="profissao" required id="profissao" class="custom-select outline" id="profissao"
+          [(ngModel)]="profissional.tipoProfissao" #profissao="ngModel">
+          <option value="1">Arquiteto</option>
+          <option value="2" disabled>Designer de Interiores</option>
+          <option value="3" disabled>Engenheiro</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="nCau">Nº de Registro Profissional</label>
+        <input type="text" required class="form-control outline" name="nCau" placeholder="Número de Registro Profissional"
+          id="nCau" [(ngModel)]="profissional.nCau" #nCau="ngModel">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="email">Email</label>
+        <input type="email" required class="form-control outline" id="email" name="email" placeholder="Email"
+          [(ngModel)]="profissional.email" #email="ngModel">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="senha">Senha</label>
+        <input type="password" class="form-control outline" id="senha" name="senha" placeholder="Senha"
+          [(ngModel)]="profissional.senha" #senha="ngModel">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="confSenha">Confirmar senha</label>
+        <input type="password" class="form-control outline" id="confSenha" placeholder="Confirmar senha">
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary outline">Cadastrar</button>
+    <a [routerLink]="[ '/login']" class=ml-2>Já possui uma conta?</a>
+  </form>
+</div>

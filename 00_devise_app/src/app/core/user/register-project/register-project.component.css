@@ -107,6 +107,15 @@
     padding: 50px 0px;
 }
 
+.form-container{
+    margin-bottom: 10px;
+    border-radius: 7px;
+    background-color: rgb(228, 228, 228);
+    padding: 20px;
+}
+
+
+
 .register-body .new-proj-btn {
     border-radius: 7px;
     padding: 10px 20px;
