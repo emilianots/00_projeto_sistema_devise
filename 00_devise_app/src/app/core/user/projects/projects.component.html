@@ -3,14 +3,19 @@
     <h2 class="col-md-8">Projetos em andamento</h2>
     <input type="text" class="form-control col-md-4">
   </div>
+
   <div class="proj-curent-panel">
+      <button class="btn outline new-proj-btn" (click)="toNewProject()" >
+          <span class='fa fa-plus' title="Iniciar um novo projeto"></span>
+          Criar projeto
+        </button>
     <button class=" btn proj-btn outline" *ngFor="let proj of projetos" (click)="navigateTo(proj._id)">
       {{proj.nome}}
     </button>
   </div>
 
-  <button class="btn outline new-proj-btn" (click)="toNewProject()">
+  <!-- <button class="btn outline new-proj-btn" (click)="toNewProject()">
     <span class='fa fa-plus' title="Iniciar um novo projeto"></span>
-  </button>
+  </button> -->
   <router-outlet></router-outlet>
 </div>

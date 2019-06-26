@@ -13,7 +13,8 @@ var ProfissionalSchema = mongoose.Schema(
         nCau: { type: "String", required: true, max: 100 },
         tipoProfissao: { type: "String", required: false, default: null },
         sexo: { type: "String", required: true},
-        projetos: [{type: mongoose.Schema.Types.ObjectId, ref: 'projeto'}]
+        projetos: [{type: mongoose.Schema.Types.ObjectId, ref: 'projeto'}],
+        equipeIds: [{type: mongoose.Schema.Types.ObjectId, ref: 'profissionais'}]
 
     }
 )

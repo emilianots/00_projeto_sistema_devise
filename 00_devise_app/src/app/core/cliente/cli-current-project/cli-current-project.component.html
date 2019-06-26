@@ -1,0 +1,140 @@
+<div class="back-btn" (click)="toPanel()">
+    <span>Painel de projetos</span>
+  </div>
+  <div class="current-proj-body container-fluid row">
+    <div class="register-menu col-3">
+      <div class="fases">
+        <div class="fase-btn" [ngClass]="{'select': menuLateral == 0}" (click)="menuLateral = 0">
+          Projeto: {{projeto.nome}}</div>
+        <div class="fase-btn" [ngClass]="{'select': menuLateral == 2}" (click)="menuLateral = 2">Topografia</div>
+        <div class="fase-btn" [ngClass]="{'select': menuLateral == 3}" (click)="menuLateral = 3">Anteprojeto</div>
+        <div class="fase-btn" [ngClass]="{'select': menuLateral == 4}" (click)="menuLateral = 4">Projeto Executivo
+        </div>
+      </div>
+  
+      <div class="cliente-panel">
+        <img src="../../../../assets/img/usersIcons/icon_01.png" alt="Cliente" class="cli-avatar">
+        <h4>Nome do cliente</h4>
+      </div>
+      <div class="money-panel">
+        <span>Orçamento estimado:</span>
+        <span class="money">RS1000000</span>
+      </div>
+  
+    </div>
+    <div class="proj-infos col-9">
+      <div class="projeto" *ngIf="menuLateral == 0">
+        <h3>Informações do projeto</h3>
+        <form class="InfoProjeto">
+          <div class="form-row">
+            <div class="form-group col-4">
+              <label for="projNome">Nome do projeto</label>
+              <h4 class="projNome">{{projeto.nome}}</h4>
+            </div>
+  
+            <div class="form-group col-8">
+              <label for="descNome">Descrição do projeto</label>
+              <h4 class="descNome">{{projeto.descricao}}</h4>
+            </div>
+          </div>
+  
+          <div class="form-row">
+            <div class="form-group col-3">
+              <label for="tipoConstrucao">Tipo de construção</label>
+              <h4 class="tipoConstrucao">{{projeto.tipoCasa}}</h4>
+            </div>
+  
+            <div class="form-group col-3">
+              <label for="metragem">Metragem total m²</label>
+              <h4 class="metragem">{{projeto.metragem}}</h4>
+            </div>
+  
+            <div class="form-group col-3">
+              <label for="descNome">Número de cômodos</label>
+              <h4 class="descNome">{{projeto.qtdComodos}}</h4>
+            </div>
+          </div>
+  
+          <div class="form-row">
+            <div class="form-group col-3">
+              <label for="freqUso">Frequencia de uso</label>
+              <h4 class="freqUso">{{fase1.freqUso}}</h4>
+            </div>
+  
+            <div class="form-group col-3">
+              <label for="clima">Clima do local</label>
+              <h4 class="clima">{{fase1.clima}}</h4>
+            </div>
+          </div>
+  
+          <div class="form-row" *ngFor="let p of pessoas">
+            <div class="form-group col-3">
+              <label for="tipo">Frequencia de uso</label>
+              <input type="text" class="form-control outline" required name="tipo" id="tipo" placeholder="Nome"
+                [(ngModel)]="p.tipo" #tipo="ngModel">
+            </div>
+            <div class="form-group col-3">
+              <label for="clima">Clima do local</label>
+              <input type="text" class="form-control outline" required name="clima" id="clima"
+                placeholder="Descrição do projeto" [(ngModel)]="p.tipo" #clima="ngModel">
+            </div>
+          </div>
+        </form>
+  
+        <form>
+          <h3>Comentários</h3>
+          <div class="form-group">
+            <div class="comments">
+              <textarea #comments="ngModel" class="form-control"
+              placeholder="Insira quaisquer comentário referente a esta etapa do projeto,
+              ele será visualizado pela equipe de desenvolvimento" [(ngModel)]="projeto.comments"></textarea>
+            </div>
+            <button type="button" class="sendComment relator-btn btn" (click)="save()">Salvar</button>
+          </div>
+        </form>
+  
+      </div>
+  
+      <div class="topografia" *ngIf="menuLateral == 1">
+  
+      </div>
+      <div class="anteprojeto" *ngIf="menuLateral == 2">
+  
+      </div>
+      <div class="projeto-executivo" *ngIf="menuLateral == 3">
+  
+      </div>
+    </div>
+  
+    <!-- CHAAT -->
+    <div class="chat" id="chat">
+      <div class="card">
+        <div class="card-header" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
+          aria-controls="collapseOne" id="headingOne">
+          <h4>Chat</h4>
+        </div>
+  
+        <div id="collapseOne" class="collapse chat-body" aria-labelledby="headingOne" data-parent="#chat">
+          <div class="msgs">
+            <div class="card" *ngFor="let msg of chat.msgs" [ngClass]="msgStyle(msg.remet)">
+              <div class="card-body msg-user-body">
+                {{ msg.msg }}
+              </div>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-9">
+              <input type="text" class="form-control outline" required name="chatInput" id="chatInput"
+                placeholder="Insira alguma mensagem" #chatInput>
+            </div>
+            <div class="col3">
+              <button type="button" id="enviar-btn" class="relator-btn btn"
+                (click)="msgSend(chatInput.value)">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>

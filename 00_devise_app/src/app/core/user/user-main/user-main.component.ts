@@ -19,6 +19,8 @@ export class UserMainComponent implements OnInit {
   atualProjeto: Projeto = new Projeto();
   projetos: Projeto[] = [];
 
+  onTab: number = 0;
+
   constructor(private router: Router, private userService: GeneralService, private projetoService: ProjetoService, private route: ActivatedRoute) {
 
   }
@@ -68,6 +70,20 @@ export class UserMainComponent implements OnInit {
 
   toProjects() {
     this.router.navigate(['projetos'], { relativeTo: this.route }); // IMPORTANTE!!!
+    this.onTab = 0;
+  }
+
+  toEquipe(){
+    this.router.navigate(['equipes'], {relativeTo: this.route}); // PARA EQUIPES
+    this.onTab = 1;
+  }
+
+  toClientes(){
+    this.onTab == 2;
+  }
+
+  toConfig(){
+    this.onTab == 3
   }
 
   showPanel() {

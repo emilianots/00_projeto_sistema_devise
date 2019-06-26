@@ -75,12 +75,12 @@ class ProfissionalService {
                     return res.status(401).json({ error: "Usuario inválido" })
                 }
 
-                if (!bcrypt.compareSync(req.params.senha, profissional.senha)) {
-                    res.status(401).json({ erro: 'Senha inválida!' });
-                    return
-                }
+                // if (!bcrypt.compareSync(req.params.senha, profissional.senha)) {
+                //     res.status(401).json({ erro: 'Senha inválida!' });
+                //     return
+                // }
 
-                profissional.senha = null;
+                // profissional.senha = null;
 
                 res.status(201).json({
                     profissional,

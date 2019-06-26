@@ -13,6 +13,11 @@ import { Profissional } from 'src/app/models/profissional';
 import { ParteExterna } from 'src/app/models/fase1.detalhes/parteExterna';
 import { Fase2 } from 'src/app/models/fases/fase2';
 
+// Chat
+import { Chat } from './../../../models/chat';
+import { ChatService } from './../../../services/chat.service';
+
+
 @Component({
   selector: 'app-register-project',
   templateUrl: './register-project.component.html',
@@ -20,33 +25,36 @@ import { Fase2 } from 'src/app/models/fases/fase2';
 })
 export class RegisterProjectComponent implements OnInit {
 
+  chat: Chat = new Chat();
+
   projetoNovo: Projeto = new Projeto();
   projetoId: string;
   user: Profissional = new Profissional();
 
   projetoCreated: Projeto;
 
+  addClienteBtn: boolean = true;
+
   fase1: Fase1 = new Fase1();
   fase2: Fase2 = new Fase2();
 
-  fase1Id: string = "-";
-  fase2Id: string = "-";
   pessoas: Pessoa[] = [];
   externo: ParteExterna[] = [];
   interno: ParteInterna[] = [];
 
   //para os paineis de registro;
-  menuLateral: number = 1; //esse valor tem que estar em 0
+  menuLateral: number = 0; //esse valor tem que estar seu boco
   nescessidade: number = 0; //esse valor tem que estar em 0
   topografia: number = 0; //esse valor tem que estar em 0
 
   //butao: boolean = true;
   pessoa: Pessoa = new Pessoa();
-  parteExterna = new ParteExterna();
-  parteInterna = new ParteInterna();
+  parteExterna: ParteExterna = new ParteExterna();
+  parteInterna: ParteInterna = new ParteInterna();
+
 
   constructor(private router: Router, private projetoService: ProjetoService, private userService: GeneralService,
-    private fase1Service: Fase1Service, private fase2Service: Fase2Service) { }
+    private chatService: ChatService, private fase1Service: Fase1Service, private fase2Service: Fase2Service) { }
 
   ngOnInit() {
     this.user = JSON.parse(sessionStorage.getItem('user_login'));
@@ -63,9 +71,11 @@ export class RegisterProjectComponent implements OnInit {
     this.fase1.externo = [];
     this.projetoCreated = JSON.parse(localStorage.getItem("nProjeto"));
     console.log(this.projetoCreated);
+    this.projetoNovo;
 
-    this.pessoas.push();
-    this.externo.push(this.parteExterna);
+    //this.pessoa.tipo = "cu"
+    //this.pessoas.push(this.pessoa);
+    //this.externo.push(this.parteExterna);
     this.interno.push(new ParteInterna());
 
 
@@ -75,6 +85,66 @@ export class RegisterProjectComponent implements OnInit {
   toPanel() {
     this.router.navigate(['home/user/projetos']);
   }
+
+  toggleAddCliForm() {
+    this.addClienteBtn ? this.addClienteBtn = false : this.addClienteBtn = true;
+  }
+
+
+  //novo morador na lista/
+  addMorador() {
+    if (this.pessoa.tipo == undefined || this.pessoa.tipo.length == 0) {
+      console.log("Tipo de pessoa vazio");
+      return;
+    }
+    /* this.pessoas.push(this.pessoa);
+    console.log(this.pessoas);
+    this.pessoa = new Pessoa(); */
+    this.fase1.pessoas.push(this.pessoa);
+    console.log(this.fase1.pessoas);
+    this.pessoa = new Pessoa();
+  }
+
+  rmMorador(elem) {
+    let index = this.fase1.pessoas.findIndex(x => x.tipo == elem);
+    this.fase1.pessoas.splice(index, 1);
+    //console.log(index);
+  }
+
+  addPExterna() {
+    if (this.parteExterna.tipo == undefined || this.parteExterna.tipo.length == 0) {
+      console.log("TIpo de parte externa vazio");
+      return;
+    }
+    //this.externo.push(this.parteExterna);
+    this.fase1.externo.push(this.parteExterna);
+    console.log(this.fase1.externo);
+    this.parteExterna = new ParteExterna();
+  }
+
+  rmPExterna(elem) {
+    let index = this.fase1.externo.findIndex(x => x.tipo == elem);
+    this.fase1.externo.splice(index, 1);
+    //console.log(index);
+  }
+
+  addPInterna() {
+    if (this.parteInterna.tipo == undefined || this.parteInterna.tipo.length == 0) {
+      console.log("TIpo de parte externa vazio");
+      return;
+    }
+    //this.externo.push(this.parteExterna);
+    this.fase1.interno.push(this.parteInterna);
+    console.log(this.fase1.interno);
+    this.parteInterna = new ParteInterna();
+  }
+
+  rmPInterna(elem) {
+    let index = this.fase1.interno.findIndex(x => x.tipo == elem);
+    this.fase1.interno.splice(index, 1);
+    //console.log(index);
+  }
+
 
   //novo projeto
   newProjeto(registerForm: NgForm, tipoCasa: string, metragem) {
@@ -87,51 +157,57 @@ export class RegisterProjectComponent implements OnInit {
     console.log(this.projetoNovo);
 
 
-    //abaixo a adicao de projeto ao usuario
-    this.projetoService.register(this.projetoNovo).subscribe(
-      (res: Projeto) => {
+    // Criando primeiro o chat
+    this.chatService.registerChat(this.chat).subscribe(
+      (res: Chat) => {
+        this.projetoNovo.chat = res._id;
+        //abaixo a adicao de projeto ao usuario
+        this.projetoService.register(this.projetoNovo).subscribe(
+          (res: Projeto) => {
 
-        let response = res
-        this.projetoCreated = res;
-        this.projetoId = res._id;
-        console.log("adicionando projeto");
-        console.log(1);
+            let response = res
+            this.projetoCreated = res;
+            this.projetoId = res._id;
+            console.log("adicionando projeto");
+            console.log(1);
 
-        localStorage.setItem('nProjeto', JSON.stringify(res));
+            localStorage.setItem('nProjeto', JSON.stringify(res));
 
-        if (!response) {
-          console.log("erro ao criar projeto! 1");
-          return;
-        }
-
-
-        setTimeout(() => {
-          this.userService.addProjetoId(this.user._id, response._id).subscribe(
-            (res) => {
-              if (!res) {
-                console.log("erro ao atribuir projeto ao usuario! 2");
-                return;
-              }
-              console.log("atribuindo id");
-              console.log(2);
-
-              this.menuLateral = 1;
-              //alert("O projeto: " + response.nome + " foi criado com sucesso!");
-              //console.log(res);
+            if (!response) {
+              console.log("erro ao criar projeto! 1");
+              return;
             }
-          );
-        }, 200);
 
-        setTimeout(() => {
-          this.userService.retrieveById(this.user._id).subscribe(
-            (res: Profissional) => {
-              console.log(3)
-              //console.log(res);
-              this.user = res;
-              sessionStorage.setItem('user_login', JSON.stringify(this.user));
-            }
-          )
-        }, 1000);
+
+            setTimeout(() => {
+              this.userService.addProjetoId(this.user._id, response._id).subscribe(
+                (res) => {
+                  if (!res) {
+                    console.log("erro ao atribuir projeto ao usuario! 2");
+                    return;
+                  }
+                  console.log("atribuindo id");
+                  console.log(2);
+
+                  this.menuLateral = 1;
+                  //alert("O projeto: " + response.nome + " foi criado com sucesso!");
+                  //console.log(res);
+                }
+              );
+            }, 200);
+
+            setTimeout(() => {
+              this.userService.retrieveById(this.user._id).subscribe(
+                (res: Profissional) => {
+                  console.log(3)
+                  //console.log(res);
+                  this.user = res;
+                  sessionStorage.setItem('user_login', JSON.stringify(this.user));
+                }
+              )
+            }, 1000);
+          }
+        )
       }
     )
 
@@ -140,90 +216,64 @@ export class RegisterProjectComponent implements OnInit {
     }) */
   }
   addMoradia() {
-    if (!this.projetoCreated) {
+    /* if (!this.projetoCreated) {
       console.log("projeto vazio!");
-      //return;
-    }
-    //console.log(clima, qtdPessoas, freqUso);
-    //console.log(this.fase1);
-
-    if (this.pessoas.length > 0) {
-      this.pessoas.push(this.pessoa);
-      this.fase1.pessoas.push(this.pessoa);
-      //this.pessoas = [];
-      //this.pessoas.push(new Pessoa());
-      this.pessoa = new Pessoa();
-
-      //this.butao = false;
-
-    }
-    if (this.externo.length > 0) {
-      this.externo.push(this.parteExterna)
-      this.fase1.externo = (this.externo);
-      this.parteExterna = new ParteExterna();
-      //this.externo = [];
-    }
-    if (this.interno.length > 0) {
-      this.interno.push(this.parteInterna)
-      this.fase1.interno = (this.interno);
-      this.parteInterna = new ParteInterna();
-      //this.interno = [];
-    }
-    console.log(this.fase1);
-    //console.log(this.fase1);    
-  /*   if (this.fase1Id == "-") {
-      console.log("dub");
-      this.fase1Service.register(this.fase1).subscribe(
-        (res: Fase1) => {
-          this.fase1 = res;
-          this.fase1Id = res._id;
-
-          console.log(1, res);
-          this.projetoService.addFase1(this.projetoCreated._id, res).subscribe(
-            (res: Fase1) => {
-              console.log(2, res);
-              alert("Os dados foram salvos com sucesso!")
-            }
-          )
-        }
-      )
       return;
     } */
 
-   /*  this.fase1Service.update(this.fase1Id, this.fase1).subscribe(
-      (res: Fase1) => {
-        console.log("atualizaou fase")
-        console.log(res);
-        this.fase1 = res;
-        alert("Os dados foram atualizados com sucesso!");
+    if (this.fase1.externo.length == 0) {
+      //console.log("Partes externas vazia")
+    }
+    if (this.fase1.interno.length == 0) {
+      //console.log("Partes internas vazia") // verificando se foi adicionado elementos nas listas da fase1
+    }
+    if (this.fase1.pessoas.length == 0) {
+      //console.log("Pessoas vazia")
+    }
 
-      }
-    ) */
-  }
+    if (this.fase1._id != undefined) {
+      console.log("fase não no banco")
+    }
 
-  addTopografia() {
-    if (this.fase2Id == "-") {
-      console.log("dub");
-      this.fase2Service.register(this.fase2).subscribe(
-        (res: Fase1) => {
-          this.fase1 = res;
-          this.fase2Id = res._id;
-
+    //console.log(this.fase1);    
+    if (this.fase1._id == undefined) {
+      console.log("adding phase");
+      console.log(this.projetoCreated);
+      this.fase1Service.register(this.fase1).then(
+        res => {
           console.log(1, res);
-          this.projetoService.addFase1(this.projetoCreated._id, res).subscribe(
-            (res: Fase1) => {
-              console.log(2, res);
-              alert("Os dados foram salvos com sucesso!")
+          this.fase1 = res;
+          this.projetoService.addFase1(this.projetoCreated._id, this.fase1).then(
+            (res) => {
+              console.log(22, this.projetoCreated, res);
+              return;
             }
           )
         }
       )
+
+      /* this.fase1Service.register(this.fase1).subscribe(
+        (res: Fase1) => {
+          this.fase1 = res;
+          localStorage.setItem('fase1_id', res._id);
+          setTimeout(() => {
+            this.projetoService.addFase1(this.projetoCreated._id, res).subscribe(
+              (res: Fase1) => {
+                console.log(2, res);
+                alert("Os dados foram salvos com sucesso!")
+              }
+            )
+          }, 200);
+          console.log(1, res);
+        }
+      ) */
+      console.log("fim!");
       return;
     }
 
-    this.fase1Service.update(this.fase1Id, this.fase1).subscribe(
+    this.fase1Service.update(this.fase1._id, this.fase1).then(
       (res: Fase1) => {
-        console.log("atualizaou fase")
+        console.log("atualizou fase")
         console.log(res);
         this.fase1 = res;
         alert("Os dados foram atualizados com sucesso!");
@@ -232,15 +282,34 @@ export class RegisterProjectComponent implements OnInit {
     )
   }
 
+  addTopografia() {
+    if (this.fase2._id == undefined) {
+      console.log("dub");
+      this.fase2Service.register(this.fase2).subscribe(
+        (res: Fase2) => {
+          this.fase2 = res;
+          localStorage.setItem('fase2_id', res._id)
 
-  addInternoItem() {
-    //this.fase1.interno.push(new ParteInterna());
-    this.interno.push(new ParteExterna())
+          console.log(1, res);
+          this.projetoService.addFase2(this.projetoCreated._id, res).subscribe(
+            (res: Fase1) => {
+              console.log(2, res);
+              alert("Os dados foram salvos com sucesso!")
+            }
+          )
+        }
+      )
+      return;
+    }
+
+    this.fase2Service.update(this.fase2._id, this.fase2).subscribe(
+      (res: Fase2) => {
+        console.log("atualizaou fase")
+        console.log(res);
+        this.fase2 = res;
+        alert("Os dados foram atualizados com sucesso!");
+
+      }
+    )
   }
-
-  addExternoItem() {
-    //this.fase1.externo.push(new ParteExterna())
-    this.externo.push(new ParteExterna());
-  }
-
 }

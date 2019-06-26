@@ -7,9 +7,10 @@ import { ProjectsComponent } from './projects/projects.component';
 import { AppRoutingModule } from 'src/app/app-routing/app-routing.module';
 import { CurrentProjectComponent } from './current-project/current-project.component';
 import { RegisterProjectComponent } from './register-project/register-project.component';
+import { EquipesComponent } from './equipes/equipes.component';
 
 @NgModule({
-  declarations: [UserMainComponent, ProjectsComponent, CurrentProjectComponent, RegisterProjectComponent],
+  declarations: [UserMainComponent, ProjectsComponent, CurrentProjectComponent, RegisterProjectComponent, EquipesComponent],
 
   exports:[
     UserMainComponent, ProjectsComponent

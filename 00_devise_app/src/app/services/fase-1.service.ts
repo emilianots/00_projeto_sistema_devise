@@ -11,15 +11,33 @@ export class Fase1Service {
 
   constructor(private httpClient: HttpClient) { }
 
-  register(fase: Fase1){
-    return this.httpClient.post<Fase1>(`${this.url}/register`, fase);
+  async register(fase: Fase1){
+    let nFase: Fase1 = new Fase1();
+    await this.httpClient.post<Fase1>(`${this.url}/register`, fase).toPromise().then(
+      (res: Fase1)=>{
+        nFase = res;
+      }
+    )
+    return nFase;
   }
 
-  update(id: string, fase: Fase1){
-    return this,this.httpClient.put<Fase1>(`${this.url}/update/${id}`, fase);
+   async update(id: string, fase: Fase1){
+     let nFase: Fase1 = new Fase1();
+    await this.httpClient.put<Fase1>(`${this.url}/update/${id}`, fase).toPromise().then(
+      (res: Fase1)=>{
+        nFase = res;
+      }
+    )
+    return nFase;
   }
 
-  retrieve(id:string){
-    return this.httpClient.get(`${this.url}/retrieve/${id}`);
+  async retrieve(id:string){
+    let nFase: Fase1;
+    await this.httpClient.get(`${this.url}/retrieve/${id}`).toPromise().then(
+      (res: Fase1)=>{
+        nFase = res
+      }
+    )
+    return nFase;
   }
 }

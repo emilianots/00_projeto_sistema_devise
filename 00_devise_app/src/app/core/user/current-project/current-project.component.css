@@ -36,7 +36,7 @@ select{
 .back-btn {
     position: absolute;
     top: 10%;
-    left: -216px;
+    left: 0;
     width: 20%;
     height: 5%;
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .3);
@@ -75,6 +75,12 @@ select{
     font-size: 20px;
 }
 
+.sm-btn{
+    background-color: rgb(241, 78, 61);
+    color: white;
+    font-family: "AsapMedium";
+}
+
 .current-proj-body{
     margin: 0 auto;
     height: calc(100vh - 80px);
@@ -87,6 +93,7 @@ select{
     display: block;
     width: 100%;
     margin-top: 30px;
+    font-family: "AsapMedium"
 }
 
 
@@ -174,6 +181,10 @@ select{
     padding: 20px;
 }
 
+form.form-container h5{
+    margin-top: 0px;
+}
+
 .proj-desc p{
     font-size: 20px;
 }
@@ -186,4 +197,70 @@ select{
     margin-top: 5px;
     background: rgb(241, 78, 61);
 }
+
+/* Chat Inicio */
+
+#chat{
+    position: fixed;
+    bottom: 0vh;
+    right: 7vw;
+}
+
+.card-header{
+    background: rgb(241, 78, 61);
+    color: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+#chatInput{
+    margin-top: 8px;
+}
+.list-panel{
+    margin: 5px 0px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+.rm-elemento{
+    background-color: rgb(241, 78, 61);
+    color: white;
+    padding: 0px 5px;
+}
+
+.chat-body{
+    width: 30vw;
+    height: 500px;   
+}
+
+.msg-user{
+    width: 80%;
+    background: rgb(241, 78, 61);
+    color: white;
+    float: left;
+    margin: 10px;
+}
+
+.msgs{
+    position: relative;
+    overflow: scroll;
+    height: 440px;
+}
+
+.msg-prof{
+    width: 80%;
+    float: right;
+    margin: 5px;
+}
+
+.new-proj-btn {
+    border-radius: 7px;
+    padding: 10px 20px;
+    background-color: rgb(241, 78, 61);
+    color: white;
+    font-size: 20px;
+}
+
+/* Chat Fim */
 

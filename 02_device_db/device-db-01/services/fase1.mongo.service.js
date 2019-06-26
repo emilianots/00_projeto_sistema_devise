@@ -29,6 +29,7 @@ class Fase1Service {
         fase1Model.findByIdAndUpdate(req.params.id, req.body, { 'new': true }).then(
             (fase1) => {
                 res.status(201).json(fase1);
+                
             }
         ).catch((err) => {
             res.status(500).json(err);

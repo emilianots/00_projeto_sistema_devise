@@ -8,7 +8,9 @@
     <div class="register-menu col-3">
         <div class="fases">
             <div class="fase-btn" [ngClass]="{'select': menuLateral == 0}" (click)="menuLateral = 0">
-                Projeto: {{projeto.nome}}
+                Ordem de serviço
+            </div>
+            <div class="fase-btn" [ngClass]="{'select': menuLateral == 1}" #2 (click)="menuLateral = 1">Necessidades
             </div>
             <div class="fase-btn" [ngClass]="{'select': menuLateral == 2}" (click)="menuLateral = 2">Topografia</div>
             <div class="fase-btn" [ngClass]="{'select': menuLateral == 3}" (click)="menuLateral = 3">Anteprojeto</div>
@@ -17,12 +19,12 @@
         </div>
 
         <div class="cliente-panel">
-            <img src="../../../../assets/img/usersIcons/icon_01.png" alt="Cliente" class="cli-avatar">
-            <h4>Nome do cliente</h4>
+            <!-- <img src="../../../../assets/img/usersIcons/icon_01.png" alt="Cliente" class="cli-avatar"> -->
+            <h4>Cliente: {{projeto.nomeCliente}}</h4>
         </div>
         <div class="money-panel">
             <span>Orçamento estimado:</span>
-            <span class="money">RS1000000</span>
+            <span class="money">RS{{projeto.orcamento}}</span>
         </div>
 
     </div>
@@ -46,6 +48,13 @@
                                 placeholder="Nome" [(ngModel)]="projeto.nome" #projNome="ngModel">
                         </div>
                         <div class="form-group col-8">
+                            <label for="descProj">Endereço</label>
+                            <input type="text" class="form-control outline" required name="descProj" id="descProj"
+                                placeholder="Descrição do projeto" [(ngModel)]="projeto.endereco" #descProj="ngModel">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-12">
                             <label for="descProj">Descrição do projeto</label>
                             <textarea type="text" class="form-control outline" required name="descProj" id="descProj"
                                 placeholder="Descrição do projeto" [(ngModel)]="projeto.descricao"
@@ -53,49 +62,318 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-container">
+                    <h5>Dados do cliente</h5>
+                    <hr>
+                    <div class="fom-row">
+                        <div class="form-row">
+                            <div class="form-group col-5" *ngIf="!addClienteBtn">
+                                <label for="addClienteId">Email do cliente no Devise</label>
+                                <input type="text" class="form-control outline" required name="addClienteId"
+                                    id="addClienteId" placeholder="E-mail do cliente" #addClienteId>
+                                <button type="button" class="btn sm-btn" (click)="toggleAddCliForm()">Adicionar</button>
+                                <button type="button" class="btn" (click)="toggleAddCliForm()">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="form-row">
-                    <div class="form-group col-3">
-                        <label for="metragemX">Metragem total m²</label>
-                        <input type="text" class="form-control outline" required name="metragemX" id="metragemX"
-                            placeholder="Metragem largura" #metragemX [(ngModel)]="projeto.metragemX">
-                    </div>
-                    <div class="form-group col-3">
-                        <label for="qtdMoradore">Número de moradores</label>
-                        <input type="text" class="form-control outline" required name="qtdMoradore" id="qtdMoradore"
-                            placeholder="Quantidade de moradores" #metragemX [(ngModel)]="fase1.qtdPessoas">
-                    </div>
+                    <div class="form-row" *ngIf="addClienteBtn">
+                        <div class="form-group col-4">
+                            <label for="nomeCliente">Nome do cliente</label>
+                            <input type="text" class="form-control outline" required name="nomeCliente" id="nomeCliente"
+                                placeholder="Nome do cliente" [(ngModel)]="projeto.nomeCliente" #nomeCliente>
+                        </div>
+                        <div class="form-group col-5">
+                            <label for="enderecoCliente">Endereço do cliente</label>
+                            <input type="text" class="form-control outline" required name="enderecoCliente"
+                                id="enderecoCliente" placeholder="Nome do cliente" [(ngModel)]="projeto.enderecoCliente"
+                                #enderecoCliente>
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="emailCliente">E-mail do cliente</label>
+                            <input type="text" class="form-control outline" required name="emailCliente"
+                                id="emailCliente" placeholder="E-mail do cliente" [(ngModel)]="projeto.emailCliente"
+                                #emailCliente>
+                        </div>
 
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-3">
-                        <label for="freqUso">Frequencia de uso</label>
-                        <input type="text" class="form-control outline" required name="freqUso" id="freqUso"
-                            placeholder="Nome" [(ngModel)]="fase1.freqUso" #freqUso="ngModel">
-                    </div>
-                    <div class="form-group col-3">
-                        <label for="clima">Clima do local</label>
-                        <input type="text" class="form-control outline" required name="clima" id="clima"
-                            placeholder="Descrição do projeto" [(ngModel)]="fase1.clima" #clima="ngModel">
+                        <!--  <div class="form-group col-4" *ngIf="addClienteBtn">
+                            <button type="button" class="btn sm-btn" (click)="toggleAddCliForm()">Adicionar
+                                cliente da
+                                plataforma</button>
+                        </div> -->
                     </div>
                 </div>
-                <div class="form-row" *ngFor="let p of pessoas">
-                    <div class="form-group col-3">
-                        <label for="tipo">Frequencia de uso</label>
-                        <input type="text" class="form-control outline" required name="tipo" id="tipo"
-                            placeholder="Nome" [(ngModel)]="p.tipo" #tipo="ngModel">
+                <div class="form-container">
+                    <div class="form-row">
+                        <div class="form-group col-3">
+                            <label for="orcamento">Orçamento estimado</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">R$</div>
+                                </div>
+                                <input type="number" class="form-control outline" required name="orcamento"
+                                    id="orcamento" [(ngModel)]="projeto.orcamento" #orcamento>
+                            </div>
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="dataOrdemServico">Data da ordem de serviço</label>
+                            <input type="date" class="form-control outline" required name="dataOrdemServico"
+                                id="dataOrdemServico" placeholder="Largura em metros" [(ngModel)]="data"
+                                #dataOrdemServico>
+                        </div>
+
                     </div>
-                    <div class="form-group col-3">
-                        <label for="clima">Clima do local</label>
-                        <input type="text" class="form-control outline" required name="clima" id="clima"
-                            placeholder="Descrição do projeto" [(ngModel)]="p.tipo" #clima="ngModel">
+                    <div class="form-row">
+                        <div class="form-group col-3">
+                            <label for="metrageX">Largura do terreno</label>
+                            <input type="text" class="form-control outline" required name="metrageX" id="metrageX"
+                                placeholder="Largura em metros" [(ngModel)]="projeto.metragemX" #metrageX>
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="metrageZ">Comprimento do terreno</label>
+                            <input type="text" class="form-control outline" required name="metrageZ" id="metrageZ"
+                                placeholder="Comprimento em metros" [(ngModel)]="projeto.metragemZ" #metrageZ>
+                        </div>
+                        <div class="col-3" *ngIf="projeto.metragemX && projeto.metragemZ">
+                            <label for="metrage-total">Total</label>
+                            <div class="mmetragem-total">
+                            </div>
+                            <input type="text" value="{{projeto.metragemX * projeto.metragemZ}}m²" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-container" *ngIf="fase1.clima != null">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12">
+
+                                <h5>
+                                    Detalhes sobre a moradia
+                                </h5>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-4">
+                                <label for="clima">Informe o clima do local</label>
+                                <input type="text" class="form-control outline" required name="clima" id="clima"
+                                    [(ngModel)]="fase1.clima" #clima="ngModel" placeholder="Informe o clima">
+
+                            </div>
+                            <div class="form-group col-8">
+                                <label for="freqUso">Frequência de uso dos moradores</label>
+                                <input type="text" class="form-control outline" required name="freqUso" id="freqUso"
+                                    [(ngModel)]="fase1.freqUso" #freqUso="ngModel"
+                                    placeholder="Frequência de uso dos moradores">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <button type="submit" class="btn new-proj-btn outline">Salvar projeto</button>
+
+                <button type="submit" class="btn new-proj-btn outline">Atualizar informações</button>
             </form>
         </div>
 
+        <div class="necessidades" *ngIf="menuLateral == 1">
+            <div class="add-necessidade">
+                <button (click)="fase1Panel = true" *ngIf="!fase1Panel">Adicionar dados de necessidades</button>
+            </div>
+            <div class="necessidades-panel">
+                <!-- NG IF AQUI -->
+
+                <div class="form-container">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>
+                                    Detalhes sobre a moradia
+                                </h5>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-4">
+                                <label for="clima">Informe o clima do local</label>
+                                <input type="text" class="form-control outline" required name="clima" id="clima"
+                                    [(ngModel)]="fase1.clima" #clima="ngModel" placeholder="Informe o clima">
+
+                            </div>
+                            <div class="form-group col-8">
+                                <label for="freqUso">Frequência de uso dos moradores</label>
+                                <input type="text" class="form-control outline" required name="freqUso" id="freqUso"
+                                    [(ngModel)]="fase1.freqUso" #freqUso="ngModel"
+                                    placeholder="Frequência de uso dos moradores">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-container">
+                    <div class="col-12">
+                        <!-- listagem de pessoas -->
+                        <div class="row ">
+                            <div class="col-12">
+                                Lista de moradores:
+                            </div>
+                        </div>
+                        <div class="list-panel">
+                            <div class="row" *ngFor="let morador of fase1.pessoas">
+                                <div class="col-3">
+                                    <p>Tipo: {{morador.tipo}}</p>
+                                </div>
+
+
+                                <div class="col-7">
+                                    <p>Descrição: {{morador.descricao}}</p>
+                                </div>
+                                <div class="col-2">
+                                    <button type="button" (click)="rmMorador(morador.tipo)"
+                                        class="btn rm-elemento">Remover</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- registro de pessoa -->
+                        <div class="form-row">
+                            <div class="form-group col-4">
+                                <label for="pesTipo">Tipo especial de morador</label>
+                                <input type="text" class="form-control outline" name="pesTipo" id="pesTipo"
+                                    [(ngModel)]="pessoa.tipo" #pesTipo="ngModel"
+                                    placeholder="Tipo especial de integrante">
+                            </div>
+                            <div class="form-group col-8">
+                                <label for="pesDescricao">Descrição</label>
+                                <input type="text" class="form-control outline" name="pesDescricao" id="pesDescricao"
+                                    [(ngModel)]="pessoa.descricao" #pesDescricao="ngModel" placeholder="Descrição">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-3">
+                                <button type="button" class="btn sm-btn" (click)="addMorador()">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FASE 1 - PARTE EXTERNA -->
+                <div class="form-container">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>
+                                    Detalhes sobre a parte exterior
+                                </h5>
+                                <hr>
+                            </div>
+                        </div>
+
+                        <!-- FASE 1 - lista de elementos já cadastrados - parte externa -->
+                        <div class="row ">
+                            <div class="col-12">
+                                Partes externas:
+                            </div>
+                        </div>
+                        <div class="list-panel">
+                            <div class="row" *ngFor="let pExterna of fase1.externo">
+                                <div class="col-3">
+                                    <p>Tipo: {{pExterna.tipo}}</p>
+                                </div>
+
+
+                                <div class="col-7">
+                                    <p>Descrição: {{pExterna.descricao}}</p>
+                                </div>
+                                <div class="col-2">
+                                    <button type="button" (click)="rmPExterna(pExterna.tipo)"
+                                        class="btn rm-elemento">Remover</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FASE 1 - formularios de registro part externa -->
+                        <div class="parte-externa-form">
+                            <div class="form-row">
+                                <div class="form-group col-12">
+                                    <label for="ptExterna">Tipo</label>
+                                    <input type="text" class="form-control outline" name="ptExterna" id="ptExterna"
+                                        [(ngModel)]="parteExterna.tipo" #ptExterna="ngModel" placeholder="Tipo">
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-12">
+                                    <label for="descExterna">Descrição</label>
+                                    <textarea type="text" class="form-control outline" name="descExterna"
+                                        id="descExterna" [(ngModel)]="parteExterna.descricao" #descExterna="ngModel"
+                                        placeholder="Descrição"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-3">
+                                    <button type="button" class="btn sm-btn" (click)="addPExterna()">Adicionar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FASE 1 - PARTE INTERNA -->
+                <div class="form-container">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>
+                                    Detalhes sobre a parte interior
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-12">
+                                Partes internas:
+                            </div>
+                        </div>
+                        <div class="list-panel">
+                            <div class="row" *ngFor="let ptInterna of fase1.interno">
+                                <div class="col-3">
+                                    <p>Tipo: {{ptInterna.tipo}}</p>
+                                </div>
+
+
+                                <div class="col-7">
+                                    <p>Descrição: {{ptInterna.descricao}}</p>
+                                </div>
+                                <div class="col-2">
+                                    <button type="button" (click)="rmPInterna(ptInterna.tipo)"
+                                        class="btn rm-elemento">Remover</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- formularios parte interna -->
+                        <div class="form-row">
+                            <div class="form-group col-12">
+                                <label for="ptInterna">Tipo de cômodo</label>
+                                <input type="text" class="form-control outline" name="ptInterna" id="ptInterna"
+                                    [(ngModel)]="parteInterna.tipo" #ptInterna="ngModel" placeholder="Tipo de cômodo">
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-12">
+                                <label for="descInterna">Descrição</label>
+                                <textarea type="text" class="form-control outline" name="descInterna" id="descInterna"
+                                    [(ngModel)]="parteInterna.descricao" #descInterna="ngModel"
+                                    placeholder="Descrição"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-3">
+                                <button type="button" class="btn sm-btn"
+                                    (click)="addPInterna()">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" (click)="addFase1()" class="btn new-proj-btn outline">Registrar necessidades</button>
+            </div>
+        </div>
         <div class="topografia" *ngIf="menuLateral == 1">
 
         </div>
@@ -104,6 +382,37 @@
         </div>
         <div class="projeto-executivo" *ngIf="menuLateral == 3">
 
+        </div>
+    </div>
+
+    <!-- CHAAT -->
+    <div class="chat" id="chat">
+        <div class="card">
+            <div class="card-header" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
+                aria-controls="collapseOne" id="headingOne">
+                <h4>Chat</h4>
+            </div>
+
+            <div id="collapseOne" class="collapse chat-body" aria-labelledby="headingOne" data-parent="#chat">
+                <div class="msgs">
+                    <div class="card" *ngFor="let msg of chat.msgs" [ngClass]="msgStyle(msg.remet)">
+                        <div class="card-body msg-user-body">
+                            {{ msg.msg }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-9">
+                        <input type="text" class="form-control outline" required name="chatInput" id="chatInput"
+                            placeholder="Insira alguma mensagem" #chatInput>
+                    </div>
+                    <div class="col3">
+                        <button type="button" id="enviar-btn" class="relator-btn btn"
+                            (click)="msgSend(chatInput.value)">Enviar</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

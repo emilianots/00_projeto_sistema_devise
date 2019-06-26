@@ -1,0 +1,21 @@
+<div class="background"></div>
+
+<div class="user-main-container">
+  <div class="user-status-panel">
+    <img src="../../../../assets/img/usersIcons/icon_01.png" alt="Avatar">
+    <h3>{{user.nome}}</h3>
+    <button class="btn btn-primary">Editar perfil</button>
+    <div class="notify-panel">
+
+    </div>
+  </div>
+  <div class="user-main-panel">
+    <div class="user-btns">
+      <button class='btn main-tab-btn outline' (click)="toProjects()" [ngClass]="{'selected': onTab == 0}">Projetos</button>
+      <button class='btn main-tab-btn outline' (click)="toConfig()" [ngClass]="{'selected': onTab == 3}">Configurações</button>
+    </div>
+    <div class="user-main-op-panel">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

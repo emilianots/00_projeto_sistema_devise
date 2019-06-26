@@ -20,20 +20,42 @@ class ProjetoService {
         ).catch((err) => { res.status(500).json(err) })
     }
 
+    static listProjetosCli(req, res) {
+        ProjetoModel.find({ "idCliente": req.params.idCliente }).populate('fase1 fase2 fase3 fase4').then(
+            (projetos) => {
+                res.status(201).json(projetos);
+            }
+        ).catch((err) => {
+            res.status(500).json(err)
+            console.log(err)
+        })
+    }
+
     static update(req, res) {
-        ProjetoModel.findOneAndUpdate({ '_id': req.params._id }, req.body, { 'new': true }).then(
+        ProjetoModel.findOneAndUpdate({ '_id': req.params.id }, req.body, { 'new': true }).then(
             (projeto) => {
-                res, status(201).json(projeto)
+                res.status(201).json(projeto)
+            }
+        ).catch((err) => {
+            res.status(500).json(err)
+            console.log(err)
+        })
+    }
+
+   /*  static update(req, res) {
+        ProjetoModel.findOneAndUpdate({ '_id': req.params.id }, req.body, { 'new': true }).then(
+            (projeto) => {
+                res.status(201).json(projeto)
             }
         ).catch((err) => { res.status(500).json(err) })
-    }
+    } */
 
     static delete(req, res) {
         ProjetoModel.findOneAndDelete({ '_id': req.params.id }).catch((err) => { res.status(500).json(err) })
     }
 
     static retrieve(req, res) {
-        ProjetoModel.findById({"_id": req.params.id}).then(
+        ProjetoModel.findById({ "_id": req.params.id }).then(
             (projeto) => {
                 res.status(201).json(projeto);
             }

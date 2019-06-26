@@ -26,6 +26,10 @@ export class ProjetoService {
     return this.httpClient.get<Projeto>(`${this.url}/retrieve/${id}`)
   }
 
+  retrieveClienteProjects(id:string){
+    return this.httpClient.get<Projeto[]>(`${this.url}/list/${id}`);
+  }
+
   retrieveById(id: string): Observable<Projeto>{
     return this.httpClient.get<Projeto>(`${this.url}/retrieve/${id}`)
   }
@@ -34,8 +38,15 @@ export class ProjetoService {
     return this.httpClient.put<Projeto>(`${this.url}/update/${id}`, projeto);
   }
 
-  addFase1(idProjeto: string, fase1: Fase1){
-    return this.httpClient.put(`${this.url}/novaFase/1/${idProjeto}`, fase1);
+  async addFase1(idProjeto: string, fase1: Fase1){
+    console.log(idProjeto);
+    let nProjeto: Projeto;
+    await this.httpClient.put(`${this.url}/novaFase/1/${idProjeto}`, fase1).toPromise().then(
+      (res: Projeto)=>{
+        nProjeto = res;
+      }
+    )
+    return nProjeto;
   }
 
   addFase2(idProjeto: string, fase2: Fase2){

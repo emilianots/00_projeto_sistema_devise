@@ -1,0 +1,12 @@
+<div class="proj-panel-body" ng-init="updateFront()">
+  <div class="proj-title-1 row">
+    <h2 class="col-md-8">Projetos em andamento</h2>
+    <input type="text" class="form-control col-md-4">
+  </div>
+  <div class="proj-curent-panel">
+    <button class=" btn proj-btn outline" *ngFor="let proj of projetos" (click)="navigateTo(proj._id)">
+      {{proj.nome}}
+    </button>
+  </div>
+  <router-outlet></router-outlet>
+</div>

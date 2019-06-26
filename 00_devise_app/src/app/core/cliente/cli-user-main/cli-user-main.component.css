@@ -1,0 +1,79 @@
+*{
+    box-sizing: border-box;
+    font-family: "AsapMedium"
+}
+*:focus{
+    border: transparent;
+}
+.outline:focus{
+    box-shadow: 0 0 0 3px rgb(241, 78, 61);
+}
+.background{
+    position: absolute;
+    height: 130px;
+    width: 100%;
+    background-color: rgb(211, 211, 211);
+    z-index: -10;
+}
+.user-main-container{
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 40px 80px;
+}
+.user-status-panel{
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 1px 5px 2px rgba(0, 0, 0, .2);
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+}
+.user-status-panel img{
+    height: 150px;
+    width: 150px;
+}
+.user-status-panel .notify-panel{
+    position: absolute;
+    width: 400px;
+    height: 50%;
+    left: 80px;
+    top: 400px;
+}
+.user-status-panel .notify-panel::after{
+    content: "";
+    display: block;
+    width: 2px;
+    height: 100%;
+    background: rgb(241, 78, 61);
+}
+.user-main-panel{
+    width: 60vw;
+    height: 30px;
+    margin-top: 60px;
+    padding: 0px 30px
+}
+.user-main-panel .user-btns{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.user-main-panel .user-btns button{
+    background: white;
+    margin: 0px 30px 0px 0px;
+    padding: 10px 40px;
+    font-size: 20px;
+    border-radius: 7px 7px 0px 0px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-bottom: transparent;
+}
+.user-main-op-panel{
+    height: 70vh;
+    width: 100%;
+}

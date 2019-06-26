@@ -1,0 +1,387 @@
+<div class="back-btn" (click)="toPanel()">
+    <span>Voltar ao painel de projetos</span>
+</div>
+<div class="container-fluid row">
+    <div class="register-menu col-3">
+        <div class="fases">
+            <div class="fase-btn" [ngClass]="{'select': menuLateral == 0}" #1 (click)="menuLateral = 0">Projeto:
+                {{projetoNovo.nome}}</div>
+            <div class="fase-btn" [ngClass]="{'select': menuLateral == 1}" #2 (click)="menuLateral = 1">Necessidades
+            </div>
+            <div class="fase-btn" [ngClass]="{'select': menuLateral == 2}" #3 (click)="menuLateral = 2">Topografia</div>
+            <div class="fase-btn" [ngClass]="{'select': menuLateral == 3}" #4 (click)="menuLateral = 3">Anteprojeto
+            </div>
+            <div class="fase-btn" [ngClass]="{'select': menuLateral == 4}" #5 (click)="menuLateral = 4">Projeto
+                Executivo
+            </div>
+        </div>
+        <div class="cliente-panel">
+            <img src="../../../../assets/img/usersIcons/icon_01.png" alt="Cliente" class="cli-avatar">
+            <h4>Nome do cliente</h4>
+        </div>
+        <div class="money-panel">
+            <span>Orçamento estimado:</span>
+            <span class="money">RS1000000</span>
+        </div>
+
+    </div>
+
+    <div class="register-body col-9">
+
+        <div class="projeto" *ngIf="menuLateral == 0">
+            <h3>Crie um novo projeto</h3>
+            <form (ngSubmit)="newProjeto(registerForm, tipoConstrucao.value, metragem.value)" #registerForm="ngForm">
+                <div class="form-row">
+                    <div class="form-group col-4">
+                        <label for="projNome">Nome do projeto</label>
+                        <input type="text" class="form-control outline" required name="projNome" id="projNome"
+                            placeholder="Nome" [(ngModel)]="projetoNovo.nome" #projNome="ngModel">
+                    </div>
+                    <div class="form-group col-8">
+                        <label for="descNome">Descrição do projeto</label>
+                        <textarea type="text" class="form-control outline" required name="descNome" id="descNome"
+                            placeholder="Descrição do projeto" [(ngModel)]="projetoNovo.descricao"
+                            #descNome="ngModel"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-4">
+                        <label for="tipoConstrucao">Selecione o tipo de construção</label>
+                        <select type="text" class="form-control outline" required name="tipoConstrucao"
+                            id="tipoConstrucao" #tipoConstrucao>
+                            <option value="Flet">Flet</option>
+                            <option value="Kitnet">Kitnet</option>
+                            <option value="Edicula">Edícula</option>
+                            <option value="CasaComum">Casa comum</option>
+                            <option value="CasaDuplex">Casa Duplex</option>
+                            <option value="CasaTriplex">Casa triplex</option>
+                            <option value="Loft">Loft</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="tipoConstrucao">Informe a metragem</label>
+                        <div class="col">
+                            <input type="text" class="form-control outline" required name="metragem" id="metragem"
+                                placeholder="metragem²" #metragem>
+                        </div>
+
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="descNome">Números de cômodos</label>
+                        <input type="number" type="" class="form-control outline" required name="qtdComodos"
+                            id="qtdComodos" [(ngModel)]="projetoNovo.qtdComodos" #qtdComodos="ngModel">
+                    </div>
+
+                </div>
+                <button type="submit" class="btn new-proj-btn outline">Salvar projeto</button>
+            </form>
+        </div>
+
+        <div class="necessidades" *ngIf="menuLateral == 1">
+            <div class="tab-panel">
+                <button class="btn tab-btns outline" [ngClass]="{'selected': nescessidade == 0}"
+                    (click)="nescessidade = 0">Moradia</button>
+                <button class="btn tab-btns outline" [ngClass]="{'selected': nescessidade == 1}"
+                    (click)="nescessidade = 1">Parte externa</button>
+                <button class="btn tab-btns outline" [ngClass]="{'selected': nescessidade == 2}"
+                    (click)="nescessidade = 2">Parte interna</button>
+            </div>
+
+            <!-- Painel da moradia -->
+            <div class="moradia" *ngIf="nescessidade == 0">
+                <!-- <form (ngSubmit)="projetoNovo" #necessidadesForm="ngForm"> -->
+                <form #moradia name="moradia" id="moradia"
+                    (ngSubmit)="addMoradia(clima.value, qtdPessoas.value, freqUso.value)" #moradia="ngForm">
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label for="clima">Clima</label>
+                            <select type="text" class="form-control outline" required name="clima" id="clima" #clima>
+                                <option value="Semiarido">Semiárido</option>
+                                <option value="Equatorial">Equatorial</option>
+                                <option value="Tropical">Tropical</option>
+                                <option value="TropicalDeAltitude">Tropical de Altitude</option>
+                                <option value="TropicalAtlantico">Tropical Atlantico</option>
+                                <option value="Subtropical">Subtropical</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="freqUso">Frequência de uso</label>
+                            <select type="text" class="form-control outline" required name="freqUso" id="freqUso"
+                                #freqUso>
+                                <option value="Moradia">Moradia</option>
+                                <option value="Veraneio">Veraneio</option>
+                                <option value="FeriasSemestrais">Ferias semestrais</option>
+                                <option value="Empregados">Empregados</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="qtdPessoas">Número moradores</label>
+                            <input type="number" type="number" class="form-control outline" placeholder="0" required
+                                name="qtdPessoas" id="qtdPessoas" [(ngModel)]="projetoNovo.qtdComodos"
+                                #qtdPessoas="ngModel">
+                        </div>
+                        <button type="submit" class="btn new-proj-btn outline">Registrar</button>
+
+
+                        <!-- moradia integrantes -->
+                        <div class="detalhes-panel">
+                            <div class="detalhes-h">
+                                <h5>Detalhes sobre os integrantes</h5>
+                                <!-- <button type="button" (click)="butao = true"
+                                    class="btn add-integrante outline">Adicionar
+                                    integrante</button> -->
+                            </div>
+
+                            <div class="detalhes-body" *ngIf="butao">
+                                <div class="d-header row">
+                                    <span class="col-3">Tipo</span>
+                                    <span class="col-7">Descrição</span>
+                                    <!-- <button class=" btn del-itegrante outline col-1">Remover</button> -->
+                                </div>
+                                <div class="detalhes-items row">
+                                    <div class="form-group col-3">
+                                        <select type="text" class="form-control outline" required name="tipoIntegrante"
+                                            id="tipoIntegrante" #tipoIntegrante [(ngModel)]="pessoa.tipo"
+                                            [value]="pessoa.tipo">
+                                            <option value="Hobies">Hobies</option>
+                                            <option value="Deficiente">Deficiente</option>
+                                            <option value="Planos">Planos</option>
+                                            <option value="Animal">Tipo de animal</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-7">
+                                        <input type="text" class="form-control outline" placeholder="Descrição" required
+                                            name="descricaoIntegrante" id="descricaoIntegrante" #descricaoIntegrante
+                                            [(ngModel)]="pessoa.descricao">
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn del-integrante outline"
+                                            title="Remover Item">X</button>
+                                    </div>
+                                    <button type="submit" class="btn new-proj-btn outline">Registrar</button>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- painel da parte interna -->
+            <div class="parte-externa" *ngIf="nescessidade == 1">
+
+                <form #parteExtrena name="parteExterna" id="parteExterna" (ngSubmit)="addMoradia()">
+                    <div class="detalhes-panel">
+                        <div class="detalhes-h">
+                            <h5>Detalhes sobre a área externa</h5>
+                            <!-- <button type="button" class="btn add-integrante outline"
+                                (click)="addExternoItem()">Adicionar detalhe</button> -->
+                        </div>
+
+                        <div class="detalhes-body">
+                            <div class="d-header row">
+                                <span class="col-3">Tipo</span>
+                                <span class="col-5">Descrição</span>
+                                <span class="col-3">Metros²</span>
+                            </div>
+
+                            <div class="detalhes-items row">
+                                <div class="form-group col-3">
+                                    <select type="text" class="form-control outline" required name="tipoIntegrante"
+                                        id="tipoIntegrante" #tipoIntegrante [(ngModel)]="parteExterna.tipo">
+                                        <option value="Fachada">Fachada</option>
+                                        <option value="Alpendre">Alpendre</option>
+                                        <option value="Calçada">Calçada</option>
+                                        <option value="Edicula">Edicula</option>
+                                        <option value="Corredor">Corredor</option>
+                                        <option value="Jardim">Jardim</option>
+                                        <option value="Varanda">Varanda</option>
+                                        <option value="Deck">Deck</option>
+                                        <option value="Quintal">Quintal</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-5">
+                                    <input type="text" class="form-control outline" placeholder="Descrição" required
+                                        name="descricaoIntegrante" id="descricaoIntegrante" #descricaoIntegrante
+                                        [(ngModel)]="parteExterna.descricao">
+                                </div>
+                                <div class="form-group col-2">
+                                    <input type="number" class="form-control outline" placeholder="Metragem" required
+                                        name="metragem" id="metragem" #metragem [(ngModel)]="parteExterna.metragem">
+                                </div>
+                                <div class="col-2">
+                                    <button class="btn del-integrante outline" title="Remover Item">X</button>
+                                    <!-- <i class="fa fa-minus-square"></i> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn new-proj-btn outline">Registrar</button>
+                </form>
+            </div>
+
+
+            <div class="parte-interna" *ngIf="nescessidade == 2">
+                <form #parteIntern name="parteInterna" name="parteInterna" (ngSubmit)="addMoradia()">
+                    <div class="detalhes-panel">
+                        <div class="detalhes-h">
+                            <h5>Detalhes sobre a área Interna</h5>
+                            <!-- 
+                            <button type="button" class="btn add-integrante outline"
+                                (click)="addInternoItem()">Adicionar detalhe</button> -->
+                        </div>
+
+                        <div class="detalhes-body">
+                            <div class="d-header row">
+                                <span class="col-3">Tipo</span>
+                                <span class="col-5">Descrição</span>
+                                <span class="col-3">Metros²</span>
+                            </div>
+
+                            <div class="detalhes-items row">
+                                <div class="form-group col-3">
+                                    <select type="text" class="form-control outline" required name="tipoIntegrante"
+                                        id="tipoIntegrante" #tipoIntegrante [(ngModel)]="parteInterna.tipo">
+                                        <option value="SalaDeJantar">Sala de jantar</option>
+                                        <option value="SalaDeJogos">Sala de jogos</option>
+                                        <option value="SalaDeEstar">Sala de estar</option>
+                                        <option value="Banheiro">Banheiro</option>
+                                        <option value="Hall">Hall</option>
+                                        <option value="Quarto">Quarto</option>
+                                        <option value="Sotão">Sotão</option>
+                                        <option value="Andar">Andar</option>
+                                        <option value="Dispensa">Dipensa</option>
+                                        <option value="JardimInverno">Jardim inverno</option>
+                                        <option value="Antesala">Antesala</option>
+                                        <option value="Cozinha">Cozinha</option>
+                                        <option value="AreaDeServiço">Áre de serviço</option>
+                                        <option value="Corredor">Corredor</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-5">
+                                    <input type="text" class="form-control outline" placeholder="Descrição" required
+                                        name="descricaoIntegrante" id="descricaoIntegrante" #descricaoIntegrante
+                                        [(ngModel)]="parteInterna.descricao">
+                                </div>
+                                <div class="form-group col-2">
+                                    <input type="text" class="form-control outline" placeholder="Metragem" required
+                                        name="metragemInterno" id="metragemInterno" #metragemInterno
+                                        [(ngModel)]="parteInterna.metragem">
+                                </div>
+                                <div class="col-2">
+                                    <button class="btn del-integrante outline" title="Remover Item">X</button>
+                                    <!-- <i class="fa fa-minus-square"></i> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn new-proj-btn outline">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- registro de topografia -->
+        <div class="topografia" *ngIf="menuLateral == 2">
+
+            <div class="tab-panel">
+                <button class="btn tab-btns outline" [ngClass]="{'selected ': topografia == 0}"
+                    (click)="topografia = 0">Dados topográficos</button>
+                <button class="btn tab-btns outline" [ngClass]="{'selected ': topografia == 1}"
+                    (click)="topografia = 1">Estruturas existentes</button>
+            </div>
+
+            <div class="dados-topograficos" *ngIf="topografia == 0">
+                <form #dadosTopograficos name="dadosTopograficos" id="dadosTopograficos">
+                    <div class="detalhes-panel">
+                        <div class="detalhes-h">
+                            <h5>Detalhes sobre a área externa</h5><!-- 
+                            <button class="btn add-integrante outline">Adicionar detalhe</button> -->
+                        </div>
+
+                        <div class="detalhes-body">
+                            <div class="d-header row">
+                                <span class="col-3">Tipo</span>
+                                <span class="col-5">Descrição</span>
+                            </div>
+
+                            <div class="detalhes-items row">
+                                <div class="form-group col-3">
+                                    <select type="text" class="form-control outline" required name="tipoIntegrante"
+                                        id="tipoIntegrante" #tipoIntegrante>
+                                        <option value="Coordenadas">Coordenadas</option>
+                                        <option value="Relevo">Relevo</option>
+                                        <option value="CurvasDeNiveis">Curvas de níveil</option>
+                                        <option value="PerfilLongitudinal">Perfil longitudinal</option>
+                                        <option value="SecoesTransversais">Seções transversais</option>
+                                        <option value="AcidentesGeograficos">Acidentes gergráfi</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-7">
+                                    <input type="text" class="form-control outline" placeholder="Descrição" required
+                                        name="descricaoIntegrante" id="descricaoIntegrante" #descricaoIntegrante>
+                                </div>
+                                <div class="col-2">
+                                    <button class="btn del-integrante outline" title="Remover Item">X</button>
+                                    <!-- <i class="fa fa-minus-square"></i> -->
+                                </div>
+                                <button type="submit" class="btn new-proj-btn outline">Registrar</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="estruturas-existentes" *ngIf="topografia == 1">
+                <form #estruturasExistentes name="estruturasExistentes">
+                    <div class="detalhes-panel">
+                        <div class="detalhes-h">
+                            <h5>Estruturas existentes no local</h5><!-- 
+                            <button class="btn add-integrante outline">Adicionar detalhe</button> -->
+                        </div>
+
+                        <div class="detalhes-body">
+                            <div class="d-header row">
+                                <span class="col-3">Tipo</span>
+                                <span class="col-5">Descrição</span>
+                            </div>
+
+                            <div class="detalhes-items row">
+                                <div class="form-group col-3">
+                                    <select type="text" class="form-control outline" required name="tipoIntegrante"
+                                        id="tipoIntegrante" #tipoIntegrante>
+                                        <option value="Muro">Muro</option>
+                                        <option value="Poço">Poço</option>
+                                        <option value="Arvore">Árvore</option>
+                                        <option value="Calcada">Calçada</option>
+                                        <option value="Estrada">Estrada</option>
+                                        <option value="Ruinas">Ruínas</option>
+                                        <option value="Monumentos">Monumentos</option>
+                                        <option value="Ruinas">Ruínas</option>
+                                        <option value="Ruinas">Ruínas</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-7">
+                                    <input type="text" class="form-control outline" placeholder="Descrição" required
+                                        name="descricaoIntegrante" id="descricaoIntegrante" #descricaoIntegrante>
+                                </div>
+                                <div class="col-2">
+                                    <button class="btn del-integrante outline" title="Remover Item">X</button>
+                                    <!-- <i class="fa fa-minus-square"></i> -->
+                                </div>
+                                <button type="submit" class="btn new-proj-btn outline">Registrar</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>

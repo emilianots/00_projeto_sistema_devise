@@ -27,4 +27,8 @@ export class ProfissionalService {
   retrieveByLogin(login: string, senha: string){
     return this.httpClient.get(`${this.url}/retrieve/email/${login}/${senha}`);
   }
+
+  retrieveByEmail(email: string){
+    return this.httpClient.get(`${this.url}/retrieve/email/${email}`);
+  }
 }

@@ -19,7 +19,7 @@
   <!-- usuario logado -->
   <div class="header-items" *ngIf="user">
     <div class="user-btn">
-      <span>{{user.nome}}</span>
+      <span class="user-main-name">{{user.nome}}</span>
       <div class="user-menu">
         <a>Editar perfil</a>
         <a>Opção 1</a>
@@ -27,6 +27,6 @@
       </div>
 
     </div>
-    <a class="btn btn-lg register" (click)="logout()">Logout</a>
+    <button class="btn register" (click)="logout()">Logout</button>
   </div>
 </header>

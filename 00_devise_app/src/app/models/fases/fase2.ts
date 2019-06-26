@@ -1,5 +1,5 @@
 export class Fase2{
-    _is: string;
+    _id: string;
     edfLocal: Object[];
     levantTopografico: Object[];
     plantaTopografica: Object[];

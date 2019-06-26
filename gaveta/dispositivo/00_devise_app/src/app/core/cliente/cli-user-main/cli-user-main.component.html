@@ -1,0 +1,21 @@
+<div class="background"></div>
+
+<div class="user-main-container">
+  <div class="user-status-panel">
+    <img src="" alt="Avatar">
+    <h3>{{user.nome}}</h3>
+    <button class="btn btn-primary">Editar perfil</button>
+    <div class="notify-panel">
+
+    </div>
+  </div>
+  <div class="user-main-panel">
+    <div class="user-btns">
+      <button class='btn outline' (click)="toProjects()">Projetos</button>
+      <button class='btn outline'>Configurações</button>
+    </div>
+    <div class="user-main-op-panel">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,16 @@ export class Projeto{
     _id: string;
     nome: string;
     descricao: string;
+    endereco: string;
+
+    nomeCliente: string;
+    enderecoCliente: string;
+    telefoneCliente: string;
+    emailCliente: string;
+
+    idCliente: string;
+
+    chat: string;
 
     orcamento: number;
     

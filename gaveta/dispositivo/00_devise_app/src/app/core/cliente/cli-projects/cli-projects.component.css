@@ -1,0 +1,68 @@
+
+
+.outline:focus{
+    box-shadow: 0 0 0 3px rgb(241, 78, 61);
+}
+.proj-panel-body{
+    height: 100%;
+    width: 100%;
+    padding: 40px 0px 0px 0px;
+}
+.proj-title-1{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 0px;
+}
+.proj-title-1::after{
+    content: "";
+    display: block;
+    height: 3px;
+    width: 100%;
+    margin-top: 10px;
+    background-color: grey;
+}
+.proj-title-1 h2{
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    font-size: 25px;
+}
+.proj-curent-panel{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.proj-curent-panel .proj-btn{
+    background-color: rgb(14, 53, 84);
+    color: white;
+    height: 100px;
+    width: fit-content;
+    max-width: 300px;
+    min-width: 200px;
+    padding: 20px;
+    margin: 15px 20px 15px 0px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: start;
+}
+.new-proj-btn{
+    position: absolute;
+    right: 7%;
+    bottom: 8%;
+    height: 90px;
+    width: 90px;
+    display: flex;
+    padding: 4px 0px 0px 0;
+    justify-content: center;
+    align-items: center;
+    background: rgb(241, 78, 61);
+    border-radius: 50%;
+}
+.new-proj-btn span{
+    font-size: 80px;
+    margin: 0;
+    display: block;
+    color: white;
+
+}

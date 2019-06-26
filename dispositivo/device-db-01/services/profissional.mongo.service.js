@@ -1,5 +1,5 @@
 const ProfissionalModel = require('../models/profissional.model');
-//var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const authConfig = require('../config/auth');
 
@@ -72,19 +72,21 @@ class ProfissionalService {
         ProfissionalModel.findOne({ 'email': req.params.email }).populate('projetos').then(
             (profissional) => {
                 if (!profissional) {
+                    console.log("djdjd")
+
                     return res.status(400).json({ error: "Usuario inválido" })
                 }
 
-                /* if (!bcrypt.compareSync(req.params.senha, profissional.senha)) {
+                if (!bcrypt.compareSync(req.params.senha, profissional.senha)) {
                     res.status(401).json({ erro: 'Senha inválida!' });
                     return
-                } */
+                }
 
-                //profissional.senha = null;
+                profissional.senha = null;
 
                 res.status(201).json({
                     profissional,
-                    token: generateToken({_id: profissional._id})
+                    token: generateToken({ _id: profissional._id })
                 });
             }
         ).catch((err) => {

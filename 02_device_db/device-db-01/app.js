@@ -19,6 +19,8 @@ var fase4 = require('./routes/fase4.routes.mongo');
 
 var observacoes = require('./routes/observacao.routes.mongo') //ADICIONAR AQUI
 
+var chat = require('./routes/chat.routes.mongo');
+
 //main
 var app = express();
 
@@ -42,5 +44,6 @@ app.use('/fase2', fase2);
 app.use('/fase3', fase3);
 app.use('/fase4', fase4);
 app.use('/observacoes', observacoes);
+app.use('/chat', chat);
 
 module.exports = app;

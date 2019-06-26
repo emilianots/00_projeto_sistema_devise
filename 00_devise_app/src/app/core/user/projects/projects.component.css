@@ -47,22 +47,22 @@
     text-align: start;
 }
 .new-proj-btn{
-    position: absolute;
-    right: 7%;
-    bottom: 8%;
-    height: 90px;
-    width: 90px;
-    display: flex;
-    padding: 4px 0px 0px 0;
-    justify-content: center;
-    align-items: center;
-    background: rgb(241, 78, 61);
-    border-radius: 50%;
+    background-color: rgb(98, 107, 114);
+    color: white;
+    height: 100px;
+    width: fit-content;
+    max-width: 300px;
+    min-width: 200px;
+    padding: 20px;
+    margin: 15px 20px 15px 0px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: start;
 }
+
 .new-proj-btn span{
-    font-size: 80px;
+    font-size: 25px;
     margin: 0;
-    display: block;
     color: white;
 
 }

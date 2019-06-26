@@ -74,10 +74,18 @@ a{
     color: white;
 }
 
-.register{
+.user-main-name{
     color: white;
+}
+
+.register{
+    padding: 8px 18px;
+    border-radius: 5px;
     transition:  background .25s ease-in-out, color .25s ease-in-out;
     background: rgb(241, 78, 61);
+    color: white;
+    font-family: "AsapMedium";
+    font-size: 20px;
 }
 
 .register:hover{

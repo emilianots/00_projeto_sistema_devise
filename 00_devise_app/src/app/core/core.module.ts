@@ -1,3 +1,4 @@
+import { Cliente } from './../models/cliente';
 import { UserModule } from './user/user.module';
 import { AppRoutingModule } from './../app-routing/app-routing.module';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { ClienteModule} from './cliente/cliente.module';
 
 @NgModule({
   declarations: [HeaderComponent, HomeBodyComponent, FooterComponent, RegisterComponent, LoginComponent],
@@ -16,13 +18,16 @@ import { LoginComponent } from './login/login.component';
     HeaderComponent,
     HomeBodyComponent,
     FooterComponent,
-    RegisterComponent
+    RegisterComponent,
+
   ],
   imports: [
     CommonModule,
     FormsModule,
     AppRoutingModule,
-    UserModule
+    UserModule,
+    ClienteModule
+    
   ]
 })
 export class CoreModule { }
