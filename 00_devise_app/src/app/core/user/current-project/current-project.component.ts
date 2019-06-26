@@ -25,7 +25,7 @@ export class CurrentProjectComponent implements OnInit {
 
 
   pessoas: Pessoa | any[];
-  externo: ParteExterna [] = []
+  externo: ParteExterna[] = []
   interno: ParteInterna[] = [];
 
   parteExterna: ParteExterna = new ParteExterna();
@@ -43,6 +43,8 @@ export class CurrentProjectComponent implements OnInit {
   addClienteBtn: boolean = true;
 
   menuLateral: number = 1;
+
+  dataProj: string = '';
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private chatService: ChatService,
     private projetoService: ProjetoService, private fase1Service: Fase1Service) { }
@@ -69,8 +71,8 @@ export class CurrentProjectComponent implements OnInit {
         }
 
         this.fase1Service.retrieve(res.fase1).then(
-          (res: Fase1)=>{
-            if(res == undefined){
+          (res: Fase1) => {
+            if (res == undefined) {
               return;
             }
             this.fase1 = res;
@@ -93,10 +95,9 @@ export class CurrentProjectComponent implements OnInit {
     //this.pessoas.push(this.pessoa);
     //this.externo.push(this.parteExterna);
     this.interno.push(new ParteInterna());
-
   }
 
-  addFase1(){
+  addFase1() {
     if (this.fase1.externo.length == 0) {
       console.log("Partes externas vazia")
     }
@@ -108,30 +109,31 @@ export class CurrentProjectComponent implements OnInit {
     }
 
     if (this.fase1._id != undefined) {
-      console.log("fase não no banco")
+      //console.log(this.fase1._id);
+      console.log("Fase com id no banco")
     }
 
-    if(this.fase1._id == undefined){
+    if (this.fase1._id == undefined) {
       console.log('Sem id')
       this.fase1Service.register(this.fase1).then(
-        res=>{
-          if(res == undefined){
+        res => {
+          if (res == undefined) {
             console.log("Erro 1", res);
-            
+
             this.projetoService.addFase1(this.projeto._id, this.fase1).then(
-              (res: Projeto)=>{
-                if(res == undefined){
+              (res: Projeto) => {
+                if (res == undefined) {
                   console.log("Erro 2", res);
                   return;
                 }
                 this.projeto = res;
-                console.log("projeto atualizado\n",this.projeto);
+                console.log("projeto atualizado\n", this.projeto);
               }
             )
             return;
           }
           this.fase1 = res;
-          console.log("fase adicionada\n",this.fase1);
+          console.log("fase adicionada\n", this.fase1);
         }
       )
       /* this.fase1Service.register(this.fase1).subscribe(
@@ -151,16 +153,18 @@ export class CurrentProjectComponent implements OnInit {
       ) */
       return
     }
-  /*   console.log(this.fase1);
-    this.fase1Service.register(this.fase1).subscribe(
-      res=>{
-        console.log(res);
-        
+
+    console.log(this.fase1, "tatu");
+    this.fase1Service.update(this.fase1._id, this.fase1).then(
+      (res)=>{
+        console.log("Fase atualizada\n",res);
+        this.fase1 = res;
       }
-    ) */
+      
+    )
   }
 
-  addMorador(){
+  addMorador() {
     if (this.pessoa.tipo == undefined || this.pessoa.tipo.length == 0) {
       console.log("Tipo de pessoa vazio");
       return;

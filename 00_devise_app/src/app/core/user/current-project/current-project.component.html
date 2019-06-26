@@ -118,7 +118,7 @@
                         <div class="form-group col-3">
                             <label for="dataOrdemServico">Data da ordem de serviço</label>
                             <input type="date" class="form-control outline" required name="dataOrdemServico"
-                                id="dataOrdemServico" placeholder="Largura em metros" [(ngModel)]="data"
+                                id="dataOrdemServico" placeholder="Largura em metros" [(ngModel)]="projeto.dataOrdemServico"
                                 #dataOrdemServico>
                         </div>
 
@@ -142,34 +142,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-container" *ngIf="fase1.clima != null">
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-12">
-
-                                <h5>
-                                    Detalhes sobre a moradia
-                                </h5>
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-4">
-                                <label for="clima">Informe o clima do local</label>
-                                <input type="text" class="form-control outline" required name="clima" id="clima"
-                                    [(ngModel)]="fase1.clima" #clima="ngModel" placeholder="Informe o clima">
-
-                            </div>
-                            <div class="form-group col-8">
-                                <label for="freqUso">Frequência de uso dos moradores</label>
-                                <input type="text" class="form-control outline" required name="freqUso" id="freqUso"
-                                    [(ngModel)]="fase1.freqUso" #freqUso="ngModel"
-                                    placeholder="Frequência de uso dos moradores">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
 
                 <button type="submit" class="btn new-proj-btn outline">Atualizar informações</button>
             </form>
@@ -177,9 +149,9 @@
 
         <div class="necessidades" *ngIf="menuLateral == 1">
             <div class="add-necessidade">
-                <button (click)="fase1Panel = true" *ngIf="!fase1Panel">Adicionar dados de necessidades</button>
+                <button class="btn sm-btn" (click)="fase1Panel = true" *ngIf="fase1Panel">Adicionar dados de necessidades</button>
             </div>
-            <div class="necessidades-panel">
+            <div class="necessidades-panel" *ngIf="!fase1Panel">
                 <!-- NG IF AQUI -->
 
                 <div class="form-container">

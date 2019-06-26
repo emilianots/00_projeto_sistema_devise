@@ -43,7 +43,7 @@ export class RegisterProjectComponent implements OnInit {
   interno: ParteInterna[] = [];
 
   //para os paineis de registro;
-  menuLateral: number = 0; //esse valor tem que estar seu boco
+  menuLateral: number = 2; //esse valor tem que estar seu boco
   nescessidade: number = 0; //esse valor tem que estar em 0
   topografia: number = 0; //esse valor tem que estar em 0
 

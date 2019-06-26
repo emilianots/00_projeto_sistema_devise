@@ -6,6 +6,7 @@
     border: transparent;
 }
 .register-modal-body{
+    z-index: 10;
     position: absolute;
     height: 100vh;
     width: 100%;
@@ -16,6 +17,7 @@
 }
 
 .register-container{
+    z-index: 10;
     position: absolute;
     top: 12%;
     left: 25%;

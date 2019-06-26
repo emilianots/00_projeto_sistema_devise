@@ -4,12 +4,16 @@
 <div class="container-fluid row">
     <div class="register-menu col-3">
         <div class="fases">
-            <button class="btn fase-btn" [ngClass]="{'selected': menuLateral == 0}" #1 (click)="menuLateral = 0">Ordem de serviço
+            <button class="btn fase-btn" [ngClass]="{'selected': menuLateral == 0}" #1 (click)="menuLateral = 0">Ordem
+                de serviço
             </button>
-            <button class="btn fase-btn" [ngClass]="{'selected': menuLateral == 1}" #2 (click)="menuLateral = 1">Necessidades
+            <button class="btn fase-btn" [ngClass]="{'selected': menuLateral == 1}" #2
+                (click)="menuLateral = 1">Necessidades
             </button>
-            <button class="btn fase-btn" [ngClass]="{'selected': menuLateral == 2}" #3 (click)="menuLateral = 2">Topografia</button>
-            <button class="btn fase-btn" [ngClass]="{'selected': menuLateral == 3}" #4 (click)="menuLateral = 3">Anteprojeto
+            <button class="btn fase-btn" [ngClass]="{'selected': menuLateral == 2}" #3
+                (click)="menuLateral = 2">Topografia</button>
+            <button class="btn fase-btn" [ngClass]="{'selected': menuLateral == 3}" #4
+                (click)="menuLateral = 3">Anteprojeto
             </button>
             <button class="btn fase-btn" [ngClass]="{'selected': menuLateral == 4}" #5 (click)="menuLateral = 4">Projeto
                 Executivo
@@ -233,13 +237,13 @@
                             <div class="form-row">
                                 <div class="form-group col-4">
                                     <label for="pesTipo">Tipo especial de morador</label>
-                                    <input type="text" class="form-control outline"  name="pesTipo" id="pesTipo"
+                                    <input type="text" class="form-control outline" name="pesTipo" id="pesTipo"
                                         [(ngModel)]="pessoa.tipo" #pesTipo="ngModel"
                                         placeholder="Tipo especial de integrante">
                                 </div>
                                 <div class="form-group col-8">
                                     <label for="pesDescricao">Descrição</label>
-                                    <input type="text" class="form-control outline"  name="pesDescricao"
+                                    <input type="text" class="form-control outline" name="pesDescricao"
                                         id="pesDescricao" [(ngModel)]="pessoa.descricao" #pesDescricao="ngModel"
                                         placeholder="Descrição">
                                 </div>
@@ -294,16 +298,15 @@
                                 <div class="form-row">
                                     <div class="form-group col-12">
                                         <label for="ptExterna">Tipo</label>
-                                        <input type="text" class="form-control outline"  name="ptExterna"
-                                            id="ptExterna" [(ngModel)]="parteExterna.tipo" #ptExterna="ngModel"
-                                            placeholder="Tipo">
+                                        <input type="text" class="form-control outline" name="ptExterna" id="ptExterna"
+                                            [(ngModel)]="parteExterna.tipo" #ptExterna="ngModel" placeholder="Tipo">
                                     </div>
 
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-12">
                                         <label for="descExterna">Descrição</label>
-                                        <textarea type="text" class="form-control outline"  name="descExterna"
+                                        <textarea type="text" class="form-control outline" name="descExterna"
                                             id="descExterna" [(ngModel)]="parteExterna.descricao" #descExterna="ngModel"
                                             placeholder="Descrição"></textarea>
                                     </div>
@@ -354,8 +357,8 @@
                             <div class="form-row">
                                 <div class="form-group col-12">
                                     <label for="ptInterna">Tipo de cômodo</label>
-                                    <input type="text" class="form-control outline"  name="ptInterna"
-                                        id="ptInterna" [(ngModel)]="parteInterna.tipo" #ptInterna="ngModel"
+                                    <input type="text" class="form-control outline" name="ptInterna" id="ptInterna"
+                                        [(ngModel)]="parteInterna.tipo" #ptInterna="ngModel"
                                         placeholder="Tipo de cômodo">
                                 </div>
 
@@ -363,7 +366,7 @@
                             <div class="form-row">
                                 <div class="form-group col-12">
                                     <label for="descInterna">Descrição</label>
-                                    <textarea type="text" class="form-control outline"  name="descInterna"
+                                    <textarea type="text" class="form-control outline" name="descInterna"
                                         id="descInterna" [(ngModel)]="parteInterna.descricao" #descInterna="ngModel"
                                         placeholder="Descrição"></textarea>
                                 </div>
@@ -388,16 +391,79 @@
          -->
         <div class="topografia" *ngIf="menuLateral == 2">
 
-            <div class="tab-panel">
+            <!-- <div class="tab-panel">
                 <button class="btn tab-btns outline" [ngClass]="{'selected ': topografia == 0}"
                     (click)="topografia = 0">Dados topográficos</button>
                 <button class="btn tab-btns outline" [ngClass]="{'selected ': topografia == 1}"
                     (click)="topografia = 1">Estruturas existentes</button>
-            </div>
+            </div> -->
 
             <!-- FASE 2 - DADOS TOPOGRÁFICOS -->
             <div class="dados-topograficos" *ngIf="topografia == 0">
                 <form #dadosTopograficos name="dadosTopograficos" id="dadosTopograficos">
+                    
+                    <div class="row form-container">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>
+                                        Detalhes sobre a parte exterior
+                                    </h5>
+                                    <hr>
+                                </div>
+                            </div>
+
+                            <!-- FASE 1 - lista de elementos já cadastrados - parte externa -->
+                            <div class="row ">
+                                <div class="col-12">
+                                    Partes externas:
+                                </div>
+                            </div>
+                            <div class="list-panel">
+                                <div class="row" *ngFor="let pExterna of fase1.externo">
+                                    <div class="col-3">
+                                        <p>Tipo: {{pExterna.tipo}}</p>
+                                    </div>
+
+
+                                    <div class="col-7">
+                                        <p>Descrição: {{pExterna.descricao}}</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" (click)="rmPExterna(pExterna.tipo)"
+                                            class="btn rm-elemento">Remover</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FASE 1 - formularios de registro part externa -->
+                            <div class="parte-externa-form">
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label for="ptExterna">Tipo</label>
+                                        <input type="text" class="form-control outline" name="ptExterna" id="ptExterna"
+                                            [(ngModel)]="parteExterna.tipo" #ptExterna="ngModel" placeholder="Tipo">
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label for="descExterna">Descrição</label>
+                                        <textarea type="text" class="form-control outline" name="descExterna"
+                                            id="descExterna" [(ngModel)]="parteExterna.descricao" #descExterna="ngModel"
+                                            placeholder="Descrição"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-3">
+                                        <button type="button" class="btn add-cliente-btn"
+                                            (click)="addPExterna()">Adicionar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="detalhes-panel">
                         <div class="detalhes-h">
                             <h5>Informa os dados topográficos</h5>
